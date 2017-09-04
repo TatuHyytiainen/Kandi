@@ -462,7 +462,7 @@ Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yht
 
 Teoreemaa \ref{teoreema:mahdottomuus} ei tässä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
 
-Seuraavan teoreeman perusteella tunnistustehtävä on mielekäs sopivilla parametrillä.
+Seuraavan teoreeman perusteella tunnistustehtävä on mahdollinen harvassa verkossa sopivilla parametrillä.
 \begin{teoreema}
 	\label{teoreema:tarkentuvatest}
 	Stokastisen lohkomallin parametreilla $a$ ja $b$ on tarkentuvat estimaattorit $\hat{a}$ ja $\hat{b}$, kun $(a-b)^{2} > 2(a+b)$.
@@ -471,15 +471,14 @@ Seuraavan teoreeman perusteella tunnistustehtävä on mielekäs sopivilla parame
 Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvatest} todistuksen yhteydessä.
 \begin{lemma}
 	\label{lemma:kombinaatiokertoma_nk}
-	$\binom{n}{k}\frac{k!}{n^{k}} \xrightarrow[n \to \infty]{} 1$, kun $k = o\big(\sqrt{n}\big)$.
+	Kun $k = o\big(\sqrt{n}\big)$, niin $\binom{n}{k}\frac{k!}{n^{k}} \xrightarrow{n \to \infty} 1$.
 \end{lemma}
-
 \begin{proof}[Lemman \ref{lemma:kombinaatiokertoma_nk} todistus.]
-	Osoitetaa ensin lausekkeelle yläraja.
+	Osoitetaan ensin lausekkeelle yläraja.
 	\begin{align*}
-		\binom{n}{k}\frac{k!}{n^{k}} &= \frac{n!}{(n-k)!k!} \frac{k!}{n^k} = \frac{n!}{(n-k)!n^k} = \frac{n (n-1) \ldots (n-k+1)}{n \cdot n \ldots n}  \\ &= \frac{n}{n} \frac{n-1}{n} \ldots \frac{n-k+1}{n} = 1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \leq 1.
+		\binom{n}{k}\frac{k!}{n^{k}} &= \frac{n!}{(n-k)!k!} \frac{k!}{n^k} = \frac{n!}{(n-k)!n^k} = \frac{n (n-1) \ldots (n-k+1)}{\underbrace{n \cdot n \ldots n}_{=n^k}}  \\ &= \frac{n}{n} \frac{n-1}{n} \ldots \frac{n-k+1}{n} = 1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \leq 1.
 	\end{align*}
-	Seuraavaksi tutkitaan alaajaa ylläolevalle tulolle. Tulon termeissä esiintyvät termit $\frac{j}{n}, j = 1, \ldots ,k-1$ voidaan rajoittaa välille $0 \leq \frac{j}{n} \leq \epsilon$ valitsevalla sopiva $\epsilon$. Valitaan lisäksi $c{_\epsilon}$ siten, että allaoleva epäyhtälö toteutuu. Ilmaistaan alaraja nyt eksponenttifunktion avulla 
+	Seuraavaksi tutkitaan alarajaa ylläolevalle tulolle. Tulossa esiintyvät termit $\frac{j}{n}, j = 1, \ldots ,k-1$ voidaan rajoittaa välille $0 \leq \frac{j}{n} \leq \epsilon$ valitsemalla sopiva vakio $\epsilon$. Valitaan lisäksi $c{_\epsilon}$ siten, että allaoleva epäyhtälö toteutuu. Ilmaistaan alaraja nyt eksponenttifunktion avulla 
 	\begin{align*}
 		&1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \\
 		&\geq e^0 e^{-\frac{1}{n}c{_\epsilon}} e^{-\frac{2}{n}c{_\epsilon}} \ldots e^{-\frac{k-1}{n}c{_\epsilon}} \\
@@ -523,40 +522,34 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 
 \begin{lemma}
 	\label{lemma:k-syklit_odotus}
-	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Tällöin pätee\\ $\mathbb{E}X_k \sim \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$. 
+	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja $k = o(\text{log}^{1/4}n)$. Tällöin pätee $\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$. 
 \end{lemma}
 
 
 \begin{proof}[Lemman \ref{lemma:k-syklit_odotus} todistus]
-	Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja olkoon $Y$ indikaattorifunktio sille tapahtumalle, että nämä solmut muodostavat k-syklin. $k$ erillistä solmua voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteiseen suuntaan kuljettu kierto on sama sykli. Täten $k$-syklin automorfismiryhmän koko on $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa suuntaamattomassa verkossa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ eri sykliä.
-
-	Lisäksi $n$ solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla.
-
-	Tällöin mahdollisia erilaisia k-syklejä on $G(n,\frac{a}{n},\frac{b}{n})$:ssa $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
+	Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja olkoon $Y$ indikaattorifunktio sille tapahtumalle, että nämä solmut muodostavat k-syklin. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteiseen suuntaan kuljettu kierto on sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia k-syklejä on $G(n,\frac{a}{n},\frac{b}{n})$:ssa $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
 	
-	Stokastisessa lohkomallissa kukin kaari kuuluu verkkon muista riipumattomasti, joten myös jokainen verkon mahdollisista sykleistä kuuluu verkoon saman suuruisella ja muista riippumattomalla odotusarvolla. Voidaan siis laskea $\mathbb{E}X_k$ mahdollisten syklien määrän ja yksttäisen syklin odotusarvon tulon, $\mathbb{E}X_k = \binom{n}{k} \frac{(k-1)!}{2} \mathbb{E}Y$. Lasketaan seuraavaksi $\mathbb{E}Y$.
+	Stokastisessa lohkomallissa kukin kaari kuuluu verkkoon muista riipumattomasti, joten myös jokainen verkon mahdollisista sykleistä kuuluu verkoon saman suuruisella ja muista riippumattomalla odotusarvolla. Voidaan siis laskea $\mathbb{E}X_k$ mahdollisten syklien määrän ja yksittäisen syklin odotusarvon tulona, $\mathbb{E}X_k = \binom{n}{k} \frac{(k-1)!}{2} \mathbb{E}Y$. Lasketaan seuraavaksi $\mathbb{E}Y$.
 
-	Merkitään syklissä $v_0, v_1, \ldots v_{k-1}$ yhteisöstä toiseen siitymien määrää 
+	Merkitään syklissä $v_0, v_1, \ldots v_{k-1}$ yhteisöstä toiseen siirtymien määrää $N$:
 	\begin{align*}
 		N = \#\{\sigma_{v_i} \neq \sigma_{v_i+1} \mid i = 1 \ldots k-1 \}. 
 	\end{align*}
-	Koska kyseessä on sykli, vain parilliset $N$:n arvot voivat saada positiivisen todennäköisyyden, sillä parittomalla arvolla sykli ei palaisi lähtösolmuunsa. Lisäksi täytyy huomata, että tämä ehto (yhdessä muiden tapahtumien $\{\sigma_{v_i} \neq \sigma_{v_{i+1}} \mid i = 1 \ldots k-2\}$ kanssa) määrää tapahtuman $\sigma_{v_{k-1}} = \sigma_{v_0}$.
+	Koska kyseessä on sykli, vain parilliset $N$:n arvot voivat saada positiivisen todennäköisyyden, sillä parittomalla arvolla sykli ei palaisi lähtösolmuunsa. Lisäksi täytyy huomata, että tämä ehto yhdessä muiden tapahtumien $\{\sigma_{v_i} \neq \sigma_{v_{i+1}} \mid i = 1 \ldots k-2\}$ kanssa määrää tapahtuman $\sigma_{v_{k-1}} = \sigma_{v_0}$. 
+	Lasketaan $Y$:n odotusarvo:
 	\begin{align*}
-		\mathbb{E}Y = \sum^{k}_{m=0}\mathbb{P}(N=m) \cdot \mathbb{P}((v_0, v_1, \ldots v_{k-1}) \in G \mid N=m)
-		= \sum^{k}_{m=0}\mathbb{P}(N=m) \cdot  \frac{a^{k-m}b^{m}}{n^{k}} 
+		\mathbb{E}Y = \sum^{k}_{m=0}\mathbb{P}\big(N=m\big) \cdot \mathbb{P}\big((v_0, v_1, \ldots v_{k-1}) \in G \mid N=m\big)
+		= \sum^{k}_{m=0}\mathbb{P}\big(N=m\big) \cdot  \frac{a^{k-m}b^{m}}{n^{k}}.
 	\end{align*}
-		
-
-
-	Jokaisella $i = 0, \ldots , k-2$ $\mathbb{P}(\sigma_{v_i} \neq \sigma_{v_{i+1}}) = 1/2$ muista tapahtumista riippumattomasti. Näin voidaan laskea $\mathbb{P}(N = m)$ binomijakauman avulla. 
+	Jokaisella $i = 0, \ldots , k-2$ todennäköisyys $\mathbb{P}(\sigma_{v_i} \neq \sigma_{v_{i+1}}) = 1/2$ muista tapahtumista riippumattomasti. Näin voidaan laskea $\mathbb{P}(N = m)$ binomijakauman avulla: 
 	\begin{align*}
 		\mathbb{P}(N = m) &= \mathbb{P}\big(\text{Binom}(k-1, \frac{1}{2}) \in \{m-1, m\}\big)
 		= 2^{-k+1}\Bigg(\binom{k-1}{m-1} + \binom{k-1}{m}\Bigg) \\
 		&= 2^{-k+1}\Bigg(\frac{(k-1)!}{(m-1)!(k-m)!} \cdot \frac{(k-1)!}{m!(k-m-1)!}\Bigg) \\
 		&= 2^{-k+1}\Bigg(\frac{m(k-1)! + (k-m)(k-1)!}{(k-m)!m!}\Bigg) \\
-		&= 2^{-k+1}\Bigg(\frac{k!}{(k-m)!m!}\Bigg) = 2^{-k+1}\binom{k}{m}
+		&= 2^{-k+1}\Bigg(\frac{k!}{(k-m)!m!}\Bigg) = 2^{-k+1}\binom{k}{m}.
 	\end{align*}
-
+	Nyt voidaan laskea $\mathbb{E} Y$ todennäköisyyttä $\mathbb{P}(N = m)$ käyttämällä:
 	\begin{align*}
 		&\mathbb{E}(Y) = n^{-k} \sum^{k}_{m=0} 2^{-k+1}\binom{k}{m} a^{k-m}b^{m} \\
 		&= n^{-k} 2^{-k+1} \sum_{\substack{m=0 \\ \text{m parillinen}}}^k \binom{k}{m}a^{k-m}b^{m} \\
@@ -566,7 +559,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	Yhdistämällä ylemmät tulokset, saadaan $\mathbb{E}X_k$:lle kaava
 	\begin{align*}
 		\mathbb{E}X_k &= \binom{n}{k}\frac{(k-1)!}{2}  n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big) \\
-		&= \binom{n}{k}\frac{(k-1)!}{n^{k}} 2^{-k-1} \big((a+b)^k + (a-b)^k \big). \\
+		&= \binom{n}{k}\frac{(k-1)!}{n^{k}} 2^{-k-1} \big((a+b)^k + (a-b)^k \big).
 	\end{align*}
  	Lemman \ref{lemma:kombinaatiokertoma_nk} perusteella solmujen määrän kasvaessa odotusarvo saa muodon:
 	\begin{align*}
@@ -579,6 +572,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\label{lemma:var_yläraja}
 	$Var(X_k) < \big(\frac{a+b}{2} \big)^k = \rho^{2k}$. \cite{reconstruction}
 \end{lemma}
+Tarvitaanko lemmalle todistus vai käytetäänkö vain viittausta?
 
 \begin{propositio}
 	Olkoon $\sqrt{\frac{a+b}{2}} < \rho < \frac{a-b}{2}$ ja $(a-b)^2 > 2(a+b)$. Tällöin pätee $\text{Var}(X_k) = o(\rho^{2k})$.
@@ -590,7 +584,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 		Var(X_k) \leq \frac{1}{k2^{k+1}} \big(a+b \big)^k \\
 		= \underbrace{\frac{1}{2k}}_{< 1} \underbrace{\big(\frac{a+b}{2}\big)^k}_{< \rho^{2k}}.
 	\end{align*}
-	Täten voidaan todeta 
+	Voidaan siis todeta
 	\begin{align*}
 		\frac{Var(X_k)}{\rho^{2k}} \xrightarrow[]{n \rightarrow \infty} 0,
 	\end{align*}
@@ -656,7 +650,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\begin{align*}
 		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}}.
 	\end{align*}
-	Olkoon $c_k$ jokin polynomisesti $k$:n funktiona kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
+	Olkoon $c_k$ jokin polynomisesti $k$:n suhteen kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
 
 	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan seuraavaksi $\tilde{Z_k}$:n poikkeamaa $f^k$:sta kolmioepäyhtälön $|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k|$ avulla. Kun merkitään $\epsilon_{n}^{'''} = \epsilon_{n}^{'} + \epsilon_{n}^{''}$, tapahtuma $|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}$ kuuluu yhdisteeseen 
 	\begin{align*}
