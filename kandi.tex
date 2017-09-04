@@ -620,111 +620,69 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\end{align*}
 	joten $\hat{d}$ on tarkentuva.
 
-	Seuraavaksi osoitetaan estimaattorin $\hat{f}$ olevan tarkentuva. Koska $\hat{f}$ riippuu $\hat{d}$:n $k_n$:sta potenssista, tutkitaan $\hat{d}$:tä lisää. Merkitään $\epsilon_{n}^{} = \alpha_n + n^{-1/2 + \beta} $, $\beta \in (0,\frac{1}{2})$ ja tutkitaan Chebysevin epäyhtälöllä $\hat{d}$:n poikkeamaa $d$:stä:
+	Seuraavaksi osoitetaan estimaattorin $\hat{f}$ olevan tarkentuva. Koska $\hat{f}$ riippuu $\hat{d}$:n $k_n$:sta potenssista, tutkitaan $\hat{d}$:tä lisää. Merkitään $\epsilon_{n}^{} = \alpha_n + n^{-1/2 + \beta} \xrightarrow{n \rightarrow \infty} 0 $, $\beta \in (0,\frac{1}{2})$ ja tutkitaan Chebysevin epäyhtälöllä $\hat{d}$:n poikkeamaa $d$:stä:
 	\begin{align*}
 		&\mathbb{P}[|\hat{d} - d| > \epsilon_{n}^{}] < \underbrace{\frac{\sigma_{\hat{d}}^2}{{\epsilon_{n}^{}}^2}}_{ = \delta_n} \\
 		&\mathbb{P}[\hat{d} \notin [d \pm  \epsilon_{n}^{}]] < \delta_n = \frac{\frac{c}{n} + o(1)}{(\alpha_n + n^{-1/2 + \beta})^2} \\
 		&= \frac{c}{{n^{2 \beta}} +  o(n)} + o(1) \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-	Lisäksi $\epsilon_{n}^{} \xrightarrow{n \rightarrow \infty} 0$.
+	Arvioidaan nyt $\hat{d}^{k_n}$:n poikkeamaa $d^{k_n}$:stä, kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$.
+	Esitetään $\hat{d}^k_n$ eksponenttifunkition ja logaritmin avulla:
+	\begin{align*}
+		\hat{d}^k_n &= \text{exp}(\text{log}(\hat{d}^k_n)) = \text{exp}(k_n \text{log}(\hat{d})).
+	\end{align*}
+	Logaritmin laskusääntöjen mukaan pätee $\text{log}(\hat{d}) = \text{log}(d) + \text{log}(\frac{\hat{d}}{d})$.
 
+	Kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$, niin $\frac{\hat{d}}{d} \in [\frac{d \pm \epsilon_{n}^{}}{d}] = [1 \pm \frac{\epsilon_{n}^{}}{d}]$. Tällöin $\text{log}(\frac{\hat{d}}{d}) \in [0 \pm c'\epsilon_{n}^{}]$ jollakin vakiolla $c'$, joka riippuu $d$:stä.
+	Palataan $\hat{d}^k_n$:n esiteykseen eksponenttifunktion avulla ja käytetään tietoa $\text{log}(\frac{\hat{d}}{d})$:n ala- ja ylärajoista.
 	\begin{align*}
-		\mathbb{E}[d - \hat{d}] = \frac{a+b}{2}(1-\frac{1}{n}) = \mu_{d,\hat{d}}.
+		\hat{d}^k_n &= \text{exp}(k_n \text{log}(\hat{d})) = \text{exp}(k_n\text{log}(d) + k_n \text{log}(\frac{\hat{d}}{d})) \\
+		&= d^{k_n} \underbrace{\text{exp}(\underbrace{k_n \text{log}(\frac{\hat{d}}{d})}_{\in [0 \pm k_n c' \epsilon_{n}^{}]})}_{\in [1 \pm k_n c'' \epsilon_{n}^{}]} \in [d^{k_n} \pm \epsilon_{n}^{'}].
 	\end{align*}
-	
+	Eli  kun $|\hat{d} - d| < \epsilon_{n}^{}$, niin $|\hat{d}^k_n - d^k_n| < \epsilon_{n}^{'}|$. Näin saadaan yläraja $\epsilon_{n}^{'}$:a suuremman poikkeaman todennäköisyydelle 
 	\begin{align*}
-		Var(d- \hat{d}) = \sigma_{\hat{d}}^2
-	\end{align*}
-	Käytetään Chebysevin epäyhtälöä $\hat{d}$:n poikkeaman $d$:stä arvioimiseen
-	\begin{align*}
-		\mathbb{P}[|d-\hat{d}| \geq k \sigma_{\hat{d}}] = \mathbb{P}[d-\hat{d} \notin [ \mu_{d,\hat{d}} \pm  \underbrace{k \sigma_{\hat{d}}}_{= \epsilon_n \xrightarrow{n \rightarrow \infty } 0}] \leq \underbrace{\frac{1}{k^2}}_{= \Delta_n} \xrightarrow{n \rightarrow \infty } 0.
-	\end{align*}
-
-	Seuraavaksi $|d^k - \hat{d}^k|$: \textbf{Miten ''jatkuvuusargumenttia'' käytettäisiin tässä?}
-	\begin{align*}
-		\mathbb{P}[|d^k - \hat{d}^k| \geq \underbrace{\underbrace{k}_{?} \sigma_{\hat{d}}^k}_{\epsilon_n^{'}}] \leq \underbrace{\frac{1}{k^2}}_{\Delta_n^{'}} \xrightarrow{n \rightarrow \infty } 0.
-	\end{align*}
-
-	Merkitään $Z_k = 2kX_k - d^k$. $Z_k$: variannsi on $Var(Z_k) = 4k^2 Var(X_k) \leq 2k \rho^{2k}$.
-	Odotusarvo: $\mathbb{E}[Z_k] = f^k$.
-
-	Käytetään nyt Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvotaan:
-	\begin{align*}
-		\mathbb{P}[|Z_k - f^k| \geq c_k \sigma(X_k)] \leq \frac{1}{4k^4}.
-	\end{align*}
-	($2k \tilde{c_k}  = 2k^2 = c_k$). Lisäksi lemman \ref{lemma:var_yläraja} perusteella voidaan arvioida poikkeamaa $\rho$:n avulla:
-	\begin{align*}
-		\mathbb{P}[|Z_k - f^k| \geq \underbrace{c_k \rho^k}_{\epsilon_n^{''}}] \leq \underbrace{\frac{1}{4k^4}}_{\Delta_n^{''}}.
+		\mathbb{P}[|\hat{d}^k_n - d^k_n| > \epsilon_{n}^{'}] \leq \mathbb{P}[|\hat{d} - d| > \epsilon_{n}^{'}] < \delta_n.
 	\end{align*}
 
-	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Tällöin $|\tilde{Z_k} - Z_k | = |d^k - \hat{d}^k |$. Arvioidaan seuraavaksi poikkeamaa $|\tilde{Z_k} - f^k|$. Kolmioepäyhtälön  perusteella:
+	Merkitään nyt $Z_k = 2k X_k - d^k$. Muuttujan $Z_k$ odotusarvo on 
 	\begin{align*}
-		|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k| = |d^k - \hat{d}| + |Z_k - f^k|.
+		\mathbb{E}[Z_k] = 2k \mathbb{E}[X_k] - d^k = f^k.
+	\end{align*}
+	Lisäksi sen varianssi voidaan rajoittaa $X_k$:n variassin avulla: 
+	\begin{align*}
+		\text{Var}[Z_k] = (2k)^2\text{Var}[X_k] < (2k)^2 \rho^{2k}.
+	\end{align*}
+	Voidaan käyttää Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvostaan:
+	\begin{align*}
+		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}}.
+	\end{align*}
+	Olkoon $c_k$ jokin polynomisesti $k$:n funktiona kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
+
+	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan seuraavaksi $\tilde{Z_k}$:n poikkeamaa $f^k$:sta kolmioepäyhtälön $|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k|$ avulla. Kun merkitään $\epsilon_{n}^{'''} = \epsilon_{n}^{'} + \epsilon_{n}^{''}$, tapahtuma $|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}$ kuuluu yhdisteeseen 
+	\begin{align*}
+		|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'} \cup |Z_k - f^k| > \epsilon_{n}^{''}.
+	\end{align*}
+	Voidaan arvioida ensimmäisen tapahtuman todennäköisyyden ylärajaa kahden jälkimmäisen tapahtuman todennäköisyyksien summan avulla:
+	\begin{align*}
+		\mathbb{P}[|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}] &\leq \mathbb{P}[|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}] + \mathbb{P}[|Z_k - f^k| > \epsilon_{n}^{''}] \\
+		&\leq \delta_n + \delta_n' = \delta_n^{''} \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
 
-	Olkoon $\epsilon_n^{'''} = ? \geq \epsilon_n^{'} + \epsilon_n^{''}$. Arvioidaan nyt poikkeamaa seuraavalla tavalla:
+	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_k - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z_k}$. Kun \\ $\tilde{Z_k} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin 
 	\begin{align*}
-		&\mathbb{P}[|\tilde{Z_k}-f^k| \geq \epsilon_n^{'''}] \leq \mathbb{P}[|d^k - \hat{d}| + |Z_k - f^k| \geq \epsilon_n^{'''}] \\
-		&\leq \mathbb{P}[|d^k - \hat{d}| \geq \epsilon_n^{'}] + \mathbb{P}[|Z_k-f^k| \geq \epsilon_n^{''}] \\
-		&\leq \Delta_n^{'} + \Delta_n^{''} \leq \Delta_n{'''}.
-	\end{align*} 
-	Koska $\hat{f}^k = \tilde{Z_k}$, käytetään taas \textbf{''jatkuvuutta''} arvioimaan
+			\hat{f}^k = f^k \cdot \text{exp}(\tilde{c} \ \epsilon_{n}^{'''}),
+		\end{align*}
+missä $\tilde{c}$ on jokin $f$:stä riippuva vakio. Ottamalla $k$:s juuri ylläolevasta yhtälöstä saadaan: \textit{voidaanko ottaa k=k(n):s juuri?}
 	\begin{align*}
-		\mathbb{P}[|\hat{f} - f| \leq \epsilon_n^{''''}] \leq \Delta_n^{''''} \rightarrow 0.
+		\hat{f} = f \cdot \text{exp}(\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}).
 	\end{align*}
-	Näin ollen $\hat{d}$ ja $\hat{f}$ ovat tarkntuvia, ja tällöin myös $\hat{a}$ ja $\hat{b}$ ovat.
+	Tutkitaan eksponenttia $\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}$:
+	\begin{align*}
+		\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k_n} = \tilde{c} \frac{\epsilon_{n}^{'} + \epsilon_{n}^{''}}{k_n} = \tilde{c} \frac{k_n c^{'''} \epsilon_{n}^{} + c_k 2k_n \rho^{k_n}}{k_n} = \tilde{c} \cdot (\underbrace{c^{'''} (\alpha_n + n^{-1/2 + \beta})}_{\xrightarrow{n \rightarrow \infty} 0} + \underbrace{c_k 2k_n \rho^{k_n}}_{\xrightarrow{n \rightarrow \infty} 0}) \xrightarrow{n \rightarrow \infty} 0.
+	\end{align*}
+	Näin myös erotus $|\hat{f} - f| $ lähestyy nollaa $n$:n kasvaessa, joten $\hat{f}$ on tarkentuva. Estimaattorien $\hat{d}$ ja $\hat{f}$ tarkentuvuuden perusteella myös $\hat{a}$ ja $\hat{b}$ ovat tarkentuvia.
 \end{proof}
 
-\begin{proof}
-	Todistuksen 3 vaiheiden hahmotelma. \\
-Arvioidaan $\hat{d}$:n poikkeaman ylärajaa $d$:stä Chebysevin epäyhtälön avulla seuraavasti:
-\begin{align*}
-	\mathbb{P}[|\hat{d} - d| > \epsilon_{n}^{}] < \delta_n,
-\end{align*}
-missä $\epsilon_{n}^{} = \alpha_n + n^{-1/2} \gamma_n$, $\delta_n = \frac{c}{\gamma_n^2}$. Edelleen $\alpha_n = 1/n = o(n)$ ja $\gamma_n = n^{\beta}$, missä $\beta \in (0,\frac{1}{2})$. Näin ollen $\epsilon_{n}^{}, \delta_n \xrightarrow{n \rightarrow \infty} 0$.
-
-Seuraavaksi arvioidaan ylärajaa $\hat{d}^k$:n poikkeamalle $d^k$:sta, kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$.
-Esitetään $\hat{d}^k_n$ eksponenttifunkition ja logaritmin avulla:
-\begin{align*}
-	\hat{d}^k_n &= \text{exp}(\text{log}(\hat{d}^k_n)) = \text{exp}(k_n \text{log}(\hat{d})).
-\end{align*}
-Logaritmin laskusääntöjen mukaan pätee $\text{log}(\hat{d}) = \text{log}(d) + \text{log}(\frac{\hat{d}}{d})$.
-
-Kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$, niin $\frac{\hat{d}}{d} \in [\frac{d \pm \epsilon_{n}^{}}{d}] = [1 \pm \frac{\epsilon_{n}^{}}{d}]$. Tällöin $\text{log}(\frac{\hat{d}}{d}) \in [0 \pm c'\epsilon_{n}^{}]$ jollakin vakiolla $c'$, joka riippuu $d$:stä.
-Palataan $\hat{d}^k_n$:n esiteykseen eksponenttifunktion avulla ja käytetään tietoa $\text{log}(\frac{\hat{d}}{d})$:n ala- ja ylärajoista.
-\begin{align*}
-	\hat{d}^k_n &= \text{exp}(k_n \text{log}(\hat{d})) = \text{exp}(k_n\text{log}(d) + k_n \text{log}(\frac{\hat{d}}{d})) \\
-	&= d^{k_n} \underbrace{\text{exp}(\underbrace{k_n \text{log}(\frac{\hat{d}}{d})}_{\in [0 \pm k_n c' \epsilon_{n}^{}]})}_{\in [1 \pm k_n c'' \epsilon_{n}^{}]} \in [d^{k_n} \pm \epsilon_{n}^{'}].
-\end{align*}
-Eli  kun $|\hat{d} - d| < \epsilon_{n}^{}$, niin $|\hat{d}^k_n - d^k_n| < \epsilon_{n}^{'}|$. Näin saadaan yläraja $\epsilon_{n}^{'}$:a suuremman poikkeaman todennäköisyydelle $\mathbb{P}[|\hat{d}^k_n - d^k_n| > \epsilon_{n}^{'}|] < \delta_n$.
-
-Merkitään nyt $Z_k = 2k X_k - d^k$. Odotusarvo: $\mathbb{E}[Z_k] = 2k \mathbb{E}[X_k] - d^k = f^k$. Varianssi $\text{Var}[Z_k] = (2k)^2\text{Var}[X_k] < (2k)^2 \rho^{2k}$.
-
-Voidaan käyttää Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvostaan:
-\begin{align*}
-	\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}}.
-\end{align*}
-Olkoon $c_k$ jokin polynomisesti $k$:n funktiona kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
-
-Olkoon nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan seuraavaksi $\tilde{Z_k}$:n poikkeamaa $f^k$:sta ensin kolmioepäyhtälöä käyttämällä. $|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k|$. Kun merkitään $\epsilon_{n}^{'''} = \epsilon_{n}^{'} + \epsilon_{n}^{''}$, tapahtuma $|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}$ kuuluu tapahtumien $|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}$ ja $|Z_k - f^k| > \epsilon_{n}^{''}$ yhdisteeseen. Voidaan arvioida ensimmäisen tapahtuman todennäköisyyden ylärajaa kahden jälkimmäisen tapahtuman todennäköisyyksien summan avulla:
-\begin{align*}
-	\mathbb{P}[|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}] &\leq \mathbb{P}[|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}] + \mathbb{P}[|Z_k - f^k| > \epsilon_{n}^{''}] \\
-	&\leq \delta_n + \delta_n' = \delta_n^{''} \xrightarrow{n \rightarrow \infty} 0.
-\end{align*}
-Estimaattori $\hat{f}$ määriteltiin $\hat{f} = (2kX_k - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z_k}$. Kun $\tilde{Z_k} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin 
-\begin{align*}
-	\hat{f}^k = f^k \cdot \text{exp}(\tilde{c} \ \epsilon_{n}^{'''}),
-\end{align*}
-missä $\tilde{c}$ on $f$:stä riippuva vakio. Ottamalla $k$:s juuri ylläolevasta yhtälöstä saadaan: \textit{voidaanko ottaa k=k(n):s juuri?}
-\begin{align*}
-	\hat{f} = f \cdot \text{exp}(\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}).
-\end{align*}
-Tutkitaan eksponenttia $\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}$:
-\begin{align*}
-	\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k_n} = \tilde{c} \frac{\epsilon_{n}^{'} + \epsilon_{n}^{''}}{k_n} = \tilde{c} \frac{k_n c^{'''} \epsilon_{n}^{} + c_k 2k_n \rho^{k_n}}{k_n} = \tilde{c} \cdot (\underbrace{c^{'''} (\alpha_n + n^{-1/2 + \beta})}_{\xrightarrow{n \rightarrow \infty} 0} + \underbrace{c_k 2k_n \rho^{k_n}}_{\xrightarrow{n \rightarrow \infty} 0}) \xrightarrow{n \rightarrow \infty} 0.
-\end{align*}
-Näin myös erotus $|\hat{f} - f| $ lähestyy nollaa $n$:n kasvaessa, joten $\hat{f}$ on tarkentuva.
-\end{proof}
 \clearpage
 \section{Simulaatiot}
 
@@ -803,16 +761,6 @@ Yhteisöntunnistusta tutkittin työssä myös simulaatioiden avulla. Simulaatioi
 Ensimmäisenä tutkittiin lohkomallin tiheää tapausta. Tiheässä tapauksessa sekä naapuruusmatriisimenetelmä että NBO tunnistavat yhteisöt hyvin, kun verkon koko kasvaa. Molemmilla estimoidun ja todellisen yhteisöjaon välisen korrelaation itseisarvo lähestyy yhtä verkon koon kasvaessa, kuten kuvan \ref{fig:dense} perusteella nähdään. Mitä pienempi ero parametreillä $p$ ja $q$ on, sitä suuremman verkon menetelmät kuitenkin tarvitsevat hyvään tunnistustulokseen.
 
 NBO on erityisesti tiheässä tapauksessa naapuruusmatriisimenetelmää huomattavasti raskaampi. Kun verkossa on $n$ solmua, naapuruusmatriisin koko on luonnollisesti $n \times n$, kun taas matriisn $\mathbf{B}$ koko on $O(n^2 \times n^2)$. Tämä merkitsee sitä, että kovin suurilla verkon koilla NBO:ta ei ole käytännöllistä käyttää. Täten pienempiä paramterien $p$ ja $q$ eroja tutkittiinkin pelkällä naapuruusmatriisimenetelmällä ja suuremmalla verkon koolla, ja hyvinkin pienillä eroilla saatiin hyviä tuloksia, kuten kuvasta \ref{fig:o_adj_all} nähdään.
-
-( Onko allaolevassa "suuruusluokkalaskelmassa" perää? Se ainakin selittäisi, miksi NBO käy liian raskaaksi jo suhteellisen pienellä verkolla (luokkaa joitain tuhansia solmuja) tiheässä tapauksessa, mutta ei harvassa tapauksesssa.) \\
-n = solmut, r = (p+q)/2 < 1, s = (a+b)/2n > 1, d = n*r, keskim.aste \\
-Adj (tiheä): n*n matriisi, n*d = r*n*n nonzeroa. \\
-Adj (harva): n*n matriisi, ((a+b)/2)*n nonzeroa. \\
-NBO (tiheä): (2*r*n*n)*(2*r*n*n) matriisi, en tiedä paljonko nonzeroja, mutta luulisi olevan suhteessa rivien määrään \\
-NBO (harva): ((a+b)*n)*((a+b)*n) matriisi \\
-Muistia (tiheä): nbo >> adj \\
-Muistia (harva): nbo ja adj samaa luokkaa  \\
-Molemmista lasketaan ominaisvekroteita, jonka luulis riippuvan enimmäkseen matriisin koosta, joten itse laskenta riippuu suunnilleen vain matriisin koosta. \\
 
 \begin{figure}
 	\centering
