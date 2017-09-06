@@ -518,6 +518,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 
 	%Ylläolevan perusteela on helppo todeta, että $\frac{E''}{E'} = \frac{C'}{\lambda^k n} \rightarrow 0$, kun $n \rightarrow \infty$.
 %\end{proof}
+Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien peräkkäin ideksoitujen solmuparien $(v_0, v_1), (v_1, v_2), \ldots (v_{k-1}, v_0)$ välillä on kaari, solmut muodostavat syklin. Sykliä, jossa on $k$ solmua kutsutaan $k$-sykliksi. Merkitään $k$-syklien määrää verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ $X_k$.
 
 \begin{lemma}
 	\label{lemma:k-syklit_odotus}
@@ -570,23 +571,17 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 
 \begin{lemma}
 	\label{lemma:var_yläraja}
-	$Var(X_k) < \big(\frac{a+b}{2} \big)^k = \rho^{2k}$. \cite{reconstruction}
+	Kun $k = o(log^{1/4}(n))$, k-syklien määrälle $X_k$ verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ pätee $\text{Var}(X_k) \leq \big(\frac{a+b}{2} \big)^k$. \cite{reconstruction}
 \end{lemma}
-Tarvitaanko lemmalle todistus vai käytetäänkö vain viittausta?
 
 \begin{propositio}
 	Olkoon $\sqrt{\frac{a+b}{2}} < \rho < \frac{a-b}{2}$ ja $(a-b)^2 > 2(a+b)$. Tällöin pätee $\text{Var}(X_k) = o(\rho^{2k})$.
 \end{propositio}
 
 \begin{proof}
-	\text{Lemman \ref{lemma:var_yläraja} perusteella pätee} $Var(X_k) < \frac{1}{k2^{k+1}} \big((a+b)^k + (a-b)^k \big)$. Varianssia voidaan arvioida ylhäältä seuraavasti
+	\text{Lemman \ref{lemma:var_yläraja} perusteella pätee} $\text{Var}(X_k) \leq \big( \frac{a+b}{2} \big)^{k}$. Tutkitaan $X_k$:n varianssin ja $\rho^{2k}$:n suhdetta:
 	\begin{align*}
-		Var(X_k) \leq \frac{1}{k2^{k+1}} \big(a+b \big)^k \\
-		= \underbrace{\frac{1}{2k}}_{< 1} \underbrace{\big(\frac{a+b}{2}\big)^k}_{< \rho^{2k}}.
-	\end{align*}
-	Voidaan siis todeta
-	\begin{align*}
-		\frac{Var(X_k)}{\rho^{2k}} \xrightarrow[]{n \rightarrow \infty} 0,
+		\frac{\text{Var}(X_k)}{\rho^{2k}} \leq \frac{ (\frac{a+b}{2})^k}{ \rho^{2k}} = \big( \underbrace{ \frac{ \frac{a+b}{2}}{ \rho^{2}} }_{ < 1} \big)^k \xrightarrow{k \rightarrow \infty} 0,
 	\end{align*}
 	eli pätee $Var(X_k) = o(\rho^{2k})$.
 \end{proof}
