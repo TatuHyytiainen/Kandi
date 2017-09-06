@@ -525,15 +525,18 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 \end{lemma}
 
 \begin{proof}[Lemman \ref{lemma:k-syklit_odotus} todistus]
-	Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja olkoon $Y$ indikaattorifunktio sille tapahtumalle, että nämä solmut muodostavat k-syklin. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteiseen suuntaan kuljettu kierto on sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia k-syklejä on $G(n,\frac{a}{n},\frac{b}{n})$:ssa $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
+	Lasketaan aluksi kuinka monta mahdollista eri $k$-sykliä on $n$-solmuisessa suuntaaamattomassa verkossa. Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteinen verio sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia k-syklejä on $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
 	
-	Stokastisessa lohkomallissa kukin kaari kuuluu verkkoon muista riipumattomasti, joten myös jokainen verkon mahdollisista sykleistä kuuluu verkoon saman suuruisella ja muista riippumattomalla odotusarvolla. Voidaan siis laskea $\mathbb{E}X_k$ mahdollisten syklien määrän ja yksittäisen syklin odotusarvon tulona, $\mathbb{E}X_k = \binom{n}{k} \frac{(k-1)!}{2} \mathbb{E}Y$. Lasketaan seuraavaksi $\mathbb{E}Y$.
-
-	Merkitään syklissä $v_0, v_1, \ldots v_{k-1}$ yhteisöstä toiseen siirtymien määrää $N$:
+	Olkoon $Y$ indikaattorifunktio sille tapahtumalle, että $v_0, v_1, \ldots v_{k-1}$ muodostaa syklin. Stokastisessa lohkomallissa kukin kaari kuuluu verkkoon muista riipumattomasti, joten myös jokainen verkon mahdollisista sykleistä kuuluu verkoon yhtä suurella todennäköisyydellä. Voidaan siis laskea $\mathbb{E}X_k$ summaamalla yli kaikkien mahdollisten syklien odotusarvon:
 	\begin{align*}
-		N = \#\{\sigma_{v_i} \neq \sigma_{v_i+1} \mid i = 1 \ldots k-1 \}. 
+		\mathbb{E} X_k = \sum_{j = i}^{\binom{n}{k} \frac{(k-1)!}{2}} \mathbb{E} Y = \binom{n}{k} \frac{(k-1)!}{2} \mathbb{E} Y.
 	\end{align*}
-	Koska kyseessä on sykli, vain parilliset $N$:n arvot voivat saada positiivisen todennäköisyyden, sillä parittomalla arvolla sykli ei palaisi lähtösolmuunsa. Lisäksi täytyy huomata, että tämä ehto yhdessä muiden tapahtumien $\{\sigma_{v_i} \neq \sigma_{v_{i+1}} \mid i = 1 \ldots k-2\}$ kanssa määrää tapahtuman $\sigma_{v_{k-1}} = \sigma_{v_0}$. 
+
+	Lasketaan seuraavaksi $\mathbb{E} Y$. Merkitään syklissä $v_0, v_1, \ldots v_{k-1}$ yhteisöstä toiseen siirtymien määrää $N$:
+	\begin{align*}
+		N = \#\{\sigma_{v_i} \neq \sigma_{v_{i+1}} \mid i = 0, \ldots, k-1 \}. 
+	\end{align*}
+	Koska kyseessä on sykli, vain parilliset $N$:n arvot voivat saada positiivisen todennäköisyyden, sillä parittomalla arvolla sykli ei palaisi lähtösolmuunsa. Lisäksi tämä ehto yhdessä muiden tapahtumien $\{\sigma_{v_i} \neq \sigma_{v_{i+1}} \mid i = 0, \ldots, k-2\}$ kanssa määrää tapahtuman $\sigma_{v_{k-1}} = \sigma_{v_0}$. 
 	Lasketaan $Y$:n odotusarvo:
 	\begin{align*}
 		\mathbb{E}Y = \sum^{k}_{m=0}\mathbb{P}\big(N=m\big) \cdot \mathbb{P}\big((v_0, v_1, \ldots v_{k-1}) \in G \mid N=m\big)
@@ -543,7 +546,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\begin{align*}
 		\mathbb{P}(N = m) &= \mathbb{P}\big(\text{Binom}(k-1, \frac{1}{2}) \in \{m-1, m\}\big)
 		= 2^{-k+1}\Bigg(\binom{k-1}{m-1} + \binom{k-1}{m}\Bigg) \\
-		&= 2^{-k+1}\Bigg(\frac{(k-1)!}{(m-1)!(k-m)!} \cdot \frac{(k-1)!}{m!(k-m-1)!}\Bigg) \\
+		&= 2^{-k+1}\Bigg(\frac{(k-1)!}{(m-1)!(k-m)!} + \frac{(k-1)!}{m!(k-m-1)!}\Bigg) \\
 		&= 2^{-k+1}\Bigg(\frac{m(k-1)! + (k-m)(k-1)!}{(k-m)!m!}\Bigg) \\
 		&= 2^{-k+1}\Bigg(\frac{k!}{(k-m)!m!}\Bigg) = 2^{-k+1}\binom{k}{m}.
 	\end{align*}
@@ -552,19 +555,18 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 		&\mathbb{E}(Y) = n^{-k} \sum^{k}_{m=0} 2^{-k+1}\binom{k}{m} a^{k-m}b^{m} \\
 		&= n^{-k} 2^{-k+1} \sum_{\substack{m=0 \\ \text{m parillinen}}}^k \binom{k}{m}a^{k-m}b^{m} \\
 		&= n^{-k} 2^{-k+1} \frac{1}{2} \big((a+b)^k + (a-b)^k \big) \\
-		&= n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big)
+		&= n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big).
 	\end{align*}
-	Yhdistämällä ylemmät tulokset, saadaan $\mathbb{E}X_k$:lle kaava
+	Nyt voidaan laskea $\mathbb{E}X_k$ ylläolevan tuloksen avulla:
 	\begin{align*}
-		\mathbb{E}X_k &= \binom{n}{k}\frac{(k-1)!}{2}  n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big) \\
-		&= \binom{n}{k}\frac{(k-1)!}{n^{k}} 2^{-k-1} \big((a+b)^k + (a-b)^k \big).
+		\mathbb{E}X_k &= \binom{n}{k}\frac{(k-1)!}{2} \mathbb{E}Y \\
+		&= \binom{n}{k}\frac{(k-1)!}{n^{k} 2^{k+1}} \big((a+b)^k + (a-b)^k \big).
 	\end{align*}
  	Lemman \ref{lemma:kombinaatiokertoma_nk} perusteella solmujen määrän kasvaessa odotusarvo saa muodon:
 	\begin{align*}
-		\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{1}{k2^{k+1}} \big((a+b)^k + (a-b)^k \big). \\
+		\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{1}{k2^{k+1}} \big((a+b)^k + (a-b)^k \big).
 	\end{align*}
 \end{proof}
-
 
 \begin{lemma}
 	\label{lemma:var_yläraja}
