@@ -478,13 +478,12 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\begin{align*}
 		\binom{n}{k}\frac{k!}{n^{k}} &= \frac{n!}{(n-k)!k!} \frac{k!}{n^k} = \frac{n!}{(n-k)!n^k} = \frac{n (n-1) \ldots (n-k+1)}{\underbrace{n \cdot n \ldots n}_{=n^k}}  \\ &= \frac{n}{n} \frac{n-1}{n} \ldots \frac{n-k+1}{n} = 1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \leq 1.
 	\end{align*}
-	Seuraavaksi tutkitaan alarajaa ylläolevalle tulolle. Tulossa esiintyvät termit $\frac{j}{n}, j = 1, \ldots ,k-1$ voidaan rajoittaa välille $0 \leq \frac{j}{n} \leq \epsilon$ valitsemalla sopiva vakio $\epsilon$. Valitaan lisäksi $c{_\epsilon}$ siten, että allaoleva epäyhtälö toteutuu. Ilmaistaan alaraja nyt eksponenttifunktion avulla 
+	Seuraavaksi tutkitaan alarajaa ylläolevalle tulolle. On olemassa jokin $\epsilon_{}^{} > 0$ ja siitä riippuva vakio $c_{\epsilon} \geq 1$ siten, että $\forall x \in [0, \epsilon] : 1-x \geq e^{-c_{\epsilon}x}$. Suurilla $n$ ja kaikilla $j \leq k$ pätee $\frac{j}{n} \in [0, \epsilon]$, mistä seuraa $1 - \frac{j}{n} \geq e^{-c_{\epsilon} \frac{j}{n}}$. Tämän perusteella saaadaan edellinen yhtälö muotoon
 	\begin{align*}
-		&1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \\
-		&\geq e^0 e^{-\frac{1}{n}c{_\epsilon}} e^{-\frac{2}{n}c{_\epsilon}} \ldots e^{-\frac{k-1}{n}c{_\epsilon}} \\
-		&= \text{exp}\big(\frac{c{_\epsilon}}{n} \sum_{j=1}^{k-1} j \big) = \text{exp}\big(\frac{c{_\epsilon}}{n} \frac{k(k-1)}{2} \big)  \rightarrow 0,
+		&1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \geq e^0 e^{-\frac{1}{n}c{_\epsilon}} e^{-\frac{2}{n}c{_\epsilon}} \ldots e^{-\frac{k-1}{n}c{_\epsilon}} \\
+		&= \text{exp}\big(\frac{c{_\epsilon}}{n} \sum_{j=1}^{k-1} j \big) = \text{exp}\big(\frac{c{_\epsilon}}{n} \frac{k(k-1)}{2} \big) = \text{exp}\big(\frac{c{_\epsilon}}{2} \underbrace{\frac{k^2 - k}{n} \big)}_{\xrightarrow{n \rightarrow \infty}0}  \xrightarrow{n \rightarrow \infty} 1,
 	\end{align*}
-	kun $k = \text{o}(\sqrt{n})$.
+	kun $k = \text{o}(\sqrt{n})$. Koska lausekkeen ala- ja yäraja lähestyvät arvoa 1 kun $n$ kasvaa, niin $\binom{n}{k}\frac{k!}{n^{k}} \xrightarrow{n \to \infty} 1$.
 \end{proof}
 
 %\begin{lemma}
@@ -524,7 +523,6 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	\label{lemma:k-syklit_odotus}
 	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja $k = o(\text{log}^{1/4}n)$. Tällöin pätee $\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$. 
 \end{lemma}
-
 
 \begin{proof}[Lemman \ref{lemma:k-syklit_odotus} todistus]
 	Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja olkoon $Y$ indikaattorifunktio sille tapahtumalle, että nämä solmut muodostavat k-syklin. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteiseen suuntaan kuljettu kierto on sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia k-syklejä on $G(n,\frac{a}{n},\frac{b}{n})$:ssa $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
