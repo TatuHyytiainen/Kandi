@@ -658,18 +658,10 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 		|\frac{\tilde{Z_k}}{f^k} - 1| &\leq |\frac{\tilde{Z_k}}{f^k} - \frac{Z_k}{f^k}| + |\frac{Z_k}{f^k} - 1| \\
 		& = |\frac{\hat{d}^k - d^k}{f^k}| + \epsilon_{n}^{''} < \epsilon_{n}^{'} + \epsilon_{n}^{''} = \epsilon_{n}^{'''} \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-
-	Voidaan käyttää Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvostaan:
+	Voidaan arvioida tapahtuman $\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajoijen avulla, eli
 	\begin{align*}
-		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}},
+		\mathbb{P}[\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]] \leq \delta_{n} + \delta_{n}^{'} = \delta_{n}^{''}.
 	\end{align*}
-	missä $c_k$ on jokin polynomisesti $k$:n suhteen kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
-
-	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan seuraavaksi $\tilde{Z_k}$:n poikkeamaa $f^k$:sta kolmioepäyhtälön $|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k|$ avulla. Kun merkitään $\epsilon_{n}^{'''} = \epsilon_{n}^{'} + \epsilon_{n}^{''}$, tapahtuma $|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}$ kuuluu yhdisteeseen 
-	\begin{align*}
-		|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'} \cup |Z_k - f^k| > \epsilon_{n}^{''}.
-	\end{align*}
-	Voidaan arvioida ensimmäisen tapahtuman todennäköisyyden ylärajaa kahden jälkimmäisen tapahtuman todennäköisyyksien summan avulla:
 	\begin{align*}
 		\mathbb{P}[|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}] &\leq \mathbb{P}[|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}] + \mathbb{P}[|Z_k - f^k| > \epsilon_{n}^{''}] \\
 		&\leq \delta_n + \delta_n' = \delta_n^{''} \xrightarrow{n \rightarrow \infty} 0.
