@@ -583,19 +583,19 @@ Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 	\begin{align*}
 		\frac{\text{Var}(X_k)}{\rho^{2k}} \leq \frac{ (\frac{a+b}{2})^k}{ \rho^{2k}} = \big( \underbrace{ \frac{ \frac{a+b}{2}}{ \rho^{2}} }_{ < 1} \big)^k \xrightarrow{k \rightarrow \infty} 0,
 	\end{align*}
-	eli pätee $Var(X_k) = o(\rho^{2k})$.
+	eli pätee $\text{Var}(X_k) = o(\rho^{2k})$.
 \end{proof}
 
 \begin{proof}[Teoreeman \ref{teoreema:tarkentuvatest} todistus.]
-	Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$ ja $b$. Estimaattorit voidaan laskea estimaattoreiden $\hat{d}$ ja $\hat{f}$ avulla siten että 
-	\begin{align*}
-		\hat{a} &= \hat{d} + \hat{f} \\
-		\hat{b} &= \hat{d} - \hat{f}.
-	\end{align*}
 	Olkoon $k = \floor{\text{log}^{1/4}n}$. Määritellään nyt $\hat{d}$ ja $\hat{f}$, jotka ovat harhattomat estimaattorit $d = \frac{a+b}{2}$:lle ja $f = \frac{a-b}{2}$:lle
 	\begin{align*}
 		\hat{d_n} &= \frac{2\left|E\right|}{n} \\
 		\hat{f_n} &= (2 k_n X_k - \hat{d_n}^{k})^{1/k}.
+	\end{align*}
+Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$ ja $b$. Estimaattorit $a$ ja $b$ voidaan laskea $\hat{d}$:n ja $\hat{f}$:n avulla siten että 
+	\begin{align*}
+		\hat{a} &= \hat{d} + \hat{f} \\
+		\hat{b} &= \hat{d} - \hat{f}.
 	\end{align*}
 	Osoitetaan ensin $\hat{d}$:n harhattomuus kaarten määrän odotusarvon $\mathbb{E}[|E|] = \frac{(n-1)(a+b)}{4}$ avulla.
 	\begin{align*}
@@ -643,9 +643,9 @@ Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 	\end{align*}
 	Voidaan käyttää Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvostaan:
 	\begin{align*}
-		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}}.
+		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}},
 	\end{align*}
-	Olkoon $c_k$ jokin polynomisesti $k$:n suhteen kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
+	missä $c_k$ on jokin polynomisesti $k$:n suhteen kasvava funktio. Tällöin $\epsilon_{n}^{''}, \delta_n^{'} \xrightarrow{ n \rightarrow \infty} 0$.
 
 	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan seuraavaksi $\tilde{Z_k}$:n poikkeamaa $f^k$:sta kolmioepäyhtälön $|\tilde{Z_k} - f^k| \leq |\tilde{Z_k} - Z_k| + |Z_k - f^k|$ avulla. Kun merkitään $\epsilon_{n}^{'''} = \epsilon_{n}^{'} + \epsilon_{n}^{''}$, tapahtuma $|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}$ kuuluu yhdisteeseen 
 	\begin{align*}
