@@ -571,21 +571,18 @@ Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 
 \begin{lemma}
 	\label{lemma:var_yläraja}
-	Kun $k = o(log^{1/4}(n))$, k-syklien määrälle $X_k$ verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ pätee $\text{Var}(X_k) \leq \big(\frac{a+b}{2} \big)^k$. \cite{reconstruction}
+	Kun $k = O(log^{1/4}(n))$, k-syklien määrälle $X_k$ verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ pätee $\text{Var}(X_k) \leq \frac{(a+b)^k}{2^{k+1}k}$. \cite{reconstruction}
 \end{lemma}
 
 \begin{propositio}
 	Olkoon $\sqrt{\frac{a+b}{2}} < \rho < \frac{a-b}{2}$ ja $(a-b)^2 > 2(a+b)$. Tällöin pätee $\text{Var}(X_k) = o(\rho^{2k})$.
 \end{propositio}
-
 \begin{proof}
 	\text{Lemman \ref{lemma:var_yläraja} perusteella pätee} $\text{Var}(X_k) \leq \big( \frac{a+b}{2} \big)^{k}$. Tutkitaan $X_k$:n varianssin ja $\rho^{2k}$:n suhdetta:
 	\begin{align*}
-		\frac{\text{Var}(X_k)}{\rho^{2k}} \leq \frac{ (\frac{a+b}{2})^k}{ \rho^{2k}} = \big( \underbrace{ \frac{ \frac{a+b}{2}}{ \rho^{2}} }_{ < 1} \big)^k \xrightarrow{k \rightarrow \infty} 0,
+		\frac{\text{Var}(X_k)}{\rho^{2k}} \leq \frac{ (\frac{a+b}{2})^k}{ \rho^{2k}} = \big( \underbrace{ \frac{ \frac{a+b}{2}}{ \rho^{2}} }_{ < 1} \big)^k \xrightarrow{k \rightarrow \infty} 0.
 	\end{align*}
-	eli pätee $\text{Var}(X_k) = o(\rho^{2k})$.
 \end{proof}
-
 \begin{proof}[Teoreeman \ref{teoreema:tarkentuvatest} todistus.]
 	Olkoon $k = \floor{\text{log}^{1/4}n}$. Määritellään nyt $\hat{d}$ ja $\hat{f}$, jotka ovat harhattomat estimaattorit $d = \frac{a+b}{2}$:lle ja $f = \frac{a-b}{2}$:lle
 	\begin{align*}
@@ -641,6 +638,27 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 	\begin{align*}
 		\text{Var}[Z_k] = (2k)^2\text{Var}[X_k] < (2k)^2 \rho^{2k}.
 	\end{align*}
+	Tutkitaan $Z_k$:n ja $f^k$:n suhdetta $\frac{Z_k}{f^k}$. Suhteen odotusarvo on
+	\begin{align*}
+		\mathbb{E}[\frac{Z_k}{f^k}] = \frac{\mathbb{E}[Z_k]}{f^k} = 1
+	\end{align*}
+	ja varianssi
+	\begin{align*}
+		\text{Var}[\frac{Z_k}{f^k}] = \frac{(2k)^2 \text{Var}[X_k]}{f^{2k}} < (2k)^{2} \big(\underbrace{\frac{\rho}{f} }_{ < 1}\big)^{2k}.
+	\end{align*}
+	Käytetään nyt Chebysevin epäyhtälöä arvioimaan $\frac{Z_k}{f^k}$:n poikkeamaa odotusarvostaan:
+	\begin{align*}
+		\mathbb{P}[|\frac{Z_k}{f^k} - 1| > c_k \sigma_{Z_k/f^k}] < \frac{1}{c_k^2}  = \delta_{n}^{'} \\
+		\mathbb{P} \big[\frac{Z_k}{f^k} \notin [1 \pm \underbrace{2 k c_k \big( \frac{\rho}{f}\big)^k}_{= \epsilon_{n}^{''} \xrightarrow{n \rightarrow \infty} 0}] \big] < \delta_{n}^{'} \xrightarrow{n \rightarrow \infty} 0,
+	\end{align*}
+	missä $c_k$ on jokin $k$:n suhteen polynomisesti kasvava funktio.
+
+	Merkitään nyt $\tilde{Z_k} = 2kX_k - \hat{d}^k = Z_k + d^k - \hat{d}^k$. Arvioidaan $\frac{\tilde{Z_k}}{f^k}$:n poikkeamaa arvosta 1 kolmioepäyhtälön avulla 
+	\begin{align*}
+		|\frac{\tilde{Z_k}}{f^k} - 1| &\leq |\frac{\tilde{Z_k}}{f^k} - \frac{Z_k}{f^k}| + |\frac{Z_k}{f^k} - 1| \\
+		& = |\frac{\hat{d}^k - d^k}{f^k}| + \epsilon_{n}^{''} < \epsilon_{n}^{'} + \epsilon_{n}^{''} = \epsilon_{n}^{'''} \xrightarrow{n \rightarrow \infty} 0.
+	\end{align*}
+
 	Voidaan käyttää Chebysevin epäyhtälöä arvioimaan $Z_k$:n poikkeamaa odotusarvostaan:
 	\begin{align*}
 		\mathbb{P}[|Z_k - f^k| > \underbrace{c_k 2k \rho^k}_{\epsilon_{n}^{''}}] \leq \mathbb{P}[|Z_k - f^k| > c_k \sigma_{Z_k}] < \underbrace{\frac{1}{{c_k}^2}}_{\delta_n^{'}},
