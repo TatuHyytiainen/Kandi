@@ -670,24 +670,18 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 	% 1 \pm \epsilon_{n}^{''''} \in exp{epsilon} 
 	% -> k:s juuri -> exp(eps / k) -> ok
 
+	Merkitään nyt $h_k(x) = x^{1/k}$. Kaikilla $k \geq K$ ja $|\epsilon| < 1/2$ on olemassa jokin vakio $C > 0$ siten, että
 	\begin{align*}
-		\mathbb{P}[|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}] &\leq \mathbb{P}[|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}] + \mathbb{P}[|Z_k - f^k| > \epsilon_{n}^{''}] \\
-		&\leq \delta_n + \delta_n' = \delta_n^{''} \xrightarrow{n \rightarrow \infty} 0.
+		|h_k(1+\epsilon) - h_k(1)| \leq C \epsilon.
 	\end{align*}
+	Kun $\frac{\hat{f}^k}{f^k} \in [1 \pm \epsilon_{n}^{''''}]$, pätee siis
+	\begin{align*}
+		|h_k \big(\frac{\hat{f}^k}{f^k} \big) - \underbrace{h_k(1)}_{= 1} | \leq C \epsilon_{n}^{''''} \\
+		|\frac{\hat{f}}{f} - 1| \leq C \epsilon_{n}^{''''} \xrightarrow{n \rightarrow \infty} 0.
+	\end{align*}
+	Tämän perusteella $\hat{f} \xrightarrow{n \rightarrow \infty} f$, eli estimaattori $\hat{f}$ on tarkentuva. 
+	Estimaattorien $\hat{d}$ ja$\hat{f}$ tarkentuvuudesta seuraa $\hat{a}$:n ja $\hat{b}$:n tarkentuvuus.
 
-	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_k - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z_k}$. Kun \\ $\tilde{Z_k} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin 
-	\begin{align*}
-			\hat{f}^k = f^k \cdot \text{exp}(\tilde{c} \ \epsilon_{n}^{'''}),
-		\end{align*}
-missä $\tilde{c}$ on jokin $f$:stä riippuva vakio. Ottamalla $k$:s juuri ylläolevasta yhtälöstä saadaan: \textit{voidaanko ottaa k=k(n):s juuri?}
-	\begin{align*}
-		\hat{f} = f \cdot \text{exp}(\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}).
-	\end{align*}
-	Tutkitaan eksponenttia $\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k}$:
-	\begin{align*}
-		\frac{\tilde{c} \ \epsilon_{n}^{'''}}{k_n} = \tilde{c} \frac{\epsilon_{n}^{'} + \epsilon_{n}^{''}}{k_n} = \tilde{c} \frac{k_n c^{'''} \epsilon_{n}^{} + c_k 2k_n \rho^{k_n}}{k_n} = \tilde{c} \cdot (\underbrace{c^{'''} (\alpha_n + n^{-1/2 + \beta})}_{\xrightarrow{n \rightarrow \infty} 0} + \underbrace{c_k 2k_n \rho^{k_n}}_{\xrightarrow{n \rightarrow \infty} 0}) \xrightarrow{n \rightarrow \infty} 0.
-	\end{align*}
-	Näin myös erotus $|\hat{f} - f| $ lähestyy nollaa $n$:n kasvaessa, joten $\hat{f}$ on tarkentuva. Estimaattorien $\hat{d}$ ja $\hat{f}$ tarkentuvuuden perusteella myös $\hat{a}$ ja $\hat{b}$ ovat tarkentuvia.
 \end{proof}
 
 \clearpage
