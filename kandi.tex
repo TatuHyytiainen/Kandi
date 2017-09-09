@@ -451,16 +451,28 @@ Täten verkon $G_f(n,p,q)$ minimoiva leikkaus vastaa todellista yhteisöjakoa ek
 
 \clearpage
 \section{Positiivisesti korreloitunut yhteisöjen tunnistus harvassa verkossa}
-- TODO: tulos, joka liittää pos. korr. tunnistuksen parametrien tarkentuviin estimaattoreihin \\
+Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella positiivisesti korreloitunut tunnistaminen on mahdotonta.
 
-Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella positiivisesti korreloitunut tunnistaminen on mahdotonta. \\
+Positiivisesti korreloitunut yhteisöjen tunnistaminen on vahvempi tulos, kuin pelkkä mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan päätellä parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
+\begin{align*}
+	\mathbb{P}[u \leftrightsquigarrow v \mid \hat{\sigma_{u}} \neq \hat{\sigma_{v}}] = \frac{1+\rho}{2} \frac{b}{n} + \frac{1-\rho}{2} \frac{a}{n} = \frac{a+b}{2n} - \frac{a-b}{2n} \rho
+\end{align*}
+Tätä todennäköisyyttä voidaan estimoida lausekkeella
+\begin{align*}
+	\frac{ \# \{ u,v \mid u \leftrightsquigarrow v, \hat{\sigma_{u}} \neq \hat{\sigma_{v}} \} }{ \# \{ u,v \mid \hat{\sigma_{u}} \neq \hat{\sigma_{v}}\} },
+\end{align*}
+ja $a+b$:tä voidaan estimoida verkon keskimääräisen asteen avulla. Todennäköisyyden ja $a+b$:n avulla voidaan ratkaista $a-b$, ja $a$:n ja $b$:n summan ja erotuksen avulla voidaan ratkaista $a$ ja $b$.
+
+Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvoihin määärääminn rajoihin, joiden mukaan positiivinen tunnistus joko on tai ei ole asymptoottisesti mahdollista. \\
+
+
 (Suoraan paperista, thm 1, pitäisikö olla muussa muodossa?)
 \begin{teoreema}
 	\label{teoreema:mahdottomuus}
 	Kun $(a-b)^2 \leq 2(a+b)$, niin $\mathbb{P}\big( \sigma_u = + \mid G, \sigma_v \big) \rightarrow \frac{1}{2}$ melkein varmasti, kun $n \rightarrow \infty$. \text{\cite{reconstruction}}
 \end{teoreema}
 
-Teoreemaa \ref{teoreema:mahdottomuus} ei tässä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
+Teoreemaa \ref{teoreema:mahdottomuus} ei tässä työssä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
 
 Seuraavan teoreeman perusteella tunnistustehtävä on mahdollinen harvassa verkossa sopivilla parametrillä.
 \begin{teoreema}
@@ -681,7 +693,6 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 	\end{align*}
 	Tämän perusteella $\hat{f} \xrightarrow{n \rightarrow \infty} f$, eli estimaattori $\hat{f}$ on tarkentuva. 
 	Estimaattorien $\hat{d}$ ja$\hat{f}$ tarkentuvuudesta seuraa $\hat{a}$:n ja $\hat{b}$:n tarkentuvuus.
-
 \end{proof}
 
 \clearpage
