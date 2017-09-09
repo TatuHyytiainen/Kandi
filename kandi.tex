@@ -658,10 +658,18 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 		|\frac{\tilde{Z_k}}{f^k} - 1| &\leq |\frac{\tilde{Z_k}}{f^k} - \frac{Z_k}{f^k}| + |\frac{Z_k}{f^k} - 1| \\
 		& = |\frac{\hat{d}^k - d^k}{f^k}| + \epsilon_{n}^{''} < \epsilon_{n}^{'} + \epsilon_{n}^{''} = \epsilon_{n}^{'''} \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-	Voidaan arvioida tapahtuman $\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajoijen avulla, eli
+	Voidaan arvioida tapahtuman $\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajojen avulla, eli
 	\begin{align*}
-		\mathbb{P}[\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]] \leq \delta_{n} + \delta_{n}^{'} = \delta_{n}^{''}.
+		\mathbb{P}[\frac{\tilde{Z_k}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]] \leq \delta_{n} + \delta_{n}^{'} = \delta_{n}^{''} = \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
+
+	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_k - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z_k}$. Kun \\ $\tilde{Z_k} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin 
+	\begin{align*}
+		\frac{\hat{f}^k}{f^k} \in [\frac{{f}^k \pm \epsilon_{n}^{'''}}{f^k}] \in [1 \pm \epsilon_{n}^{''''}].
+	\end{align*}
+	% 1 \pm \epsilon_{n}^{''''} \in exp{epsilon} 
+	% -> k:s juuri -> exp(eps / k) -> ok
+
 	\begin{align*}
 		\mathbb{P}[|\tilde{Z_k} - f^k| > \epsilon_{n}^{'''}] &\leq \mathbb{P}[|\tilde{Z_k} - Z_k| > \epsilon_{n}^{'}] + \mathbb{P}[|Z_k - f^k| > \epsilon_{n}^{''}] \\
 		&\leq \delta_n + \delta_n' = \delta_n^{''} \xrightarrow{n \rightarrow \infty} 0.
