@@ -697,11 +697,9 @@ Merkitään $\hat{a}$ ja $\hat{b}$ tarkentuvia estimaattoreita parametreille $a$
 
 \clearpage
 \section{Simulaatiot}
-
 \subsection{Tunnistusmenetelmien esittely}
-
 \subsubsection{Naapuruusmatriisimenetelmä}
-Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen PPM:ssä perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjen jaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on sunntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvoot ovat reaalisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki, siten että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
+Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen stokastisessa lohkomallissa perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on sunntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvoot ovat reaalisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki siten, että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
 
 Merkitään verkon naapuruusmatriisia $A$ ja tämän toiseksi suurinta ominaisarvoa $\lambda_2$ vastaavaa ominaisverktoria $\mathbf{v_{\lambda_2}}$.
 
@@ -776,7 +774,7 @@ NBO on erityisesti tiheässä tapauksessa naapuruusmatriisimenetelmää huomatta
 
 \begin{figure}
 	\centering
-	\includegraphics{adj_nbo_den_1.png}
+	\includegraphics[width = \textwidth]{adj_nbo_den_2.png}
 	\caption{Tähän kuva tiheästä tapauksesta, jossa korrelaatio lähestyy yhtä sekä adj että nbo. Tätä varten pitää olla "isot" p ja q (~0.05-0.1?). Yhteisökoko max noin 1000 (n = 4000, 20G muistia ei riittänyt)? Muisti loppuu muuten. Tässä muistia vaaditttiin noin 5G ja aikaa vajaa 3h, joten hieman isompi tapaus onnistuu helposti, mutta paljoa suurempi ei ole välttämättä edes tarpeellinen. \textbf{Näitä voisi olla muutama hieman eri parametreillä.}}
 	\label{fig:dense}
 \end{figure}
@@ -784,39 +782,23 @@ NBO on erityisesti tiheässä tapauksessa naapuruusmatriisimenetelmää huomatta
 \begin{figure}
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/only_adj_1.png}
+		\includegraphics[width=\textwidth]{o_pres_1.png}
 		\caption{p = 0.05, q = 0.02}
 		\label{fig:o_adj_1}
 	\end{subfigure}
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/only_adj_2.png}
+		\includegraphics[width=\textwidth]{o_pres_2.png}
 		\caption{p = 0.05, q = 0.40}
 	\end{subfigure}
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/only_adj_3.png}
+		\includegraphics[width=\textwidth]{o_pres_3.png}
 		\caption{p = 0.05, q = 0.45}
-	\end{subfigure}
-	
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/only_adj_4.png}
-		\caption{p = 0.0011, q = 0.0009}
-	\end{subfigure}
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\caption{Viides kuva?}
-	\end{subfigure}
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\caption{Kuudes kuva?}
 	\end{subfigure}
 	\caption{Tässä voisi olla useita kuvia tiheästä tapauksesta isolla n ja pelkällä naapuruusmatriisilla, jotta käy selväksi, että isolla n tiheässä tapauksessa tunnistus onnistuu kaikilla parametreillä kunhan verkon koko on tarpeeksi suuri. Kuitenkaan NBO:ta ei voi käyttää, sillä muistin kulutus kasvaa suureksi. Luonnollisesti kaikissa kuvissa olisi havaintoja jo alusta asti, nyt käytössä olevat kuvat ovat vain esimerkkejä, tritonilla on tulossa joitakin parempia tälläkin hetkellä. \textbf{Myös näitä 4-6 eri parametreillä ja yhteisökoolla.}}
 	\label{fig:o_adj_all}
 \end{figure}
-
-
 Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että selvästi teorian mukaan tunnistettavan puolellakaan olevilla parametrien $a$ ja $b$ arvoilla ei päästä yhtä hyvään tuloseen kummallakaan menetelmällä kuin tiheässä tapauksessa. Tämä on toki luonnollista, sillä tiheän tapauksen pienikin ero parametreissa $p$ ja $q$ vastaa harvaa tapausta tunnistamisen kannalta suotuisilla paramatreillä $a$ ja $b$, kun verkon koko kasvaa tarpeen suureksi. Tuloksia suotuisilla parametreillä on esitelty kuvassa \ref{fig:adj_nbo_sp_easy}. Kuvassa on esimerkki simulaatiotuloksesta, jossa kumpikin tunnistusmenetelmä toimii hyvin.
 
 Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:rajatapaus} on esitetty kahden eri simulaation tuloksia. Toisessa osamäärä $\frac{(a-b)^2}{2(a+b)}$ on hieman alle arvon yksi ja toisessa juuri arvon yksi yläpuolella. Osamäärän arvo yksi vastaa yllämainittujen teoreemojen mukaista rajaa. Koska teoreemojen tulos on asymptoottinen, onkin luonnollista että ilmiö tulee paremmin esiin vasta suurella verkon koolla.
@@ -835,15 +817,8 @@ Tunnistusmenetelmistä NBO on selvästi tunnistuskyvyltään parempi menetelmä,
 \begin{figure}
 	\label{fig:adj_nbo_sp_hard}
 	\centering
-	\begin{subfigure}[b]{0.4 \textwidth}
-		\includegraphics[width = \textwidth]{adj_nbo_hard.png}
-		\caption{Tämä on mielestäni hyvä kuva, jossa käy selväksi se, että naapurusmatriisi ei toimi hyvin harvassa tapauksessa. Varmaankin voisi tehdä isommalla otoskoolla ja samoila parametreillä lopulliseen työhön?}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.4 \textwidth}
-		%\includegraphics[width = \textwidth]{adj_nbo_hard_2.png}
-		\caption{Tähän toinen vastaavankaltainen kuva hieman eri parametreillä? }
-	\end{subfigure}
-	\caption{Nbo:n ja adj:n vertailua vaikeilla a ja b, eli nähdään kuinka nbo toimii kohtalaisen hyvin isoissakin verkoissa vaikka naapuruusmatriisimenetelmän teho häviää. \textbf{Taas 2-4 erilaista eri parametreillä?}}
+		\includegraphics[width = 0.8\textwidth]{adj_nbo_hard_presentation.png}
+		\caption{Taaksekääntymättömään operaattoriin perustuva estimaattori tunnistaa yhteisöt noin 0.5 suuruisella korrelaatiolla parametreillä $a = 4.00$ ja $b = 0.20$ verkon koosta riippumatta. Naapuruusmatriisiin perustuvan menetelmän tunnistuskyky heikkenee olemattomiin verkon kasvaessa.}
 \end{figure}
 
 \begin{figure}
