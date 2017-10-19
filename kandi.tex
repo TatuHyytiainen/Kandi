@@ -291,7 +291,7 @@ Johdanto, joka on samalla johdanto, että summaa työn. Tällöin ei toivottavas
 Määritellään työssä käytettävä satunnaisverkkomalli stokastinen lohkomalli seuraavasti:
 
 \begin{definition}[Kahden yhteisön stokastinen lohkomalli]
-	Merkitään kahden yhteisön stokastista lohkomallia $G(n,p,q)$, missä $n \in \mathbb{N}$ on verkon solmujen määrä ja $p,q \in [0,1]$.  Kullekin solmulle $u \in G(n,p,q)$ valitaan tasajakautuneesti ja riippumattomasti merkki $\sigma_u \in \{-, +\}$. Kunkin solmuparin $\{u,v\}$ välillä on suuntaamaton kaari riippumattomasti todennäköisyydellä $p$, jos $\sigma_u = \sigma_v$ ja todennäköisyydellä $q$, jos $\sigma_u \neq \sigma_v$.
+	Merkitään kahden yhteisön stokastista lohkomallia $G(n,p,q)$, missä $n \in \mathbb{N}$ on verkon solmujen määrä ja $p,q \in [0,1]$.  Jokaiselle solmulle $u \in G(n,p,q)$ valitaan tasajakautuneesti ja riippumattomasti merkki $\sigma_u \in \{-, +\}$. Kunkin solmuparin $\{u,v\}$ välillä on suuntaamaton kaari riippumattomasti todennäköisyydellä $p$, jos $\sigma_u = \sigma_v$ ja todennäköisyydellä $q$, jos $\sigma_u \neq \sigma_v$.
 \end{definition}
 
 Merkitään stokastisen lohkomallin yhteisöjä, eli samanmerkkisten solmujen joukkoja, $C_- = \{u \in G(n,p,q) \mid \sigma_u = -\}$ ja $C_+ = \{u \in G(n,p,q) \mid \sigma_u = +\}$.
@@ -322,7 +322,7 @@ Merkitään verkon todellista yhteisörakennetta ${\pm}$-arvoisella $n$-ulotteis
 
 Sen lisäksi, että yhteisöntunnistus on kiinnostava matemaattinen ongelma, on siitä hyötyä myös tosielämän verkkoja tutkittaessa. Muun muassa sosiaalitieteissä ja bioinformatiikassa yhteisöntunnistusalgoritmeja voidaan käyttää hyväksi monimutkaisten verkostojen tutkimisessa.
 
-Ihmisillä on tapana muodostaa suhteellisen tiivitä sosiaalisia ryhmiä suurempien ihmisryhmien sisällä. Tällaista ryhmittymistä ja siitä seuraavia ilmiöitä voidaan tutkia muodostamalla ihmisryhmästä verkko, jossa solmut kuvaavat ihmisiä ja kaaret solmujen välillä kuvaavat jotakin sosiaalista suhdetta, esimerkiksi tuntevatko ihmiset toisensa, ovatko he Facebook-kavereita tai ovatko he julkaisseet tieteellisessä julkaisussa yhdessä. Tunnetussa niin kutsutussa Zacharyn karateklubin verkossa solmut kuvaavat erään karateklubin jäseniä ja heidän välillään on kaari, mikäli he ovat olleet tekemisissä klubin ulkopuolella. Klubin johtajan ja karateopettajan välillä sattuneen konfliktin seurauksena klubi hajosi kahtia. Tutkimalla verkon rakennetta klubin jäsenet voidaan erotella kahteen yhteisöön siten, että ne vastaavat todellisuudessa muodostuneita kahta uutta karateklubia.
+Ihmisillä on tapana muodostaa suhteellisen tiivitä sosiaalisia ryhmiä suurempien ihmisryhmien sisällä. Tällaista ryhmittymistä ja siitä seuraavia ilmiöitä voidaan tutkia muodostamalla ihmisryhmästä verkko, jossa solmut kuvaavat ihmisiä ja kaaret solmujen välillä kuvaavat jotakin sosiaalista suhdetta, esimerkiksi tuntevatko ihmiset toisensa, ovatko he Facebook-kavereita tai ovatko he julkaisseet tieteellisessä julkaisussa yhdessä. Tunnetussa Zacharyn karateklubin verkossa solmut kuvaavat erään karateklubin jäseniä ja heidän välillään on kaari, mikäli he ovat olleet tekemisissä klubin ulkopuolella. Klubin johtajan ja karateopettajan välillä sattuneen konfliktin seurauksena klubi hajosi kahtia. Tutkimalla verkon rakennetta klubin jäsenet voidaan erotella kahteen yhteisöön siten, että ne vastaavat todellisuudessa muodostuneita kahta uutta karateklubia.
 
 Tämän lisäksi yhteisöntunnistusta on käytetty muun muassa yhteisörakenteiden tutkimiseen sosiaalisessa mediassa, työyhteisön rakenteen analysoinnissa sähköpostiyhteyksien avulla ja jopa eri tieteenalojen välisten suhteiden selvittämiseen tutkimalla viittauksia tieteellisissä julkaisuissa. Bioinformatiikassa yhteisöntunnistusta on käytetty muun muassa eri proteiinien välisen interaktioon perustuvassa tutkimuksessa solun toiminnasta.
 
@@ -332,7 +332,7 @@ Yhteisöntunnistusongelmaa ja yhteisöntunnistusta sovelluksissa ja on käsitelt
 
 \subsection{Täydellinen tunnistus}
 
-Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan jos, ja vain jos, ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
+Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokkaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Näin ollen täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan jos, ja vain jos, ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
 \begin{align*}
 	\forall u,v \in G(n,p,q) : \hat{\sigma_u} = \hat{\sigma_v} \Leftrightarrow \sigma_u = \sigma_v.
 \end{align*}
@@ -351,7 +351,6 @@ Määriteellään korrelaatioon perustuva tunnistamisen onnistumisen mittari $\t
 	\theta = \left| \text{corr}(\hat{\mathbf{{\sigma}}}, \mathbf{\sigma}) \right|,
 \end{align*}
 missä vektorit $\hat{\mathbf{\sigma}}$ ja $\mathbf{\sigma}$ kuvaavat estimoitua ja todellista yhteisörakennetta.
-
 Korrelaatioon perustuvaa mittaria käytetään simulaatiotulosten yhteydessä.
 
 \clearpage
@@ -384,7 +383,7 @@ Esitellään tässä Hoeffdingin epäyhtälö, jota käytetään ylläolevan teo
 
 \begin{proof}[Teoreeman \ref{teoreema:mincut} todistus.]
 	Merkitään verkon $G_f(n,p,q)$ solmujen joukkoa $V$.
-	Tehdään verkolle ositus mielivaltaisesti kahteen yhtäsuureen ja erilliseen joukkoon $A$ ja $B$, joiden kummakin koko on $m = \frac{n}{2}$.
+        Ositetaan verkon solmut mielivaltaisesti kahteen erilliseen joukkoon $A$ ja $B$, joiden kummakin koko on $m = \frac{n}{2}$.
 	Luonnollisesti tällöin $A \cup B = V$ ja $A \cap B = \emptyset$. Yleisyyttä menettämättä valitaan $A$ kuvaamaan sitä solmujen joukkoa, jolla on enemmän yhteisiä somuja joukon $C_-$ kanssa. Merkitään joitakin solmujen joukon $V$ osajoukkoja seuraavasti: 
 \begin{eqnarray*}
 	A_- = A \cap C_-, & & A_+ = A \cap C_+, \\
@@ -398,7 +397,7 @@ Merkitään $s = |A_+| = |B_-|$. Tällöin pätee aina $s \leq \floor{m/2}$. Kos
 
 Jako $C_-:C_+$ leikkaa kaaret joukkojen $A_-:A_+, A_-:B_+, B_-:A_+$ ja $B_-:B_+$ väliltä ja jako $A:B$ joukkojen $A_-:B_-, A_-:B_+, A_+:B_-$ ja $A_+:B_+$ väliltä. Näin $\Delta_{[A:B]}$:lle saadaan muoto 
 \begin{align*}
-	\Delta_{[A:B]} = |[A_-:B_-| + |[A_+:B_+]| - |[A_-:A_+]| - |[B_-:B_+]|.
+	\Delta_{[A:B]} = |[A_-:B_-]| + |[A_+:B_+]| - |[A_-:A_+]| - |[B_-:B_+]|.
 \end{align*}
 
 Koska jokaisen solmuparin välillä on kaari muista solmuista ja kaarista riippumattomasti, huomataan että summan kaksi ensimmäistä termiä noudattavat binomijakaumaa toistojen määrällä $s(m-s)$ ja todennäköisyydellä $p$ ja kaksi jälkimmäistä termiä noudattavat binomijakaumaa parametrein $s(m-s)$ ja $q$. Täten
@@ -419,11 +418,11 @@ Nyt voidaan käyttää Hoeffdingin epäyhtälöä \ref{lemma:Hoeffding} arvioima
 	\mathbb{P}(- \Delta_{[A:B]} - \mathbb{E}[- \Delta_{[A:B]}] \geq t) = \mathbb{P}(\Delta_{[A:B]} \leq \mathbb{E}[\Delta_{[A:B]}] - t) \leq \text{exp}\bigg({-\frac{2t^2}{\sum_{i=1}^{s(m-s)}(a_i - b_i)^2}}\bigg)
 \end{align*}
 
-Yllä $a_i$ ja $b_i$ ovat muuttujan $\xi_i$ maalijoukon ylä- ja alarajat. Valitsemalla $t = 2s(m-s)(p-q) = \mathbb{E}[\Delta_{[A:B]}]$ voidaan arvioida yläraja tapahtuman $\Delta_{[A:B]} \leq 0$ todennäköisyydelle. Tämä vastaa sitä, että kiinteällä $m$ jaolla joukkoihin $A$ ja $B$, joilla $|A_+| = |B_-| = s$, olisi pienempi leikkausjoukko, kuin jaolla todellisiin yhteisöihin $C_-$ ja $C_+$.
+Yllä $a_i$ ja $b_i$ ovat muuttujan $\xi_i$ maalijoukon ylä- ja alarajat. Valitsemalla $t = 2s(m-s)(p-q) = \mathbb{E}[\Delta_{[A:B]}]$ voidaan arvioida yläraja tapahtuman $\Delta_{[A:B]} \leq 0$ todennäköisyydelle. Tämä vastaa sitä, että kiinteällä $m$ osituksella joukkoihin $A$ ja $B$, joilla $|A_+| = |B_-| = s$, olisi pienempi leikkausjoukko, kuin jaolla todellisiin yhteisöihin $C_-$ ja $C_+$.
 \begin{align*}
-	\mathbb{P}(\Delta_{[A:B]} \leq 0) & \leq \text{exp}\bigg({-\frac{2(2s(m-s)(p-q))^2}{\sum_{i=1}^{s(m-s)}(2-(-2))^2}}\bigg) \\
+	\mathbb{P}(\Delta_{[A:B]} \leq 0) & \leq \text{exp}\bigg({-\frac{2 \cdot (2s(m-s)(p-q))^2}{\sum_{i=1}^{s(m-s)}(2-(-2))^2}}\bigg) \\
 	&= \text{exp}\bigg(-\frac{2 \cdot 4s^2(m-s)^2(p-q)^2}{16s(m-s)}\bigg)\\
-	&= \text{exp} \big(-\frac{1}{2}(m-s)(p-q)^2 \big)
+	&= \text{exp} \big(-\frac{1}{2}s(m-s)(p-q)^2 \big)
 \end{align*}
 Merkitään $\lambda = \frac{1}{\sqrt2}(p-q) > 0$, niin yläraja saadaan muotoon $e^{-s(m-s)\lambda^2}$.
 
@@ -432,21 +431,24 @@ Lasketaan, kuinka monella tapaa $n$-solmuinen verkko voidaan osittaa kahteen $\f
 Nyt voidaan laskea yläraja sen tapahtuman todennäköisyydelle, että jako $C_-:C_+$ ei ole verkon $G$ yksikäsitteinen minimoiva puolitus summaamalla ylärajat kaikkien mahdollisten ositusten todennäköisyyksistä olla minimoiva puolitus. Tätä ylärajaa voidaan arvioida seuraavasti:
 \begin{align*}
 	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus.}) \\
-	&= \mathbb{P}(\exists \ [ A:B ] \text { s.e. } \Delta_{ [A:B] } \leq 0) \leq \sum_{A:B}^{}\mathbb{P}( \Delta_{ [A:B] } \leq 0) \\
-	&= \sum_{s=1}^{\floor{\frac{m}{2}}} \underbrace{\binom{m}{s}^2}_{\leq \frac{m^{2s}}{(s!)^2}} \underbrace{e^{-s(m-s)\lambda^2}}_{ \leq e^{ \frac{-sm \lambda^2  }{2}}} \leq \sum_{s=1}^{\infty} \frac{m^{2s}}{(s!)^2} e^{-\frac{sm \lambda^2}{2}} \\
-	&\leq \sum_{s=1}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s = -1 + \sum_{s=0}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s.
+	&= \mathbb{P}(\exists \ [ A:B ] \text { s.e. } \Delta_{ [A:B] }
+        \leq 0) \leq \sum_{A:B}^{}\mathbb{P}( \Delta_{ [A:B] } \leq 0) \\
+	&= \sum_{s=1}^{\floor{\frac{m}{2}}} \underbrace{\binom{m}{s}^2}_{\leq \frac{m^{2s}}{(s!)^2}} \underbrace{e^{-s(m-s)\lambda^2}}_{ \leq e^{ \frac{-sm \lambda^2  }{2}}}
+        \leq \sum_{s=1}^{\infty} \frac{m^{2s}}{(s!)^2} e^{-\frac{sm \lambda^2}{2}} \\
+	&\leq \sum_{s=1}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s
+        = -1 + \sum_{s=0}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s.
 \end{align*}
 Nyt ylärajaa voidaan arvioida eksponenttifunktion sarjakehitelmän avulla, ja saadaan
 \begin{align*}
 	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus.}) \\
 	&\leq -1 + \text{exp}\big(\underbrace{m^2  e^{-\frac{m \lambda^2}{2} }}_{\xrightarrow{n \rightarrow \infty} 0} \big) \xrightarrow{n \rightarrow \infty} 0.
 \end{align*}
-Täten verkon $G_f(n,p,q)$ minimoiva puolitus vastaa todellista yhteisöjakoa eksponentiaalisen pientä todennäköisyyttä lukuun ottamatta verkon koon kasvaessa rajatta.
+Näin ollen todennäköisyys sille, että $C_-:C_+$ vastaa yksikäsitteisesti verkon minimoivaa puolitusta lähestyy yhtä.
 \end{proof}
 
 \clearpage
 \section{Positiivisesti korreloitunut yhteisöjen tunnistus harvassa verkossa}
-Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella positiivisesti korreloitunut tunnistaminen on mahdotonta.
+Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella jopa positiivisesti korreloitunut tunnistaminen on mahdotonta.
 
 Positiivisesti korreloitunut yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan päätellä parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
 \begin{align*}
@@ -458,7 +460,7 @@ Tätä todennäköisyyttä voidaan estimoida lausekkeella
 \end{align*}
 ja $a+b$:tä voidaan estimoida verkon keskimääräisen asteen avulla. Todennäköisyyden ja $a+b$:n avulla voidaan ratkaista $a-b$, ja $a$:n ja $b$:n summan ja erotuksen avulla voidaan ratkaista $a$ ja $b$.
 
-Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvoihin määäräämin rajoihin, joiden mukaan positiivisesti korreloitunut tunnistus joko on tai ei ole asymptoottisesti mahdollista riippuen parametreista $a$ ja $b$.
+Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvojen määäräämiin rajoihin, joiden mukaan positiivisesti korreloitunut tunnistus joko on tai ei ole asymptoottisesti mahdollista riippuen parametreista $a$ ja $b$.
 
 (Suoraan paperista, thm 1, pitäisikö olla muussa muodossa?)
 \begin{teoreema}
@@ -468,6 +470,7 @@ Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvoihin määäräämin rajo
 
 Teoreemaa \ref{teoreema:mahdottomuus} ei tässä työssä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
 
+Seuraava teoreema määrää rajat parametreille $a$ ja $b$, joiden sisällä positiivisesti korreloitunut tunnistaminen on asymptoottisesti mahdollista verkon koon kasvaessa.
 Seuraavan teoreeman perusteella tunnistustehtävä on mahdollinen harvassa verkossa sopivilla parametreillä.
 \begin{teoreema}
 	\label{teoreema:tarkentuvatest}
