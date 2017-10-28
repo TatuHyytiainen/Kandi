@@ -695,7 +695,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ estimaattoreita parametreille $a$ ja $b$. Est
 \section{Simulaatiot}
 \subsection{Tunnistusmenetelmien esittely}
 \subsubsection{Naapuruusmatriisimenetelmä}
-Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen stokastisessa lohkomallissa perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on sunntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvoot ovat reaalisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki siten, että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
+Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen stokastisessa lohkomallissa perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on sunntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvot ovat reaaliarvoisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki siten, että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
 
 Merkitään verkon naapuruusmatriisia $A$ ja tämän toiseksi suurinta ominaisarvoa $\lambda_2$ vastaavaa ominaisverktoria $\mathbf{v_{\lambda_2}}$.
 
@@ -725,7 +725,7 @@ Nimitys takaisinkääntymätön tulee luonnollisesti siitä, että $B$ muodostet
 
 Taaksekaantymättömällä operaattorilla pyritään estimoimaan solmujen merkkejä $\mathbf{B}$:n ominaisarvoja käyttämällä. $\mathbf{B}$:n suurinta ominaisarvoa $\lambda_1$ vastaavan ominaisvektorin $\mathbf{v}_{\lambda_1}$ alkioiden avulla estimointi tehdään seuraavasti: kuhunkin solmuun saapuvia kaaria vastaavien ominaisvektrorin arvot summataan, ja tämän summan merkkiä käytetään ennustamaan solmun merkkiä.
 
-Merkitään solmuun $u$ saapuvien kaarien joukkoa $E_u := \{e \in E \mid e = (v,u) \}$. Solmuun $u$ saapuvia kaaria vastaavien $\mathbf{v}_{\lambda_1}$:n alkioiden summa on $s_u = \sum\limits_{e \in E_u} \mathbf{v}_{\lambda_1 e}$ Solmun $u$ merkin estimaattori on siis
+Merkitään solmuun $u$ saapuvien kaarten joukkoa $E_u := \{e \in E \mid e = (v,u) \}$. Solmuun $u$ saapuvia kaaria vastaavien $\mathbf{v}_{\lambda_1}$:n alkioiden summa on $s_u = \sum\limits_{e \in E_u} \mathbf{v}_{\lambda_1 e}$ Solmun $u$ merkin estimaattori on siis
 
 \begin{align*}
 	\hat{\sigma}_u =
@@ -760,7 +760,7 @@ Merkitään solmuun $u$ saapuvien kaarien joukkoa $E_u := \{e \in E \mid e = (v,
 \end{figure}
 
 \subsection{Tuloksia}
-Yhteisöntunnistusta tutkittin työssä myös simulaatioiden avulla. Simulaatioita varten generoitiin stokastista lohkomallia noudattavia verkkoja, joista pyrittiin laskennallisesti tunnistamaan yhteisöt. Tunnistamisessa käytettiin sekä naapurusmatriisimenetelmää että taaksekääntymättömäään operaattoriin perustuvaa menetelmää. Yhteisöntunnistuksen onnistumista mitattiin laskemalla estimoitujen ja todellisten yhteisöjen välinen korrelaation itseisarvo.
+Yhteisöntunnistusta tutkittin työssä myös simulaatioiden avulla. Simulaatioita varten generoitiin stokastista lohkomallia noudattavia verkkoja, joista pyrittiin laskennallisesti tunnistamaan yhteisöt. Tunnistamisessa käytettiin sekä naapurusmatriisimenetelmää että taaksekääntymättömäään operaattoriin perustuvaa menetelmää. Yhteisöntunnistuksen onnistumista mitattiin laskemalla estimoitujen ja todellisten yhteisöjen välinen korrelaation itseisarvo, eli käytettiin kappaleessa 3 esiteltyä positiiviseen korrelaatioon perustuvaa mittaria.
 
 Ensimmäisenä tutkittiin lohkomallin tiheää tapausta. Tiheässä tapauksessa sekä naapuruusmatriisimenetelmä että taaksekääntymättömään operaattoriin perustuva menetelmä tunnistavat yhteisöt hyvin, kun verkon koko kasvaa. Molemmilla estimoidun ja todellisen yhteisöjaon välisen korrelaation itseisarvo lähestyy yhtä verkon koon kasvaessa, kuten kuvan \ref{fig:dense} perusteella nähdään. Mitä pienempi ero parametreillä $p$ ja $q$ on, sitä suuremman verkon menetelmät kuitenkin tarvitsevat hyvään tunnistustulokseen.
 
