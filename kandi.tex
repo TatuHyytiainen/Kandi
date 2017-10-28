@@ -165,7 +165,7 @@
 
 %% Kandidaatintyön päivämäärä on sen esityspäivämäärä!
 %%
-\date{16.1.2015}
+\date{\today}
 
 %% Kandidaattiseminaarin vastuuopettaja tai diplomityön valvoja.
 %% Huomaa tittelissä "\" -merkki pisteen jälkeen, ennen välilyöntiä ja
@@ -173,13 +173,13 @@
 %% Näin tehdään, koska kyseessä ei ole lauseen loppu, jonka jälkeen tulee
 %% hieman pidempi väli vaan halutaan tavallinen väli.
 %%
-\supervisor{Prof.\ Pirjo Professori} %{Prof.\ Pirjo Professori}
+\supervisor{Prof.\ Kalle Kytölä} %{Prof.\ Pirjo Professori}
 
 %% Kandidaatintyön ohjaaja(t) tai diplomityön ohjaaja(t). Ohjaajia saa
 %% olla korkeintaan kaksi.
 %%
 %\advisor{Prof.\ Pirjo Professori}
-\advisor{TkT Olli Ohjaaja}
+\advisor{Prof.\ Kalle Kytölä}
 %\advisor{DI Tina Tutkija}
 
 %% Aaltologo: syntaksi:
@@ -198,8 +198,7 @@
 %% niin kuin se on yllä määritelty.
 %% Tiivistelmän avainsanat
 %%
-\keywords{Avainsanoiksi valitaan kirjoituksen sisältöä keskeisesti kuvaavia
-käsitteitä}
+\keywords{Stokastinen lohkomalli, verkot, yhteisön tunnistus, satunnaisverkot.}
 %% Tiivistelmän tekstiosa
 \begin{abstractpage}[finnish]
 
@@ -212,15 +211,15 @@ käsitteitä}
 \newpage
 %
 %% Opinnäytteen ostikko englanniksi. Poista, jos et tarvitse sitä.
-\thesistitle{Thesis template}
+\thesistitle{Community detection in random graphs}
 %\supervisor{Prof.\ Pirjo Professori}
-\advisor{D.Sc.\ (Tech.) Olli Ohjaaja}
+%\advisor{D.Sc.\ (Tech.) Olli Ohjaaja}
 %\advisor{M.Sc.\ Polli Pohjaaja}
 \degreeprogram{Engineering physics and mathematics}
 \department{Department of mathematics and systems analysis}
-\professorship{Circuit theory}
+%\professorship{Circuit theory}
 %% Abstract keywords
-\keywords{Resistor, Resistance,\\ Temperature}
+\keywords{Stochastic block model, graphs, community detection, random graphs.}
 %% Abstract text
 \begin{abstractpage}[english]
 Your abstract in English. Try to keep the abstract short, approximately
@@ -244,7 +243,7 @@ Professoria ja ohjaajaani Olli Ohjaajaa hyvästä ja
 huonosta ohjauksesta.\\
 
 \vspace{5cm}
-Otaniemi, 16.1.2015
+Otaniemi,  \today
 
 \vspace{5mm}
 {\hfill Tatu Hyytiäinen \hspace{1cm}}
@@ -300,7 +299,7 @@ Lohkomallista voidaan käsitellä myös versiota, jossa yhteisöjen koot on kiin
 
 Kahden yhteisön stokastinen lohkomalli on erikoistapaus yleisemmästä mallista. Yleisessä stokastisessa lohkomallissa yhteisöjä voi olla useampia ja eri yhteisöjen sisäiset ja väliset kaarten todennäköisyydet voivat vaihdella. Tässä työssä käsitellään kuitenkin vain kahden yhteisön erikoistapausta, jossa yhteisöjen sisäiset kaarten todennäköisyydet ovat yhtä suuret.
 
-Työssä keskitytään lohkomallin tapaukseen, jossa $p > q$, eli yhteisöjen sisäiset kaaret ovat todennäköisempiä kuin yhteisöjen väliset kaaret. Tämä tapaus vastaa hyvin useita todellisia verkkoja ja se on tunnetumpi. Myös mallin versiota, jossa $p < q$, eli yhtesöjen väliset kaaret ovat sisäisiä todennäköisempiä, on tutkittu, mutta sitä ei käsitellä tässä työssä.
+Työssä keskitytään lohkomallin tapaukseen, jossa $p > q$, eli yhteisöjen sisäiset kaaret ovat todennäköisempiä kuin yhteisöjen väliset kaaret. Tämä tapaus vastaa hyvin useita todellisia verkkoja ja se on tunnetumpi. Mallista on tutkittu myös tapausta $p < q$, jossa yhteisöjen väliset kaaret ovat sisäisä kaaria todennäköisempiä, mutta tässä työssä sitä ei käsitellä.
 
 Parametreilla $p = q$ yhteisörakenne on merkityksetön mallin tuottaman verkon kannalta. Tämä tapaus vastaa hyvin tunnettua Erdős-Rényi -mallia $G(n,p)$.
 
@@ -312,11 +311,11 @@ Harvassa tapauksessa parametrit $p$ ja $q$ riippuvat $n$:stä siten, että $p = 
 
 \section{Tunnistustehtävä}
 
-Stokastisen lohkomallin tapauksessa yhteisöjen tunnistamisella tarkoitetaan pelkästään mallin satunnaisverkon realisaation rakenteen perusteella tehtyä solmujen luokittelua todellista yhteisöjakoa vastaavaksi. On kuitenkin oleellista huomata, että rakenteen perusteella ei voida tietää minkään solmun todellista merkkiä, vaan solmut voidaan ainoastaan pyrkiä luokitelemaan kahteen eri yhteisöön siten, että luokittelu vastaisi todellista yhteisöjakoa. Tästä syystä onnistuneena tunnistuksena voidaan pitää sellaista luokittelua, jossa mahdollisimman vähän erimerkkisiä solmuja on samoissa yhteisöissä.
+Stokastisen lohkomallin tapauksessa yhteisöjen tunnistamisella tarkoitetaan pelkästään mallin satunnaisverkon realisaation rakenteen perusteella tehtyä solmujen luokittelua mahdollisimman hyvin todellista yhteisöjakoa vastaavaksi. On kuitenkin oleellista huomata, että rakenteen perusteella ei voida tietää minkään solmun todellista merkkiä, vaan solmut voidaan ainoastaan pyrkiä luokitelemaan kahteen eri yhteisöön siten, että luokittelu vastaisi todellista yhteisöjakoa niin hyvin kuin mahdollista. Tästä syystä onnistuneena tunnistuksena voidaan pitää sellaista luokittelua, jossa mahdollisimman vähän erimerkkisiä solmuja on samoissa yhteisöissä.
 
 Usein sovelluksissa yhteisöntunnistuksesta ollaan kiinnostuttu suurissa verkoissa, joten matemaattisesti tunnistustehtävää analysoidaankin monesti asymptoottisesti, kun $n \rightarrow \infty$.
 
-Merkitään verkon todellista yhteisörakennetta ${\pm}$-arvoisella $n$-ulotteisella vektorilla $\sigma$, missä $\sigma_u$ on solmun $u$ merkki. Vastaavasti merkitään $\hat{\sigma}$ yhteisörakennetta estimoivaa vektoria, missä taas solmun $u$ estimoitu merkki on $\hat{\sigma_u}$.
+Merkitään verkon todellista yhteisörakennetta ${\pm}$-arvoisella $n$-ulotteisella vektorilla $\sigma$, missä $\sigma_u$ on solmun $u$ merkki. Vastaavasti merkitään $\hat{\sigma}$ yhteisörakennetta estimoivaa vektoria, missä taas solmun $u$ estimoitu merkki on $\hat{\sigma}_u$.
 
 \subsection{Yhteisöntunnistus todellisissa verkoissa}
 
@@ -324,7 +323,7 @@ Sen lisäksi, että yhteisöntunnistus on kiinnostava matemaattinen ongelma, on 
 
 Ihmisillä on tapana muodostaa suhteellisen tiivitä sosiaalisia ryhmiä suurempien ihmisryhmien sisällä. Tällaista ryhmittymistä ja siitä seuraavia ilmiöitä voidaan tutkia muodostamalla ihmisryhmästä verkko, jossa solmut kuvaavat ihmisiä ja kaaret solmujen välillä kuvaavat jotakin sosiaalista suhdetta, esimerkiksi tuntevatko ihmiset toisensa, ovatko he Facebook-kavereita tai ovatko he julkaisseet tieteellisessä julkaisussa yhdessä. Tunnetussa Zacharyn karateklubin verkossa solmut kuvaavat erään karateklubin jäseniä ja heidän välillään on kaari, mikäli he ovat olleet tekemisissä klubin ulkopuolella. Klubin johtajan ja karateopettajan välillä sattuneen konfliktin seurauksena klubi hajosi kahtia. Tutkimalla verkon rakennetta klubin jäsenet voidaan erotella kahteen yhteisöön siten, että ne vastaavat todellisuudessa muodostuneita kahta uutta karateklubia.
 
-Tämän lisäksi yhteisöntunnistusta on käytetty muun muassa yhteisörakenteiden tutkimiseen sosiaalisessa mediassa, työyhteisön rakenteen analysoinnissa sähköpostiyhteyksien avulla ja jopa eri tieteenalojen välisten suhteiden selvittämiseen tutkimalla viittauksia tieteellisissä julkaisuissa. Bioinformatiikassa yhteisöntunnistusta on käytetty muun muassa eri proteiinien välisen interaktioon perustuvassa tutkimuksessa solun toiminnasta.
+Tämän lisäksi yhteisöntunnistusta on käytetty muun muassa yhteisörakenteiden tutkimiseen sosiaalisessa mediassa, työyhteisön rakenteen analysoinnissa sähköpostiyhteyksien avulla ja jopa eri tieteenalojen välisten suhteiden selvittämiseen tutkimalla viittauksia tieteellisissä julkaisuissa. Bioinformatiikassa yhteisöntunnistusta on käytetty muun muassa eri proteiinien välisiin vuorovaikutuksiin perustuvassa tutkimuksessa solun toiminnasta.
 
 Yllämainitussa karateklubin verkossa on 34 solmua ja se onkin esimerkki yhdestä ensimmäisestä yhteisöntunnistustutkimuksesta. Nykyisin monissa tutkittavissa verkoissa on vähintään tuhansia ja usein jopa miljoonia solmuja, joten asymptoottisten matemaattisten tulosten käyttäminen on hyvin perusteltua.
 
@@ -332,9 +331,9 @@ Yhteisöntunnistusongelmaa ja yhteisöntunnistusta sovelluksissa ja on käsitelt
 
 \subsection{Täydellinen tunnistus}
 
-Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokkaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Näin ollen täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan jos, ja vain jos, ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
+Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokkaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Näin ollen täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan jos ja vain jos ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
 \begin{align*}
-	\forall u,v \in G(n,p,q) : \hat{\sigma_u} = \hat{\sigma_v} \Leftrightarrow \sigma_u = \sigma_v.
+	\forall u,v \in G(n,p,q) : \hat{\sigma}_u = \hat{\sigma}_v \Leftrightarrow \sigma_u = \sigma_v.
 \end{align*}
 
 Tällainen täydellinen tunnistaminen osoittautuu olevan mahdollista tiheän lohkomallin tapauksessa, kun solmujen määrä kasvaa suureksi.
@@ -348,32 +347,32 @@ Melko yksinkertainen ja täydellistä tunnistusta huomattavasti joustavampi ja v
 
 Määriteellään korrelaatioon perustuva tunnistamisen onnistumisen mittari $\theta$ seuraavasti:
 \begin{align*}
-	\theta = \left| \text{corr}(\hat{\mathbf{{\sigma}}}, \mathbf{\sigma}) \right|,
+	\theta = \left| \text{corr}(\mathbf{\hat{{\sigma}}}, \mathbf{\sigma}) \right| = \lvert \frac{1}{n} \sum_{u\in G} \hat{\sigma}_u \sigma_u \rvert,
 \end{align*}
 missä vektorit $\hat{\mathbf{\sigma}}$ ja $\mathbf{\sigma}$ kuvaavat estimoitua ja todellista yhteisörakennetta.
-Korrelaatioon perustuvaa mittaria käytetään simulaatiotulosten yhteydessä.
+Korrelaatioon perustuvaa mittaria käytetään tämän työn luvussa 6 simulaatiotulosten yhteydessä.
 
 \clearpage
 
 \section{Yhteisöjen täydellinen tunnistus tiheässä verkossa}
-Yhteisöjen tunnistaminen on helpompaa stokastisen lohkomallin tiheässä tapauksessa. Tässä kappaleessa tullaan näyttämään, että yhteisöt voidaan tiheässä tapauksessa tunnistaa suurella todennäköisyydellä verkon koon kasvaessa äärettömäksi.
+Yhteisöjen tunnistaminen on helpompaa stokastisen lohkomallin tiheässä tapauksessa. Tässä luvussa tullaan näyttämään, että yhteisöt voidaan tiheässä tapauksessa tunnistaa suurella todennäköisyydellä täydellisesti verkon koon kasvaessa äärettömäksi.
 
 \begin{definition}[Verkon ositus]
-	Verkon ositus tarkoitaa verkon solmujen jakoa kahteen erilliseen osajoukkoon. Nimitetään leikkausjoukoksi niiden kaarten joukkoa, joiden päätepisteet ovat osituksen eri joukoissa. Merkitään ositusta joukkoihin $A$ ja $B$ $A:B$ ja vastaavaa leikkausjoukkoa $[A:B]$.
+	Verkon ositus tarkoitaa verkon solmujen jakoa kahteen erilliseen osajoukkoon. Nimitetään leikkausjoukoksi niiden kaarten joukkoa, joiden päätepisteet ovat osituksen eri joukoissa. Merkitään $A:B$ ositusta joukkoihin $A$ ja $B$ ja tätä ositusta vastaavaa leikkausjoukkoa $[A:B]$.
 \end{definition}
 
-On huomionarvoista, että yhtenäiselle verkolle leikkausjoukko määrittää verkon osituksen yksikäsitteisesti. Lisäksi nimitetään minivoivaksi puolitukseksi sellaista verkon ositusta kahteen yhtäsuureen osajoukkoon, jonka leikkausjoukon koko ei ole suurempi kuin mikään toisen  yhtäsuurten osajoukkojen osituksen leikkausjoukon.
+On huomionarvoista, että yhtenäiselle verkolle leikkausjoukko määrittää verkon osituksen yksikäsitteisesti. Lisäksi nimitetään minivoivaksi puolitukseksi sellaista verkon ositusta kahteen yhtäsuureen osajoukkoon, jonka leikkausjoukon koko on korkeintaan yhtä suuri kuin minkä tahansa toisen yhtä suurten osajoukkojen osituksen leikkausjoukko.
 
 \begin{teoreema}
 	\label{teoreema:mincut}
 	Tiheässä kahden yhtä suuren yhteisön stokastisessa lohkomallissa $G_f(n,p,q)$, $p > q$, verkon ositus todellisiin yhteisöihin on verkon yksikäsitteinen minimoiva puolitus todennäköisyydellä $1-o(1)$, kun $n \rightarrow \infty$.
 \end{teoreema}
 
-Esitellään tässä Hoeffdingin epäyhtälö, jota käytetään ylläolevan teoreman todistamiseksi.
+Esitellään tässä Hoeffdingin epäyhtälö, jota käytetään ylläolevan teoreeman todistamiseksi.
 
 \begin{lemma}[Hoeffdingin epäyhtälö \cite{Hoeffding}]
 	\label{lemma:Hoeffding}
-	Olkoon $X_1, X_2, \ldots, X_n$ riippumattomia väleille $[a_i, b_i], i = 1, 2,  \ldots, n$ rajoitettuja satunnaismuuttujia ja merkitään $S_n = X_1 + \ldots + X_n$. Tällöin pätee kaikilla $t \geq 0$
+	Olkoot $X_1, X_2, \ldots, X_n$ riippumattomia  satunnaismuuttujia, jotka on rajoitettu väleille $[a_1, b_2], [a_2, b_2], \ldots, [a_n, b_n]$ ja merkitään $S_n = X_1 + \ldots + X_n$. Tällöin pätee kaikilla $t \geq 0$
 	\begin{align*}
 		\mathbb{P} \big( S_n - \mathbb{E}[S_n] \geq t \big) &\leq \exp \big( \frac{2t^2}{\sum_{i=1}^{n} (b_i - a_i)^2} \big) \\
 		& \text{ ja } \\
@@ -382,15 +381,16 @@ Esitellään tässä Hoeffdingin epäyhtälö, jota käytetään ylläolevan teo
 \end{lemma}
 
 \begin{proof}[Teoreeman \ref{teoreema:mincut} todistus.]
-	Merkitään verkon $G_f(n,p,q)$ solmujen joukkoa $V$.
-        Ositetaan verkon solmut mielivaltaisesti kahteen erilliseen joukkoon $A$ ja $B$, joiden kummakin koko on $m = \frac{n}{2}$.
-	Luonnollisesti tällöin $A \cup B = V$ ja $A \cap B = \emptyset$. Yleisyyttä menettämättä valitaan $A$ kuvaamaan sitä solmujen joukkoa, jolla on enemmän yhteisiä somuja joukon $C_-$ kanssa. Merkitään joitakin solmujen joukon $V$ osajoukkoja seuraavasti:
+	Merkitään verkon $G_f(n,p,q)$ solmujen joukkoa $V$. Kukin solmu kuuluu joko yhteisöön $C_-$ tai $C_+$. Lisäksi mallin tässä versiossa $|C_-| = |C_+| = m = \frac{n}{2}$, eli yhteisöjen koot on kiinnitetty yhtä suuriksi.
+
+        Ositetaan verkon solmut mielivaltaisesti kahteen erilliseen joukkoon $A$ ja $B$, joiden kummakin koko on $m$.
+	Luonnollisesti tällöin $A \cup B = V$ ja $A \cap B = \emptyset$. Yleisyyttä menettämättä valitaan $A$ kuvaamaan sitä solmujen joukkoa, jolla on enemmän yhteisiä solmuja joukon $C_-$ kanssa. Merkitään joitakin solmujen joukon $V$ osajoukkoja seuraavasti:
 \begin{eqnarray*}
 	A_- = A \cap C_-, & & A_+ = A \cap C_+, \\
 	B_- = B \cap C_-, & & B_+ = B \cap C_+.
 \end{eqnarray*}
 
-Merkitään $s = |A_+| = |B_-|$. Tällöin pätee aina $s \leq \floor{m/2}$. Koska joukot $A_-, A_+, B_-$ ja $B_+$ ovat erillisiä, pätee myös $m-s = |A_-| = |B_+|$. Merkitään $[C_- : C_+]$ joukkoihin $C_-$ ja $C_+$ jakavaa leikkausjoukkoa ja vastaavasti $[A:B]$ A:han ja B:hen jakavaa leikkausjoukkoa. Olkoon $\Delta_{[A:B]}$ jakojen $A:B$ ja $C_-:C_+$ leikkausjoukkojen suuruuden erotus, eli
+Merkitään $s = |A_+| = |B_-|$. Tällöin pätee aina $s \leq \floor{m/2}$. Koska joukot $A_-, A_+, B_-$ ja $B_+$ ovat erillisiä, pätee myös $m-s = |A_-| = |B_+|$. Merkitään $[C_- : C_+]$ joukkoihin $C_-$ ja $C_+$ jakavaa leikkausjoukkoa ja vastaavasti $[A:B]$ A:han ja B:hen jakavaa leikkausjoukkoa. Olkoon $\Delta_{[A:B]}$ jakojen $A:B$ ja $C_-:C_+$ leikkausjoukkojen suuruuksien erotus, eli
 \begin{align*}
 	\Delta_{[A:B]} = |[A:B]| - |[C_-:C_+]|.
 \end{align*}
@@ -418,11 +418,11 @@ Nyt voidaan käyttää Hoeffdingin epäyhtälöä \ref{lemma:Hoeffding} arvioima
 	\mathbb{P}(- \Delta_{[A:B]} - \mathbb{E}[- \Delta_{[A:B]}] \geq t) = \mathbb{P}(\Delta_{[A:B]} \leq \mathbb{E}[\Delta_{[A:B]}] - t) \leq \text{exp}\bigg({-\frac{2t^2}{\sum_{i=1}^{s(m-s)}(a_i - b_i)^2}}\bigg)
 \end{align*}
 
-Yllä $a_i$ ja $b_i$ ovat muuttujan $\xi_i$ maalijoukon ylä- ja alarajat. Valitsemalla $t = 2s(m-s)(p-q) = \mathbb{E}[\Delta_{[A:B]}]$ voidaan arvioida yläraja tapahtuman $\Delta_{[A:B]} \leq 0$ todennäköisyydelle. Tämä vastaa sitä, että kiinteällä $m$ osituksella joukkoihin $A$ ja $B$, joilla $|A_+| = |B_-| = s$, olisi pienempi leikkausjoukko, kuin jaolla todellisiin yhteisöihin $C_-$ ja $C_+$.
+Yllä $a_i$ ja $b_i$ ovat muuttujan $\xi_i$ maalijoukon ylä- ja alarajat. Valitsemalla $t = 2s(m-s)(p-q) = \mathbb{E}[\Delta_{[A:B]}]$ voidaan arvioida yläraja tapahtuman $\Delta_{[A:B]} \leq 0$ todennäköisyydelle. Tämä vastaa sitä, että kiinteällä $m$ osituksella joukkoihin $A$ ja $B$, joilla $|A_+| = |B_-| = s$, olisi pienempi leikkausjoukko kuin jaolla todellisiin yhteisöihin $C_-$ ja $C_+$ Tämän tapahtuman todennäköisyyden yläraja on
 \begin{align*}
 	\mathbb{P}(\Delta_{[A:B]} \leq 0) & \leq \text{exp}\bigg({-\frac{2 \cdot (2s(m-s)(p-q))^2}{\sum_{i=1}^{s(m-s)}(2-(-2))^2}}\bigg) \\
 	&= \text{exp}\bigg(-\frac{2 \cdot 4s^2(m-s)^2(p-q)^2}{16s(m-s)}\bigg)\\
-	&= \text{exp} \big(-\frac{1}{2}s(m-s)(p-q)^2 \big)
+	&= \text{exp} \big(-\frac{1}{2}s(m-s)(p-q)^2 \big).
 \end{align*}
 Merkitään $\lambda = \frac{1}{\sqrt2}(p-q) > 0$, niin yläraja saadaan muotoon $e^{-s(m-s)\lambda^2}$.
 
@@ -430,20 +430,21 @@ Lasketaan, kuinka monella tapaa $n$-solmuinen verkko voidaan osittaa kahteen $\f
 
 Nyt voidaan laskea yläraja sen tapahtuman todennäköisyydelle, että jako $C_-:C_+$ ei ole verkon $G$ yksikäsitteinen minimoiva puolitus summaamalla ylärajat kaikkien mahdollisten ositusten todennäköisyyksistä olla minimoiva puolitus. Tätä ylärajaa voidaan arvioida seuraavasti:
 \begin{align*}
-	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus.}) \\
+	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus}) \\
 	&= \mathbb{P}(\exists \ [ A:B ] \text { s.e. } \Delta_{ [A:B] }
         \leq 0) \leq \sum_{A:B}^{}\mathbb{P}( \Delta_{ [A:B] } \leq 0) \\
 	&= \sum_{s=1}^{\floor{\frac{m}{2}}} \underbrace{\binom{m}{s}^2}_{\leq \frac{m^{2s}}{(s!)^2}} \underbrace{e^{-s(m-s)\lambda^2}}_{ \leq e^{ \frac{-sm \lambda^2  }{2}}}
         \leq \sum_{s=1}^{\infty} \frac{m^{2s}}{(s!)^2} e^{-\frac{sm \lambda^2}{2}} \\
 	&\leq \sum_{s=1}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s
-        = -1 + \sum_{s=0}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s.
+        = -1 + \sum_{s=0}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s \\
+        &= -1 + \exp(m^2 e^{-\frac{m \lambda^2}{2}}).
 \end{align*}
-Nyt ylärajaa voidaan arvioida eksponenttifunktion sarjakehitelmän avulla, ja saadaan
+Siis ylärajaa voidaan arvioida eksponenttifunktion sarjakehitelmän avulla. Kun nyt annetaan verkon solmujen määrään kasva rajatta saadaan
 \begin{align*}
-	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus.}) \\
+	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus}) \\
 	&\leq -1 + \text{exp}\big(\underbrace{m^2  e^{-\frac{m \lambda^2}{2} }}_{\xrightarrow{n \rightarrow \infty} 0} \big) \xrightarrow{n \rightarrow \infty} 0.
 \end{align*}
-Näin ollen todennäköisyys sille, että $C_-:C_+$ vastaa yksikäsitteisesti verkon minimoivaa puolitusta lähestyy yhtä.
+Näin ollen todennäköisyys sille, että ositus $C_-:C_+$ vastaa yksikäsitteisesti verkon $G_f(n, p,q)$ minimoivaa puolitusta lähestyy yhtä.
 \end{proof}
 
 \clearpage
@@ -452,11 +453,11 @@ Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yht
 
 Positiivisesti korreloitunut yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan päätellä parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
 \begin{align*}
-	\mathbb{P}[u \leftrightsquigarrow v \mid \hat{\sigma_{u}} \neq \hat{\sigma_{v}}] = \frac{1+\rho}{2} \frac{b}{n} + \frac{1-\rho}{2} \frac{a}{n} = \frac{a+b}{2n} - \frac{a-b}{2n} \rho
+	\mathbb{P}[u \leftrightsquigarrow v \mid \hat{\sigma}_{u} \neq \hat{\sigma}_{v}] = \frac{1+\rho}{2} \frac{b}{n} + \frac{1-\rho}{2} \frac{a}{n} = \frac{a+b}{2n} - \frac{a-b}{2n} \rho
 \end{align*}
 Tätä todennäköisyyttä voidaan estimoida lausekkeella
 \begin{align*}
-	\frac{ \# \{ u,v \mid u \leftrightsquigarrow v, \hat{\sigma_{u}} \neq \hat{\sigma_{v}} \} }{ \# \{ u,v \mid \hat{\sigma_{u}} \neq \hat{\sigma_{v}}\} },
+	\frac{ \# \{ u,v \mid u \leftrightsquigarrow v, \hat{\sigma}_{u} \neq \hat{\sigma}_{v} \} }{ \# \{ u,v \mid \hat{\sigma}_{u} \neq \hat{\sigma}_{v} \} },
 \end{align*}
 ja $a+b$:tä voidaan estimoida verkon keskimääräisen asteen avulla. Todennäköisyyden ja $a+b$:n avulla voidaan ratkaista $a-b$, ja $a$:n ja $b$:n summan ja erotuksen avulla voidaan ratkaista $a$ ja $b$.
 
@@ -594,8 +595,8 @@ Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 \begin{proof}[Teoreeman \ref{teoreema:tarkentuvatest} todistus.]
 	Olkoon $k_n = \floor{\text{log}^{1/4}n}$. Määritellään nyt $\hat{d}$ ja $\hat{f}$, jotka ovat harhattomat estimaattorit $d = \frac{a+b}{2}$:lle ja $f = \frac{a-b}{2}$:lle
 	\begin{align*}
-		\hat{d_n} &= \frac{2\left|E\right|}{n} \\
-		\hat{f_n} &= (2 k_n X_{k_{n}} - \hat{d_n}^{k_n})^{1/k_n}.
+		\hat{d}_{n} &= \frac{2\left|E\right|}{n} \\
+		\hat{f}_n &= (2 k_n X_{k_{n}} - \hat{d}_{n}^{k_n})^{1/k_n}.
 	\end{align*}
 Merkitään $\hat{a}$ ja $\hat{b}$ estimaattoreita parametreille $a$ ja $b$. Estimaattorit $a$ ja $b$ voidaan laskea $\hat{d}$:n ja $\hat{f}$:n avulla siten että
 	\begin{align*}
@@ -662,17 +663,17 @@ Merkitään $\hat{a}$ ja $\hat{b}$ estimaattoreita parametreille $a$ ja $b$. Est
 	\end{align*}
 	missä $c_k$ on jokin $k$:n suhteen polynomisesti kasvava funktio.
 
-	Merkitään nyt $\tilde{Z_{k_n}} = 2kX_{k_n} - \hat{d}^k = Z_{k_n} + d^k - \hat{d}^k$. Arvioidaan $\frac{\tilde{Z_{k_n}}}{f^k}$:n poikkeamaa arvosta 1 kolmioepäyhtälön avulla
+	Merkitään nyt $\tilde{Z}_{k_n} = 2kX_{k_n} - \hat{d}^k = Z_{k_n} + d^k - \hat{d}^k$. Arvioidaan $\frac{\tilde{Z}_{k_n}}{f^k}$:n poikkeamaa arvosta 1 kolmioepäyhtälön avulla
 	\begin{align*}
-		|\frac{\tilde{Z_{k_n}}}{f^k} - 1| &\leq |\frac{\tilde{Z_{k_n}}}{f^k} - \frac{Z_{k_n}}{f^k}| + |\frac{Z_{k_n}}{f^k} - 1| \\
+		|\frac{\tilde{Z}_{k_n}}{f^k} - 1| &\leq |\frac{\tilde{Z}_{k_n}}{f^k} - \frac{Z_{k_n}}{f^k}| + |\frac{Z_{k_n}}{f^k} - 1| \\
 		& = |\frac{\hat{d}^k - d^k}{f^k}| + \epsilon_{n}^{''} < \epsilon_{n}^{'} + \epsilon_{n}^{''} = \epsilon_{n}^{'''} \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-	Voidaan arvioida tapahtuman $\frac{\tilde{Z_{k_n}}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajojen avulla, eli
+	Voidaan arvioida tapahtuman $\frac{\tilde{Z}_{k_n}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajojen avulla, eli
 	\begin{align*}
-		\mathbb{P}[\frac{\tilde{Z_{k_n}}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]] \leq \delta_{n} + \delta_{n}^{'} = \delta_{n}^{''} = \xrightarrow{n \rightarrow \infty} 0.
+		\mathbb{P}[\frac{\tilde{Z}_{k_n}}{f^k} \notin [1 \pm \epsilon_{n}^{'''}]] \leq \delta_{n} + \delta_{n}^{'} = \delta_{n}^{''} = \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
 
-	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_{k_n} - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z_{k_n}}$. Kun \\ $\tilde{Z_{k_n}} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin
+	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_{k_n} - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z}_{k_n}$. Kun \\ $\tilde{Z}_{k_n} = \hat{f}^k \in [f^k \pm \epsilon_{n}^{'''}]$, niin
 	\begin{align*}
 		\frac{\hat{f}^k}{f^k} \in [\frac{{f}^k \pm \epsilon_{n}^{'''}}{f^k}] \in [1 \pm \epsilon_{n}^{''''}].
 	\end{align*}
@@ -700,7 +701,7 @@ Merkitään verkon naapuruusmatriisia $A$ ja tämän toiseksi suurinta ominaisar
 
 Kunkin solmun $u_i, i = 1, \ldots, n$ merkkiä $\sigma_{u_i}$ ennustetaan sitten siten, että
 \begin{align*}
-	\hat{\sigma_{u_i}} =
+	\hat{\sigma}_{u_i} =
 	\begin{cases}
 		-, & \text{jos } \mathbf{v_{\lambda_2}}_i < 0 \\
 		+, & \text{jos } \mathbf{v_{\lambda_2}}_i > 0.
@@ -727,7 +728,7 @@ Taaksekaantymättömällä operaattorilla pyritään estimoimaan solmujen merkke
 Merkitään solmuun $u$ saapuvien kaarien joukkoa $E_u := \{e \in E \mid e = (v,u) \}$. Solmuun $u$ saapuvia kaaria vastaavien $\mathbf{v}_{\lambda_1}$:n alkioiden summa on $s_u = \sum\limits_{e \in E_u} \mathbf{v}_{\lambda_1 e}$ Solmun $u$ merkin estimaattori on siis
 
 \begin{align*}
-	\hat{\sigma_u} =
+	\hat{\sigma}_u =
 	\begin{cases}
 		-,& \text{jos } s_u < 0 \\
 		+,& \text{jos } s_u > 0
