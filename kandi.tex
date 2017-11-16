@@ -198,10 +198,14 @@
 %% niin kuin se on yllä määritelty.
 %% Tiivistelmän avainsanat
 %%
-\keywords{Stokastinen lohkomalli, verkot, yhteisön tunnistus, satunnaisverkot.}
+\keywords{Stokastinen lohkomalli, verkot, yhteisön tunnistus, satunnaisverkot, todennäköisyys.}
 %% Tiivistelmän tekstiosa
 \begin{abstractpage}[finnish]
+Satunnaisverkot ovat mielenkiintoinen matemaattinen tutkimuskohde, minkä lisäksi niillä kyetään kuvaamaan monia todellisia ilmiöitä. Eräs satunnaisverkoilla mallinnettava ilmiö on erilaiset yhteisörakenteet. Tässä työssä keskitytään satunnaisen yhteisörakenteen tunnistamiseen tietynlaisissa verkoissa. Yhteisörakenteella tarkoitetaan tässä sitä, että verkon jokainen solmu kuuluu johonkin yhteisöön ja solmujen yhteisörakenne vaikuttaa siihen, kuinka itse verkko on rakentunut.
 
+Työssä tutkitaan verkkoja, joissa on kahteen eri yhteisöön kuuluvia solmuja. Eri yhteisöjen välisten kaarten muodostuminen riippuu verkon yhteisöjaosta. Matemaattisesti verkon yhteisöjako pyritään tunnistamaan vain muodostunutta verkkoa tutkimalla vailla tietoa yksittäisten solmujen yhteisöistä. Niin tiheitä kuin harvojakin verkkoja tarkastellaan ja tutkitaan koska yhteisöjen tunnistaminen on mahdollista.
+
+Viimeisessä luvussa yhteisöntunnistusmenetelmiä tutkitaan laskennallisesti.
 \end{abstractpage}
 
 %% Pakotetaan uusi sivu varmuuden vuoksi, jotta
@@ -219,7 +223,7 @@
 \department{Department of mathematics and systems analysis}
 %\professorship{Circuit theory}
 %% Abstract keywords
-\keywords{Stochastic block model, graphs, community detection, random graphs.}
+\keywords{Stochastic block model, graphs, community detection, random graphs, probability.}
 %% Abstract text
 \begin{abstractpage}[english]
 Your abstract in English. Try to keep the abstract short, approximately
@@ -236,17 +240,17 @@ Your abstract in English. Try to keep the abstract short, approximately
 
 %% Esipuhe
 %%
-\mysection{Esipuhe}
-
-Haluan kiittää Professori Pirjo
-Professoria ja ohjaajaani Olli Ohjaajaa hyvästä ja
-huonosta ohjauksesta.\\
-
-\vspace{5cm}
-Otaniemi,  \today
-
-\vspace{5mm}
-{\hfill Tatu Hyytiäinen \hspace{1cm}}
+%\mysection{Esipuhe}
+%
+%Haluan kiittää Professori Pirjo
+%Professoria ja ohjaajaani Olli Ohjaajaa hyvästä ja
+%huonosta ohjauksesta.\\
+%
+%\vspace{5cm}
+%Otaniemi,  \today
+%
+%\vspace{5mm}
+%{\hfill Tatu Hyytiäinen \hspace{1cm}}
 
 %% Pakotetaan varmuuden vuoksi esipuheen jälkeinen osa
 %% alkamaan uudelta sivulta
@@ -797,7 +801,7 @@ Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että
 
 Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:rajatapaus} on esitetty kahden eri simulaation tuloksia. Toisessa osamäärä $\frac{(a-b)^2}{2(a+b)}$ on hieman alle arvon yksi ja toisessa juuri arvon yksi yläpuolella. Osamäärän arvo yksi vastaa yllämainittujen teoreemojen mukaista rajaa. Koska teoreemojen tulos on asymptoottinen, onkin luonnollista että ilmiö tulee paremmin esiin vasta suurella verkon koolla.
 
-Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvissa \ref{fig:b_param} ja \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
+Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvassa \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
 
 Tunnistusmenetelmistä NBO on selvästi tunnistuskyvyltään parempi menetelmä, sillä sen teho säilyy myös verkon koon kasvaessa ja parametrien arvojen muuttuessa lähemmäs tunnistusrajan mahdottomuusaluetta. Harvassa tapauksessa sen tunnistustehon paremmuus tulee selvemmin esillle. Kuitenkin tiheässä tapausessa se on laskennallisesti selvästi raskaampi.
 
@@ -837,21 +841,21 @@ Tunnistusmenetelmistä NBO on selvästi tunnistuskyvyltään parempi menetelmä,
 	\begin{subfigure}[b]{0.45 \textwidth}
 		\includegraphics[width = \textwidth]{detectability_a_2.png}
 	\end{subfigure}
-	\caption{Parametrin a muutos vakio b:lla ja kiinteällä n:llä. Tunnistaminen alkaa onnistua kun detectability on 1 ja tunnistaminen onnistuu sitä suuremmilla arvoilla. Saattaa taas tarvita suuren verkon, jotta saadaan hyvä rajatulos.}
+	\caption{Parametrin $a$ muutos vakio $b$:lla ja kiinteällä $n$:llä. Tunnistaminen alkaa onnistua kun suhde $\frac{(a-b)^2}{2(a+b)}$ saavuttaa arvon 1 ja tunnistaminen onnistuu sitä suuremmilla arvoilla.}
 	\label{fig:a_param}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{detectability_b_1.png}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{detectability_b_2.png}
-	\end{subfigure}
-	\caption{Parametrin b muutos vakio a:lla, muuten sama kuin ylempi. Ideana näyttää, että a:n ja b:n välinen suhde on oleellinen, ei pelkästään niiden absoluuttiset arvot. Jostain syystä tuloket eivät vielä täsmää.}
-	\label{fig:b_param}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}[b]{0.45 \textwidth}
+%		\includegraphics[width = \textwidth]{detectability_b_1.png}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.45 \textwidth}
+%		\includegraphics[width = \textwidth]{detectability_b_2.png}
+%	\end{subfigure}
+%	\caption{Parametrin b muutos vakio a:lla, muuten sama kuin ylempi. Ideana näyttää, että a:n ja b:n välinen suhde on oleellinen, ei pelkästään niiden absoluuttiset arvot. Jostain syystä tuloket eivät vielä täsmää.}
+%	\label{fig:b_param}
+%\end{figure}
 
 \clearpage
 %% Lähdeluettelo
