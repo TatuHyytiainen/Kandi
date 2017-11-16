@@ -451,7 +451,7 @@ Näin ollen todennäköisyys sille, että ositus $C_-:C_+$ vastaa yksikäsitteis
 \section{Positiivisesti korreloitunut yhteisöjen tunnistus harvassa verkossa}
 Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella jopa positiivisesti korreloitunut tunnistaminen on mahdotonta.
 
-Positiivisesti korreloitunut yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan päätellä parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
+Positiivisesti korreloitunut yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan estimoida parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
 \begin{align*}
 	\mathbb{P}[u \leftrightsquigarrow v \mid \hat{\sigma}_{u} \neq \hat{\sigma}_{v}] = \frac{1+\rho}{2} \frac{b}{n} + \frac{1-\rho}{2} \frac{a}{n} = \frac{a+b}{2n} - \frac{a-b}{2n} \rho
 \end{align*}
@@ -463,7 +463,7 @@ ja $a+b$:tä voidaan estimoida verkon keskimääräisen asteen avulla. Todennäk
 
 Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvojen määäräämiin rajoihin, joiden mukaan positiivisesti korreloitunut tunnistus joko on tai ei ole asymptoottisesti mahdollista riippuen parametreista $a$ ja $b$.
 
-(Suoraan paperista, thm 1, pitäisikö olla muussa muodossa?)
+Seuraavan teoreeman mukaan yhteisöjen tunnistaminen on mahdotonta parametrien $a$ ja $b$ ollessa liian lähellä toisiaan.
 \begin{teoreema}
 	\label{teoreema:mahdottomuus}
 	Kun $(a-b)^2 \leq 2(a+b)$, niin $\mathbb{P}\big( \sigma_u = + \mid G, \sigma_v \big) \rightarrow \frac{1}{2}$ melkein varmasti, kun $n \rightarrow \infty$. \text{\cite{reconstruction}}
@@ -471,7 +471,7 @@ Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvojen määäräämiin rajo
 
 Teoreemaa \ref{teoreema:mahdottomuus} ei tässä työssä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
 
-Seuraava teoreema määrää rajat parametreille $a$ ja $b$, joiden sisällä positiivisesti korreloitunut tunnistaminen on asymptoottisesti mahdollista verkon koon kasvaessa.
+Kun parametrit $a$ ja $b$ eivät ole liian lähellä toisiaan, positiivisesti korreloitunut tunnistaminen on mahdollista seuraavan teoreeman mukaan.
 \begin{teoreema}
 	\label{teoreema:tarkentuvatest}
 	Stokastisen lohkomallin parametreillä $a$ ja $b$ on tarkentuvat estimaattorit $\hat{a}$ ja $\hat{b}$, kun $(a-b)^{2} > 2(a+b)$.
@@ -527,11 +527,11 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 	%Ylläolevan perusteela on helppo todeta, että $\frac{E''}{E'} = \frac{C'}{\lambda^k n} \rightarrow 0$, kun $n \rightarrow \infty$.
 %\end{proof}
 
-Olkoon $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien peräkkäin ideksoitujen solmuparien $(v_0, v_1), (v_1, v_2), \ldots (v_{k-1}, v_0)$ välillä on kaari, solmut muodostavat syklin. Sykliä, jossa on $k$ solmua kutsutaan $k$-sykliksi. Merkitään $k$-syklien määrää verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ $X_k$.
+Olkoot $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien peräkkäisten solmuparien $(v_0, v_1), (v_1, v_2), \ldots (v_{k-1}, v_0)$ välillä on kaari, solmut muodostavat syklin. Sykliä, jossa on $k$ solmua kutsutaan $k$-sykliksi. Merkitään verkon $G(n, \frac{a}{n}, \frac{b}{n})$ $k$-syklien määrää $X_k$.
 
 \begin{lemma}
 	\label{lemma:k-syklit_odotus}
-	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja $k = o(\text{log}^{1/4}n)$. Tällöin pätee $\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$.
+	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Tällöin pätee $\mathbb{E}X_k = \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$.
 \end{lemma}
 
 \begin{proof}[Lemman \ref{lemma:k-syklit_odotus} todistus]
