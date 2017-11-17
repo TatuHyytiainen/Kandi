@@ -214,22 +214,22 @@ Viimeisessä luvussa yhteisöntunnistusmenetelmiä tutkitaan laskennallisesti.
 %%
 \newpage
 %
-%% Opinnäytteen ostikko englanniksi. Poista, jos et tarvitse sitä.
-\thesistitle{Community detection in random graphs}
-%\supervisor{Prof.\ Pirjo Professori}
-%\advisor{D.Sc.\ (Tech.) Olli Ohjaaja}
-%\advisor{M.Sc.\ Polli Pohjaaja}
-\degreeprogram{Engineering physics and mathematics}
-\department{Department of mathematics and systems analysis}
-%\professorship{Circuit theory}
-%% Abstract keywords
-\keywords{Stochastic block model, graphs, community detection, random graphs, probability.}
-%% Abstract text
-\begin{abstractpage}[english]
-Your abstract in English. Try to keep the abstract short, approximately
- 100 words should be enough. Abstract explains your research topic,
- the methods you have used, and the results you obtained.
-\end{abstractpage}
+%%% Opinnäytteen ostikko englanniksi. Poista, jos et tarvitse sitä.
+%\thesistitle{Community detection in random graphs}
+%%\supervisor{Prof.\ Pirjo Professori}
+%%\advisor{D.Sc.\ (Tech.) Olli Ohjaaja}
+%%\advisor{M.Sc.\ Polli Pohjaaja}
+%\degreeprogram{Engineering physics and mathematics}
+%\department{Department of mathematics and systems analysis}
+%%\professorship{Circuit theory}
+%%% Abstract keywords
+%\keywords{Stochastic block model, graphs, community detection, random graphs, probability.}
+%%% Abstract text
+%\begin{abstractpage}[english]
+%Your abstract in English. Try to keep the abstract short, approximately
+% 100 words should be enough. Abstract explains your research topic,
+% the methods you have used, and the results you obtained.
+%\end{abstractpage}
 
 %% Force new page so that the Swedish abstract starts from a new page
 \newpage
@@ -443,7 +443,7 @@ Nyt voidaan laskea yläraja sen tapahtuman todennäköisyydelle, että jako $C_-
         = -1 + \sum_{s=0}^{\infty} \frac{1}{s!} \big( m^{2}e^{-\frac{m \lambda^2}{2}} \big)^s \\
         &= -1 + \exp(m^2 e^{-\frac{m \lambda^2}{2}}).
 \end{align*}
-Siis ylärajaa voidaan arvioida eksponenttifunktion sarjakehitelmän avulla. Kun nyt annetaan verkon solmujen määrään kasva rajatta saadaan
+Siis ylärajaa voidaan arvioida eksponenttifunktion sarjakehitelmän avulla. Kun nyt annetaan verkon solmujen määrän kasvaa rajatta saadaan
 \begin{align*}
 	&\mathbb{P}(C_-:C_+ \text{ ei ole verkon yksikäsitteinen minimoiva puolitus}) \\
 	&\leq -1 + \text{exp}\big(\underbrace{m^2  e^{-\frac{m \lambda^2}{2} }}_{\xrightarrow{n \rightarrow \infty} 0} \big) \xrightarrow{n \rightarrow \infty} 0.
@@ -465,17 +465,17 @@ Tätä todennäköisyyttä voidaan estimoida lausekkeella
 \end{align*}
 ja $a+b$:tä voidaan estimoida verkon keskimääräisen asteen avulla. Todennäköisyyden ja $a+b$:n avulla voidaan ratkaista $a-b$, ja $a$:n ja $b$:n summan ja erotuksen avulla voidaan ratkaista $a$ ja $b$.
 
-Teoreemat 2 ja 3 liittyvät parametrien $a$ ja $b$ arvojen määäräämiin rajoihin, joiden mukaan positiivisesti korreloitunut tunnistus joko on tai ei ole asymptoottisesti mahdollista riippuen parametreista $a$ ja $b$.
+Teoreemat 2 ja 3 liittävät mallin paramerien $a$ ja $b$ arvot rajoihin, joiden määräämästi positiivisesti korreloitunut tunnistaminen joko on tai ei ole asymptoottisesti mahdollista.
 
-Seuraavan teoreeman mukaan yhteisöjen tunnistaminen on mahdotonta parametrien $a$ ja $b$ ollessa liian lähellä toisiaan.
+Seuraavan teoreeman mukaan yhteisöjen tunnistaminen on asymptoottisesti mahdotonta parametrien $a$ ja $b$ ollessa liian lähellä toisiaan.
 \begin{teoreema}
 	\label{teoreema:mahdottomuus}
 	Kun $(a-b)^2 \leq 2(a+b)$, niin $\mathbb{P}\big( \sigma_u = + \mid G, \sigma_v \big) \rightarrow \frac{1}{2}$ melkein varmasti, kun $n \rightarrow \infty$. \text{\cite{reconstruction}}
 \end{teoreema}
 
-Teoreemaa \ref{teoreema:mahdottomuus} ei tässä työssä todisteta, mutta sen seurauksiin palataan simulaatiotulosten yhteydessä.
+Teoreemaa \ref{teoreema:mahdottomuus} ei tässä työssä todisteta, mutta sen seurauksiin palataan viimeisessä luvussa simulaatiotulosten yhteydessä.
 
-Kun parametrit $a$ ja $b$ eivät ole liian lähellä toisiaan, positiivisesti korreloitunut tunnistaminen on mahdollista seuraavan teoreeman mukaan.
+Kun parametrit $a$ ja $b$ eivät ole liian lähellä toisiaan, positiivisesti korreloitunut tunnistaminen on seuraavan teoreeman mukaan asymptoottisesti mahdollista.
 \begin{teoreema}
 	\label{teoreema:tarkentuvatest}
 	Stokastisen lohkomallin parametreillä $a$ ja $b$ on tarkentuvat estimaattorit $\hat{a}$ ja $\hat{b}$, kun $(a-b)^{2} > 2(a+b)$.
@@ -535,11 +535,11 @@ Olkoot $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 
 \begin{lemma}
 	\label{lemma:k-syklit_odotus}
-	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Tällöin pätee $\mathbb{E}X_k = \frac{(a+b)^k + (a-b)^k}{2^{k+1}k}$.
+	Olkoon $X_k$ k-syklien määrä verkossa $G(n,\frac{a}{n},\frac{b}{n})$ ja merkitään $d = \frac{a+b}{2}$ ja $f = \frac{a-b}{2}$. Tällöin pätee $\mathbb{E}X_k = \binom{n}{k} k! n^{-k} \frac{1}{2k} (d^k + f^k)$.
 \end{lemma}
 
 \begin{proof}[Lemman \ref{lemma:k-syklit_odotus} todistus]
-	Lasketaan aluksi kuinka monta mahdollista eri $k$-sykliä on $n$-solmuisessa suuntaaamattomassa verkossa. Olkoon $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteinen verio sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia k-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia k-syklejä on $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
+	Lasketaan aluksi kuinka monta mahdollista eri $k$-sykliä on $n$-solmuisessa suuntaamattomassa verkossa. Olkoot $v_0, v_1, \ldots v_{k-1}$ erillisiä solmuja verkossa $G(n,\frac{a}{n},\frac{b}{n})$. Kun erillisiä solmuja on $k$ kappaletta, ne voidaan järjestää $k!$ eri tavalla. Solmuja sykliin järjestettäessä tulee kuitenkin huomioida se, että ainoastaan solmujen keskinäisellä järjestyksellä on väliä, ei sillä mistä solmusta sykli aloitetaan. Lisäksi koska kyseessä on suuntaamaton verkko, ovat sykli ja sen käänteinen verio sama sykli. Suuntaamattomassa verkossa $k$-syklin automorfismiryhmän koko on siis $2k$. Näin ollen erilasia $k$-syklejä voidaan muodostaa $k$:sta solmusta yhteensä $\frac{k!}{2k} = \frac{(k-1)!}{2}$ kappaletta. Lisäksi $n$-solmuisesta verkosta voidaan valita $k$ erillistä solmua $\binom{n}{k}$ tavalla. Tällöin mahdollisia erilaisia $k$-syklejä on $\binom{n}{k} \frac{(k-1)!}{2}$ kappaletta.
 
 	Olkoon $Y$ indikaattorifunktio sille tapahtumalle, että $v_0 v_1 \ldots v_{k-1}$ on sykli verkossa $G(n,\frac{a}{n}, \frac{b}{n})$. Stokastisessa lohkomallissa kukin kaari kuuluu verkkoon muista riipumattomasti, joten myös jokainen verkon mahdollisista sykleistä kuuluu verkoon yhtä suurella todennäköisyydellä. Voidaan siis laskea $\mathbb{E}X_k$ summaamalla yli kaikkien mahdollisten syklien odotusarvon:
 	\begin{align*}
@@ -556,7 +556,7 @@ Olkoot $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 		\mathbb{E}Y = \sum^{k}_{m=0}\mathbb{P}\big(N=m\big) \cdot \mathbb{P}\big((v_0 v_1 \ldots v_{k-1}) \in G \mid N=m\big)
 		= \sum^{k}_{m=0}\mathbb{P}\big(N=m\big) \cdot  \frac{a^{k-m}b^{m}}{n^{k}}.
 	\end{align*}
-	Jokaisella $i = 0, \ldots , k-2$ todennäköisyys $\mathbb{P}(\sigma_{v_i} \neq \sigma_{v_{i+1}}) = 1/2$ muista tapahtumista riippumattomasti. Näin voidaan laskea $\mathbb{P}(N = m)$ binomijakauman avulla:
+	Jokaisella $i = 0, \ldots , k-2$ todennäköisyys $\mathbb{P}(\sigma_{v_i} \neq \sigma_{v_{i+1}}) = 1/2$ muista tapahtumista riippumattomasti. Näin voidaan laskea $\mathbb{P}(N = m)$ parillisella $m$ binomijakauman avulla:
 	\begin{align*}
 		\mathbb{P}(N = m) &= \mathbb{P}\big(\text{Binom}(k-1, \frac{1}{2}) \in \{m-1, m\}\big)
 		= 2^{-k+1}\Bigg(\binom{k-1}{m-1} + \binom{k-1}{m}\Bigg) \\
@@ -564,17 +564,20 @@ Olkoot $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 		&= 2^{-k+1}\Bigg(\frac{m(k-1)! + (k-m)(k-1)!}{(k-m)!m!}\Bigg) \\
 		&= 2^{-k+1}\Bigg(\frac{k!}{(k-m)!m!}\Bigg) = 2^{-k+1}\binom{k}{m}.
 	\end{align*}
+	Parittomalla $m$ vastaava todennäköisyys on nolla, sillä sykli palaa lähtösolmuunsa.
 	Nyt voidaan laskea $\mathbb{E} Y$ todennäköisyyttä $\mathbb{P}(N = m)$ käyttämällä:
 	\begin{align*}
-		&\mathbb{E}(Y) = n^{-k} \sum^{k}_{m=0} 2^{-k+1}\binom{k}{m} a^{k-m}b^{m} \\
+		&\mathbb{E}(Y) = n^{-k} \sum^{k}_{\substack{m=0 \\ \text{m parillinen}}} 2^{-k+1}\binom{k}{m} a^{k-m}b^{m} \\
 		&= n^{-k} 2^{-k+1} \sum_{\substack{m=0 \\ \text{m parillinen}}}^k \binom{k}{m}a^{k-m}b^{m} \\
 		&= n^{-k} 2^{-k+1} \frac{1}{2} \big((a+b)^k + (a-b)^k \big) \\
-		&= n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big).
+		&= n^{-k} 2^{-k} \big((a+b)^k + (a-b)^k \big) \\
+		&= n^{-k} \bigg(\big(\frac{a+b}{2}\big)^k + \big(\frac{a-b}{2}\big)^k \bigg) \\
+		&= n^{-k} \big(d^k + f^k).
 	\end{align*}
 	Nyt voidaan laskea $\mathbb{E}X_k$ ylläolevan tuloksen avulla:
 	\begin{align*}
 		\mathbb{E}X_k &= \binom{n}{k}\frac{(k-1)!}{2} \mathbb{E}Y \\
-		&= \binom{n}{k}\frac{(k-1)!}{n^{k} 2^{k+1}} \big((a+b)^k + (a-b)^k \big).
+		&= \binom{n}{k}\frac{k!}{2k n^{k} } \big(d^k + f^k).
 	\end{align*}
  	Lemman \ref{lemma:kombinaatiokertoma_nk} perusteella solmujen määrän kasvaessa odotusarvo saa muodon:
 	\begin{align*}
