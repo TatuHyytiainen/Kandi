@@ -108,6 +108,7 @@
 \newtheorem{teoreema}{Teoreema}
 \newtheorem{propositio}{Propositio}
 \newtheorem{definition}{Määritelmä}
+\newtheorem{korollaari}{Korollaari}
 
 \newenvironment{todistus}{}
 
@@ -579,12 +580,22 @@ Olkoot $v_i, i = 0, \ldots, k-1$ erillisiä solmuja verkossa $G$. Jos kaikkien p
 		\mathbb{E}X_k &= \binom{n}{k}\frac{(k-1)!}{2} \mathbb{E}Y \\
 		&= \binom{n}{k}\frac{k!}{2k n^{k} } \big(d^k + f^k).
 	\end{align*}
+\end{proof}
+
+\begin{korollaari}
+Kun $k$ on kiinnitetty, $\mathbb{E}[X_k] \xrightarrow{n\rightarrow \infty} \frac{1}{2k}(d^k + f^k)$.
+\end{korollaari}
+\begin{korollaari}
+Kun $k = o(\sqrt{n})$, pätee $\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}(d^{k_n} + f^{k_n}) \cdot (1 + o(1))$.
+\end{korollaari}
+Korollaarit 1 ja 2 seuraavat suoraan kun lemmojen 2 ja 3 tulokset yhdistetään.
+\begin{korollaari}
+Kun $k = O(\log^{1/4})$, pätee $\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}(d^{k_n} + f^{k_n}) + o(f^{k_n})$.
+\end{korollaari}
  	Lemman \ref{lemma:kombinaatiokertoma_nk} perusteella solmujen määrän kasvaessa odotusarvo saa muodon:
 	\begin{align*}
 		\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{1}{k2^{k+1}} \big((a+b)^k + (a-b)^k \big).
 	\end{align*}
-\end{proof}
-
 \begin{lemma}
 	\label{lemma:var_yläraja}
 	Kun $k = O(log^{1/4}(n))$, k-syklien määrälle $X_k$ verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ pätee $\text{Var}(X_k) \leq \frac{(a+b)^k}{2^{k+1}k}$. \cite{reconstruction}
