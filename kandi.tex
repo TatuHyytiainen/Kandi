@@ -93,7 +93,7 @@
 \usepackage{bbm}
 
 % kuvat
-\graphicspath{{figures/}}
+\graphicspath{{figures/}, {./finalfigs/}}
 \usepackage{subcaption}
 %\usepackage{subfigmat}
 
@@ -801,78 +801,87 @@ Taaksekääntymätön operaattori on erityisesti tiheässä tapauksessa laskenna
 
 \begin{figure}
 	\centering
-	\includegraphics[width = \textwidth]{adj_nbo_den_2.png}
+	\includegraphics[width = 0.8\textwidth]{kuva2.png}
 	\caption{Kuvassa tiheän lohkomallin yhteisöntunnistuskorrelaatioita kummallakin menetelmällä. Molemmat menetelmät tunnistavat verkon yhteisöt liki korrelaatiolla 1, kun verkon koko kasvaa.}
 	\label{fig:dense}
 \end{figure}
 
-\begin{figure}
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{o_pres_1.png}
-		\caption{p = 0.05, q = 0.02}
-		\label{fig:o_adj_1}
-	\end{subfigure}
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{o_pres_2.png}
-		\caption{p = 0.05, q = 0.40}
-	\end{subfigure}
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{o_pres_3.png}
-		\caption{p = 0.05, q = 0.45}
-	\end{subfigure}
-	\caption{Kuvissa on eri parametreillä $p$ ja $q$ tutkittu yhteisöntunnistusta lohkomallin tiheässä tapauksessa. Pienempi parametrien erostus vaatii suuremman verkon, jotta yhteisöt pystytään tunnistamaan suurella korrelaatiolla.}
-	\label{fig:o_adj_all}
+\begin{figure}[htp]
+\centering
+\includegraphics[width=.48\textwidth]{kuva31.png}\hfill
+\includegraphics[width=.48\textwidth]{kuva32.png}\hfill
+\includegraphics[width=.48\textwidth]{kuva33.png}
+\caption{Kuvissa on eri parametreillä $p$ ja $q$ tutkittu yhteisöntunnistusta lohkomallin tiheässä tapauksessa. Pienempi parametrien erostus vaatii suuremman verkon, jotta yhteisöt pystytään tunnistamaan suurella korrelaatiolla. Kuvassa vasemmalla ylhäällä on käytössä samat parametrit kuin kuvassa \ref{fig:dense}, mutta verkon koon on annettu kasvaa pidemmälle.}
+\label{fig:o_adj_all}
 \end{figure}
+
+%\begin{figure}
+%	\begin{subfigure}{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{kuva31.png}
+%		\caption{p = 0.05, q = 0.02}
+%		\label{fig:o_adj_1}
+%	\end{subfigure}
+%	\begin{subfigure}{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{kuva32.png}
+%		\caption{p = 0.05, q = 0.40}
+%	\end{subfigure}
+%	\begin{subfigure}{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{kuva33.png}
+%		\caption{p = 0.05, q = 0.45}
+%	\end{subfigure}
+%	\caption{Kuvissa on eri parametreillä $p$ ja $q$ tutkittu yhteisöntunnistusta lohkomallin tiheässä tapauksessa. Pienempi parametrien erostus vaatii suuremman verkon, jotta yhteisöt pystytään tunnistamaan suurella korrelaatiolla.}
+%	\label{fig:o_adj_all}
+%\end{figure}
 Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että selvästi teorian mukaan tunnistettavan puolellakaan olevilla parametrien $a$ ja $b$ arvoilla ei päästä yhtä hyvään tuloseen kummallakaan menetelmällä kuin tiheässä tapauksessa. Tämä on toki luonnollista, sillä tiheän tapauksen pienikin ero parametreissa $p$ ja $q$ vastaa harvaa tapausta tunnistamisen kannalta suotuisilla paramatreillä $a$ ja $b$, kun verkon koko kasvaa tarpeen suureksi. Tuloksia suotuisilla parametreillä on esitelty kuvassa \ref{fig:adj_nbo_sp_easy}. Kuvassa on esimerkki simulaatiotuloksesta, jossa kumpikin tunnistusmenetelmä toimii hyvin.
 
 Naapuruusmatriisimenetelmän tunnistusteho ei kuitenkaan yllä taaksekääntymättömän operaattorin tasolle harvassa tapauksessa parametrien $a$ ja $b$ erotuksen ollessa suhteellisen pieni ja kun verkon koko kasvaa, kuten kuvasta \ref{fig:adj_nbo_sp_hard} nähdään.
 
-Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:rajatapaus} on esitetty kahden eri simulaation tuloksia. Toisessa osamäärä $\frac{(a-b)^2}{2(a+b)}$ on hieman alle arvon yksi ja toisessa juuri arvon yksi yläpuolella. Osamäärän arvo yksi vastaa yllämainittujen teoreemojen mukaista rajaa. Koska teoreemojen tulos on asymptoottinen, onkin luonnollista että ilmiö tulee paremmin esiin vasta suurella verkon koolla.
+Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:a_param} on esitetty tuloksia kahdella verkon koolla. Osamäärän $\frac{(a-b)^2}{2(a+b)}$ kasvaessa yli arvon 1, tunnistaminen alkaa onnistua kummallakin menetelmällä jollakin positiivisella korrelaatiolla. Mitä suuremmaksi parametrien erotus ja siten osamäärä kasvaa, sitä paremmin yhteisöt aletaan tunnistaa. Kyseisen osamäärän arvo yksi vastaa juuri teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} esitteämää tunnistettavuusrajaa parametreille, joten simulaatiotulokset ovat juuri teorian mukaisia.
 
-Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvassa \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
+%Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvassa \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
 
-Tunnistusmenetelmistä taaksekääntymättömään operaattoriin perustuva menetelmä on selvästi tunnistuskyvyltään parempi menetelmä, sillä sen teho säilyy myös verkon koon kasvaessa ja parametrien arvojen muuttuessa lähemmäs tunnistusrajan mahdottomuusaluetta. Harvassa tapauksessa sen tunnistustehon paremmuus tulee selvemmin esillle. Kuitenkin tiheässä tapausessa se on laskennallisesti selvästi raskaampi.
+Tunnistusmenetelmistä taaksekääntymättömään operaattoriin perustuva menetelmä on selvästi tunnistuskyvyltään parempi menetelmä, sillä sen teho säilyy myös verkon koon kasvaessa ja parametrien arvojen muuttuessa lähemmäs tunnistusrajan mahdottomuusaluetta. Harvassa tapauksessa sen tunnistustehon paremmuus tulee selvemmin esillle. Kuitenkin tiheässä tapausessa se on laskennallisesti selvästi raskaampi. Kuten kuvasta \ref{fig:a_param} nähdään, vaikka kumpikin tunnistusmenetelmä pääsee positiivisiin tuloksiin, on taaksekääntymättömään operaattoriin perustuva menetelmä kuitenkin systemaattisesti tehokkaampi tunnistamaan yhteisöt.
 
 \begin{figure}
 	\centering
-	\includegraphics[width = 0.8\textwidth]{adj_nbo_sp_easy.png}
-	\caption{Nbo:n ja adj:n vertailua helpoilla a ja b, eli siten että kummallakin menetelmällä päästään kohtuullisen hyvään tulokseen. Ehkä pitäisi olla useampikin kuva hieman eri parametreillä.}
+	\includegraphics[width = 0.8\textwidth]{kuva4.png}
+	\caption{Kummankin tunnistusmenetelmän tuloksia parametrien arvoilla $a = 5.0$ ja $b = 0.55$. Näillä arvoilla tunnistustehtävä on selkeästi teoreettisesti mahdollinen ja kummallakin tunnistusmenetelmällä päästään selkeästi positiivisesti korreloituneeseen tulokseen, vaikkakin taaksekääntymättömällä operaattorilla parempaan.}
 	\label{fig:adj_nbo_sp_easy}
 \end{figure}
 
 \begin{figure}
 	\centering
-		\includegraphics[width = 0.8\textwidth]{adj_nbo_hard_presentation.png}
+		\includegraphics[width = 0.8\textwidth]{kuva5.png}
 		\caption{Taaksekääntymättömään operaattoriin perustuva estimaattori tunnistaa yhteisöt noin 0.5 suuruisella korrelaatiolla parametreillä $a = 4.00$ ja $b = 0.20$ verkon koosta riippumatta. Naapuruusmatriisiin perustuvan menetelmän tunnistuskyky heikkenee olemattomiin verkon kasvaessa.}
 	\label{fig:adj_nbo_sp_hard}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{impossible.png}
-		\caption{Juuri mahdottomuusrajan alapuolella. Pos. kor. tunnistus ei onnistu.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{possible.png}
-		\caption{Juuri mahdottomuusrajan yläpuolella. Tunnistaminen onnistuu luotettavasti positiivisella korrelaatiolla NBO:lla, ei kuitenkaan läheskään täydellisesti.}
-	\end{subfigure}
-	\caption{Nbo:n ja adj:n vertailua mahdottomuusrajan ympäristössä. Rajan alapuolella korrelaatio on 0, yläpuolella se on positiivinen NBO:lla. Paremmat kuvat tulossa.}
-	\label{fig:rajatapaus}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}[b]{0.45 \textwidth}
+%		\includegraphics[width = \textwidth]{impossible.png}
+%		\caption{Juuri mahdottomuusrajan alapuolella. Pos. kor. tunnistus ei onnistu.}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.45 \textwidth}
+%		\includegraphics[width = \textwidth]{possible.png}
+%		\caption{Juuri mahdottomuusrajan yläpuolella. Tunnistaminen onnistuu luotettavasti positiivisella korrelaatiolla NBO:lla, ei kuitenkaan läheskään täydellisesti.}
+%	\end{subfigure}
+%	\caption{Nbo:n ja adj:n vertailua mahdottomuusrajan ympäristössä. Rajan alapuolella korrelaatio on 0, yläpuolella se on positiivinen NBO:lla. Paremmat kuvat tulossa.}
+%	\label{fig:rajatapaus}
+%\end{figure}
 
 \begin{figure}
 	\centering
 	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{detectability_a_1.png}
+		\includegraphics[width = \textwidth]{kuva71.png}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45 \textwidth}
-		\includegraphics[width = \textwidth]{detectability_a_2.png}
+		\includegraphics[width = \textwidth]{kuva72.png}
 	\end{subfigure}
-	\caption{Parametrin $a$ muutos vakio $b$:lla ja kiinteällä $n$:llä. Tunnistaminen alkaa onnistua kun suhde $\frac{(a-b)^2}{2(a+b)}$ saavuttaa arvon 1 ja tunnistaminen onnistuu sitä suuremmilla arvoilla.}
+	\caption{Parametrin $a$ muutos vakio $b$:lla ja kiinteällä $n$:llä. Tunnistaminen alkaa onnistua kun suhde $\frac{(a-b)^2}{2(a+b)}$ saavuttaa arvon 1 ja tunnistaminen onnistuu aina paremmin suhteen kasvaessa. Vasemmanpuoleisessa kuvassa verkon koko on 1000 ja oikeanpuoleisessa 2000 solmua.}
 	\label{fig:a_param}
 \end{figure}
 
