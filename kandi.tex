@@ -588,32 +588,35 @@ Lemmasta \ref{lemma:k-syklit_odotus} seuraa seuraavat kolme korollaaria.
 Kun $k$ on kiinnitetty, $\mathbb{E}[X_k] \xrightarrow{n\rightarrow \infty} \frac{1}{2k}(d^k + f^k)$.
 \end{korollaari}
 \begin{korollaari}
-Kun $k = o(\sqrt{n})$, pätee $\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}(d^{k_n} + f^{k_n}) \cdot (1 + o(1))$.
+Kun $k_n = o(\sqrt{n})$, pätee $\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}(d^{k_n} + f^{k_n}) \cdot (1 + o(1))$.
 \end{korollaari}
-Korollaarit 1 ja 2 seuraavat suoraan kun lemmojen 2 ja 3 tulokset yhdistetään.
+Korollaarit 1 ja 2 seuraavat suoraan yhditämällä lemmojen \ref{lemma:kombinaatiokertoma_nk} ja \ref{lemma:k-syklit_odotus} tulokset.
 \begin{korollaari}
-Kun $k = O(\log^{1/4})$, pätee $\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}\big(d^{k_n} + f^{k_n} + o(f^{k_n}) \big)$.
+Kun $k_n = O(\log^{1/4}n)$ ja $(a-b)^2 > 2(a+b)$, pätee
+\begin{align*}
+	\mathbb{E}[X_{k_n}] = \frac{1}{2k_n}\big(d^{k_n} + f^{k_n} + o(f^{k_n}) \big).
+\end{align*}
 \end{korollaari}
 \begin{proof}
 	Kun $k_n = O(\log^{1/4} n)$, niin $\binom{n}{k_n} k_{n} ! n^{-k_n} = 1 + O(\frac{\log^{1/2}n}{n})$. Tällöin lemman \ref{lemma:k-syklit_odotus} tulos saadaan muotoon
 	\begin{align*}
-		\mathbb{E}X_k = \frac{1}{2k} \big(d^k + f^k) \cdot (1 + O(\frac{\log^{1/2}n}{n})).
+		\mathbb{E}X_{k_n} &= \frac{1}{2{k_n}} \big(d^{k_n} + f^{k_n}) \cdot (1 + O(\frac{\log^{1/2}n}{n}) \big) \\
+		&= \frac{1}{2{k_n}} \big(d^{k_n} + f^{k_n} + O(d^{k_n} \frac{\log^{1/2}n}{n}) \big) \\
+		&= \frac{1}{2{k_n}} \big(d^{k_n} + f^{k_n} \cdot (1 + O(\frac{d^{k_n}}{f^{k_n}} \cdot \frac{\log^{1/2}n}{n}) \big).
 	\end{align*}
-	KESKEN KESKEN
-	KESKEN KESKEN
-	KESKEN KESKEN
-\end{proof}
- 	Lemman \ref{lemma:kombinaatiokertoma_nk} perusteella solmujen määrän kasvaessa odotusarvo saa muodon:
+	Kun $(a-b)^2 > 2(a+b)$, pätee myös $f = \frac{a-b}{2} > \sqrt{\frac{a+b}{2}} = \frac{a+b}{\sqrt{2(a+b)}} > \frac{a+b}{a-b} = \frac{d}{f}$. Täten pätee
 	\begin{align*}
-		\mathbb{E}X_k \xrightarrow{n \rightarrow \infty} \frac{1}{k2^{k+1}} \big((a+b)^k + (a-b)^k \big).
+		\underbrace{\frac{(\frac{d}{f})^{k_n}}{f^{k_n}}}_{< 1} \frac{\log^{1/2} n}{n} \xrightarrow{n \rightarrow \infty} 0,
 	\end{align*}
+	joten odotusarvon $\mathbb{E}[X_{k_n}]$ virhetermi on tällöin $o(f^{k_n})$.
+\end{proof}
 \begin{lemma}
 	\label{lemma:var_yläraja}
 	Verkossa $G(n, \frac{a}{n}, \frac{b}{n})$ $k$-syklien määrälle $X_k$  pätee $\text{Var}(X_k) \leq \frac{(a+b)^k}{2^{k+1}k}$. \cite{reconstruction}
 \end{lemma}
 
 \begin{propositio}
-	Olkoon $(a-b)^2 > 2(a+b)$ ja $\sqrt{\frac{a+b}{2}} < \rho < \frac{a-b}{2}$. Tällöin pätee $\text{Var}(X_{k_n}) = o(\rho^{2{k_n}})$, kun $k_n \rightarrow \infty$.
+	Olkoon $(a-b)^2 > 2(a+b)$ ja $\sqrt{\frac{a+b}{2}} < \rho < \frac{a-b}{2}$. Tällöin pätee $\text{Var}(X_{k_n}) = o(\rho^{2{k_n}})$.
 \end{propositio}
 \begin{proof}
 	\text{Lemman \ref{lemma:var_yläraja} perusteella pätee erityisesti} $\text{Var}(X_k) \leq \big( \frac{a+b}{2} \big)^{k}$. Tutkitaan $X_k$:n varianssin ja $\rho^{2k}$:n suhdetta:
@@ -649,7 +652,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 	\begin{align*}
 		\mathbb{P}[|\hat{d} - d| > \epsilon_{n}^{}] &< \underbrace{\frac{\sigma_{\hat{d}}^2}{{\epsilon_{n}^{}}^2}}_{ = \delta_n} \\
 		\mathbb{P}[\hat{d} \notin [d \pm  \epsilon_{n}^{}]] &< \delta_n = \frac{\frac{c}{n} + O(1/n)}{(\alpha_n + n^{-1/2 + \beta})^2}\\
-		&= \frac{c}{{n^{2 \beta}} +  O(1)} + o(n^{2\beta}) \\
+		&= \frac{c + O(1)}{{n^{2 \beta}} +  o(n^{2\beta})} \\
 		&= O(n^{-2\beta}) \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
 	Arvioidaan nyt $\hat{d}^{k_n}$:n poikkeamaa $d^{k_n}$:stä, kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$.
@@ -667,58 +670,58 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 	\end{align*}
 	Eli  kun $|\hat{d} - d| < \epsilon_{n}^{}$, niin $|\hat{d}^{k_n} - d^{k_n}| < \epsilon_{n}'$, missä $\epsilon_{n}' = O(n^{-\frac{1}{2} + \beta} \cdot \log^{1/4} n)$. Näin saadaan yläraja $\epsilon_{n}'$:a suuremman poikkeaman todennäköisyydelle
 	\begin{align*}
-		\mathbb{P}[|\hat{d}^{k_{n}} - d^{k_{n}}| > \epsilon_{n}'] \leq \mathbb{P}[|\hat{d} - d| > \epsilon_{n}'] < \delta_n.
+		\mathbb{P}[|\hat{d}^{k_{n}} - d^{k_{n}}| > \epsilon_{n}'] \leq \mathbb{P}[|\hat{d} - d| > \epsilon_{n}] < \delta_n.
 	\end{align*}
 
-	Merkitään nyt $Z_{k_{n}} = 2k_n X_{k_n} - d^{k_n}$. Muuttujan $Z_{k_n}$ odotusarvo on
+	Merkitään nyt $Z_{k_{n}} = 2k_n X_{k_n} - d^{k_n}$. Muuttujan $Z_{k_n}$ odotusarvo on lemman \ref{lemma:k-syklit_odotus} perusteella
 	\begin{align*}
-		\mathbb{E}[Z_{k_n}] = 2k \mathbb{E}[X_{k_n}] - d^{k_n} = f^{k_n}.
+		\mathbb{E}[Z_{k_n}] = 2k_n \mathbb{E}[X_{k_n}] - d^{k_n} = \binom{n}{{k_n}}\frac{{k_n}!}{n^{{k_n}} } (d^{k_n} + f^{k_n}) - d^{k_n}.
 	\end{align*}
-	Lisäksi sen varianssi voidaan rajoittaa $X_{k_n}$:n variassin avulla:
+	Lisäksi sen varianssi voidaan lemman \ref{lemma:var_yl\IeC {\"a}raja} avulla rajoittaa $X_{k_n}$:n variassin ylärajaa käyttämällä:
 	\begin{align*}
-		\text{Var}[Z_{k_n}] = (2k)^2\text{Var}[X_{k_n}] < (2k)^2 \rho^{2k}.
+		\text{Var}[Z_{k_n}] = (2k_n)^2\text{Var}[X_{k_n}] < (2k_n)^2 \rho^{2k_n}.
 	\end{align*}
-	Tutkitaan $Z_{k_n}$:n ja $f^k$:n suhdetta $\frac{Z_{k_n}}{f^k}$. Suhteen odotusarvo on
+	Tutkitaan $Z_{k_n}$:n ja $f^{k_n}$:n suhdetta $\frac{Z_{k_n}}{f^{k_n}}$. Suhteen odotusarvo on
 	\begin{align*}
-		\mathbb{E}[\frac{Z_{k_n}}{f^k}] = \frac{\mathbb{E}[Z_{k_n}]}{f^k} = 1
+		\mathbb{E}[\frac{Z_{k_n}}{f^{k_n}}] = \frac{\mathbb{E}[Z_{k_n}]}{f^{k_n}} = \frac{\binom{n}{{k_n}}\frac{{k_n}!}{n^{{k_n}} } (d^{k_n} + f^{k_n}) - d^{k_n}}{f^{k_n}} = 1 + o(n^{-1 + \epsilon}),
 	\end{align*}
-	ja varianssi
+	missä virhetermi lähestyy nollaa $n$:n kasvaessa. Lisäksi suhteen varianssi on
 	\begin{align*}
-		\text{Var}[\frac{Z_{k_n}}{f^k}] = \frac{(2k)^2 \text{Var}[X_{k_n}]}{f^{2k}} < (2k)^{2} \big(\underbrace{\frac{\rho}{f} }_{ < 1}\big)^{2k}.
+		\text{Var}[\frac{Z_{k_n}}{f^{k_n}}] = \frac{(2k_n)^2 \text{Var}[X_{k_n}]}{f^{2k_n}} < (2k_n)^{2} \big(\underbrace{\frac{\rho}{f} }_{ < 1}\big)^{2k_n}.
 	\end{align*}
-	Käytetään nyt Chebysevin epäyhtälöä arvioimaan $\frac{Z_{k_n}}{f^k}$:n poikkeamaa odotusarvostaan:
+	Käytetään nyt Chebysevin epäyhtälöä arvioimaan $\frac{Z_{k_n}}{f^{k_n}}$:n poikkeamaa odotusarvostaan:
 	\begin{align*}
-		\mathbb{P}[|\frac{Z_{k_n}}{f^k} - 1| > c_k \sigma_{Z_{k_n}/f^k}] < \frac{1}{c_k^2}  = \delta_{n}' \\
-		\mathbb{P} \big[\frac{Z_{k_n}}{f^k} \notin [1 \pm \underbrace{2 k c_k \big( \frac{\rho}{f}\big)^k}_{= \epsilon_{n}'' \xrightarrow{n \rightarrow \infty} 0}] \big] < \delta_{n}' \xrightarrow{n \rightarrow \infty} 0,
+		\mathbb{P}[|\frac{Z_{k_n}}{f^{k_n}} - \mathbb{E}[\frac{Z_{k_n}}{f^{k_n}}] | > c_{k_n} \sigma_{Z_{k_n}/f^{k_n}}] < \frac{1}{c_{k_n}^2}  = \delta_{n}' \\
+		\mathbb{P} \big[\frac{Z_{k_n}}{f^{k_n}} \notin [1 \pm \underbrace{2 {k_n} c_{k_n} \big( \frac{\rho}{f}\big)^{k_n} + o(n^{-1+\epsilon})}_{= \epsilon_{n}'' \xrightarrow{n \rightarrow \infty} 0}] \big] < \delta_{n}' \xrightarrow{n \rightarrow \infty} 0,
 	\end{align*}
-	missä $c_k$ on jokin $k$:n suhteen polynomisesti kasvava funktio.
+	missä $c_{k_n}$ on jokin ${k_n}$:n suhteen polynomisesti kasvava funktio.
 
-	Merkitään nyt $\tilde{Z}_{k_n} = 2kX_{k_n} - \hat{d}^k = Z_{k_n} + d^k - \hat{d}^k$. Arvioidaan $\frac{\tilde{Z}_{k_n}}{f^k}$:n poikkeamaa arvosta 1 kolmioepäyhtälön avulla
+	Merkitään nyt $\tilde{Z}_{k_n} = 2{k_n}X_{k_n} - \hat{d}^{k_n} = Z_{k_n} + d^{k_n} - \hat{d}^{k_n}$. Arvioidaan $\frac{\tilde{Z}_{k_n}}{f^{k_n}}$:n poikkeamaa arvosta 1 kolmioepäyhtälön avulla, kun $|\frac{Z_{k_n}}{f^{k_n}} - 1| < \epsilon_{n}''$
 	\begin{align*}
-		|\frac{\tilde{Z}_{k_n}}{f^k} - 1| &\leq |\frac{\tilde{Z}_{k_n}}{f^k} - \frac{Z_{k_n}}{f^k}| + |\frac{Z_{k_n}}{f^k} - 1| \\
-		& = |\frac{\hat{d}^k - d^k}{f^k}| + \epsilon_{n}'' < \epsilon_{n}' + \epsilon_{n}'' = \epsilon_{n}''' \xrightarrow{n \rightarrow \infty} 0.
+		|\frac{\tilde{Z}_{k_n}}{f^{k_n}} - 1| &\leq |\frac{\tilde{Z}_{k_n}}{f^{k_n}} - \frac{Z_{k_n}}{f^{k_n}}| + |\frac{Z_{k_n}}{f^{k_n}} - 1| \\
+		& = |\frac{\hat{d}^{k_n} - d^{k_n}}{f^{k_n}}| + \epsilon_{n}'' < \epsilon_{n}' + \epsilon_{n}'' = \epsilon_{n}''' \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-	Voidaan arvioida tapahtuman $\frac{\tilde{Z}_{k_n}}{f^k} \notin [1 \pm \epsilon_{n}''']$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajojen avulla, eli
+	Voidaan arvioida tapahtuman $\frac{\tilde{Z}_{k_n}}{f^{k_n}} \notin [1 \pm \epsilon_{n}''']$ todennäköisyyden ylärajaa kahden muun tapahtuman todennäköisyyksien ylärajojen avulla, eli
 	\begin{align*}
-		\mathbb{P}[\frac{\tilde{Z}_{k_n}}{f^k} \notin [1 \pm \epsilon_{n}''']] \leq \delta_{n} + \delta_{n}' = \delta_{n}'' = \xrightarrow{n \rightarrow \infty} 0.
-	\end{align*}
-
-	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2kX_{k_n} - \hat{d}^k)^{1/k}$, joten $\hat{f}^k = \tilde{Z}_{k_n}$. Kun \\ $\tilde{Z}_{k_n} = \hat{f}^k \in [f^k \pm \epsilon_{n}''']$, niin
-	\begin{align*}
-		\frac{\hat{f}^k}{f^k} \in [\frac{{f}^k \pm \epsilon_{n}'''}{f^k}] \in [1 \pm \epsilon_{n}''''].
+		\mathbb{P}[\frac{\tilde{Z}_{k_n}}{f^{k_n}} \notin [1 \pm \epsilon_{n}''']] \leq \delta_{n} + \delta_{n}' = \delta_{n}'' \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
 
-	Merkitään nyt $h_k(x) = x^{1/k}$. Kaikilla $k \geq K$ ja $|\epsilon| < 1/2$ on olemassa jokin vakio $C > 0$ siten, että
+	Estimaattori $\hat{f}$ on määritelty $\hat{f} = (2{k_n}X_{k_n} - \hat{d}^{k_n})^{1/{k_n}}$, joten $\hat{f}^{k_n} = \tilde{Z}_{k_n}$. Kun \\ $\tilde{Z}_{k_n} = \hat{f}^{k_n} \in [f^{k_n} \pm \epsilon_{n}''']$, niin
 	\begin{align*}
-		|h_k(1+\epsilon) - h_k(1)| \leq C \epsilon.
+		\frac{\hat{f}^{k_n}}{f^{k_n}} \in [\frac{{f}^{k_n} \pm \epsilon_{n}'''}{f^{k_n}}] \in [1 \pm \epsilon_{n}''''].
 	\end{align*}
-	Kun $\frac{\hat{f}^k}{f^k} \in [1 \pm \epsilon_{n}'''']$, pätee siis
+
+	Merkitään nyt $h_{k_n}(x) = x^{1/{k_n}}$. Kaikilla ${k_n} \geq K$ ja $|\epsilon| < 1/2$ on olemassa jokin vakio $C > 0$ siten, että
 	\begin{align*}
-		|h_k \big(\frac{\hat{f}^k}{f^k} \big) - \underbrace{h_k(1)}_{= 1} | \leq C \epsilon_{n}'''' \\
+		|h_{k_n}(1+\epsilon) - h_{k_n}(1)| \leq C \epsilon.
+	\end{align*}
+	Kun $\frac{\hat{f}^{k_n}}{f^{k_n}} \in [1 \pm \epsilon_{n}'''']$, pätee siis
+	\begin{align*}
+		|h_{k_n} \big(\frac{\hat{f}^{k_n}}{f^{k_n}} \big) - \underbrace{h_{k_n}(1)}_{= 1} | \leq C \epsilon_{n}'''' \\
 		|\frac{\hat{f}}{f} - 1| \leq C \epsilon_{n}'''' \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
-	Tämän perusteella $\hat{f} \xrightarrow{n \rightarrow \infty} f$, eli estimaattori $\hat{f}$ on tarkentuva.
-	Estimaattorien $\hat{d}$ ja$\hat{f}$ tarkentuvuudesta seuraa $\hat{a}$:n ja $\hat{b}$:n tarkentuvuus.
+	Tämän perusteella kaikilla $\epsilon > 0$ pätee $\mathbb{P}[|\hat{f} - f| \geq \epsilon] \xrightarrow{n \rightarrow \infty} 0$, eli myös estimaattori $\hat{f}$ on tarkentuva.
+	Estimaattorien $\hat{d}$ ja$\hat{f}$ tarkentuvuudesta seuraa $\hat{a}$:n ja $\hat{b}$:n tarkentuvuus, minkä perusteella teoreeman väite on tosi.
 \end{proof}
 
 \clearpage
@@ -739,9 +742,9 @@ Kunkin solmun $u_i, i = 1, \ldots, n$ merkkiä $\sigma_{u_i}$ ennustetaan sitten
 \end{align*}
 
 \subsubsection{Taaksekääntymätön operaattori}
-Taaksekääntymättömään operaattoriin perustuva tunnistusmenetelmä muistuttaa naapuruusmatriisimenetelmää, mutta se on hieman monimutkaisempi ja laskennallisesti vaativampi menetelmä. Taaksekääntymättömässä operaattorissa alkuperäinen suuntaamaton verkko muutetaan suunnatuksi verkoksi s.e. kutakin alkuperäistä kaarta vastaa kaksi suunnattua kaarta, yksi kumpaankin suuntaan. Seuraavaksi muodostetaan matriisi $B$, eli neliömatriisi, jonka jokainen sarake ja vastaava rivi vastaa jotakin suunnatuista kaarista.
+Taaksekääntymättömään operaattoriin perustuva tunnistusmenetelmä muistuttaa naapuruusmatriisimenetelmää, mutta se on hieman monimutkaisempi ja laskennallisesti vaativampi menetelmä. Taaksekääntymättömässä operaattorissa alkuperäinen suuntaamaton verkko muutetaan suunnatuksi verkoksi s.e. kutakin alkuperäistä kaarta vastaa kaksi suunnattua kaarta, yksi kumpaankin suuntaan. Seuraavaksi muodostetaan neliömatriisi $B$, jonka jokainen sarake ja vastaava rivi vastaa jotakin suunnatuista kaarista.
 
-$B$:n alkiot on määritelty seuraavalla tavalla:
+Matriisin $B$ alkiot on määritelty seuraavalla tavalla:
 \begin{align*}
 	B_{ef} =
 	\begin{cases}
@@ -753,7 +756,7 @@ On huomionarvoista, että matriisi $B$ ei yleisesti ole symmetrinen, joten sen o
 
 Nimitys takaisinkääntymätön tulee luonnollisesti siitä, että $B$ muodostetaan ikään kuin kulkuna verkon solmuissa suunattuja kaaria pitkin siten, että välittömästi samaa reittiä taaksepäin kulkeminen on kielletty, kuten ylläoleva ehto $u \neq x$ kertoo.
 
-Taaksekaantymättömällä operaattorilla pyritään estimoimaan solmujen merkkejä $\mathbf{B}$:n ominaisarvoja käyttämällä. $\mathbf{B}$:n suurinta ominaisarvoa $\lambda_1$ vastaavan ominaisvektorin $\mathbf{v}_{\lambda_1}$ alkioiden avulla estimointi tehdään seuraavasti: kuhunkin solmuun saapuvia kaaria vastaavien ominaisvektrorin arvot summataan, ja tämän summan merkkiä käytetään ennustamaan solmun merkkiä.
+Taaksekaantymättömällä operaattorilla pyritään estimoimaan solmujen merkkejä ${B}$:n ominaisarvoja käyttämällä. ${B}$:n suurinta ominaisarvoa $\lambda_1$ vastaavan ominaisvektorin $\mathbf{v}_{\lambda_1}$ alkioiden avulla estimointi tehdään seuraavasti: kuhunkin solmuun saapuvia kaaria vastaavien ominaisvektorin alkiot summataan, ja tämän summan merkkiä käytetään estimoimaan solmun merkkiä.
 
 Merkitään solmuun $u$ saapuvien kaarten joukkoa $E_u := \{e \in E \mid e = (v,u) \}$. Solmuun $u$ saapuvia kaaria vastaavien $\mathbf{v}_{\lambda_1}$:n alkioiden summa on $s_u = \sum\limits_{e \in E_u} \mathbf{v}_{\lambda_1 e}$ Solmun $u$ merkin estimaattori on siis
 
@@ -780,21 +783,21 @@ Merkitään solmuun $u$ saapuvien kaarten joukkoa $E_u := \{e \in E \mid e = (v,
 			\path[->] (v) edge [bend right = 15] node [below] {g} (u);
 		\end{scope}
 		\begin{scope}[every node/.style={}]
-			\node (bef) at(1, 4) {$\mathbf{B}_{ef}=1$};
-			\node (bfe) at(1, 3.5) {$\mathbf{B}_{fe}=0$};
-			\node (beg) at(1, 3.0) {$\mathbf{B}_{eg}=0$};
+			\node (bef) at(1, 4) {${B}_{ef}=1$};
+			\node (bfe) at(1, 3.5) {${B}_{fe}=0$};
+			\node (beg) at(1, 3.0) {${B}_{eg}=0$};
 		\end{scope}
 	\end{tikzpicture}
-	\caption{Havainnekuva NBO:sta. Matriisi $\mathbf{B}$ ei yleisesti ole symmetrinen, kuten $\mathbf{B}_{fe}$ ja $\mathbf{B}_{fe}$ perusteella nähdään.}
+	\caption{Havainnekuva NBO:sta. Matriisi ${B}$ ei yleisesti ole symmetrinen, kuten ${B}_{fe}$ ja ${B}_{fe}$ perusteella nähdään.}
 	\label{fig:nbo}
 \end{figure}
 
 \subsection{Tuloksia}
-Yhteisöntunnistusta tutkittin työssä myös simulaatioiden avulla. Simulaatioita varten generoitiin stokastista lohkomallia noudattavia verkkoja, joista pyrittiin laskennallisesti tunnistamaan yhteisöt. Tunnistamisessa käytettiin sekä naapurusmatriisimenetelmää että taaksekääntymättömäään operaattoriin perustuvaa menetelmää. Yhteisöntunnistuksen onnistumista mitattiin laskemalla estimoitujen ja todellisten yhteisöjen välinen korrelaation itseisarvo, eli käytettiin kappaleessa 3 esiteltyä positiiviseen korrelaatioon perustuvaa mittaria.
+Yhteisöntunnistusta tutkittin työssä myös simulaatioiden avulla. Simulaatioita varten generoitiin stokastista lohkomallia noudattavia verkkoja, joista pyrittiin laskennallisesti tunnistamaan yhteisöt. Tunnistamisessa käytettiin sekä naapurusmatriisimenetelmää että taaksekääntymättömään operaattoriin perustuvaa menetelmää. Yhteisöntunnistuksen onnistumista mitattiin laskemalla estimoitujen ja todellisten yhteisöjen välinen korrelaation itseisarvo, eli käytettiin kappaleessa 3 esiteltyä positiiviseen korrelaatioon perustuvaa mittaria.
 
 Ensimmäisenä tutkittiin lohkomallin tiheää tapausta. Tiheässä tapauksessa sekä naapuruusmatriisimenetelmä että taaksekääntymättömään operaattoriin perustuva menetelmä tunnistavat yhteisöt hyvin, kun verkon koko kasvaa. Molemmilla estimoidun ja todellisen yhteisöjaon välisen korrelaation itseisarvo lähestyy yhtä verkon koon kasvaessa, kuten kuvan \ref{fig:dense} perusteella nähdään. Mitä pienempi ero parametreillä $p$ ja $q$ on, sitä suuremman verkon menetelmät kuitenkin tarvitsevat hyvään tunnistustulokseen.
 
-Taaksekääntymätön operaattori on erityisesti tiheässä tapauksessa laskennallisesti huomattavasti naapuruusmatriisimenetelmää raskaampi. Kun verkossa on $n$ solmua, naapuruusmatriisin koko on luonnollisesti $n \times n$, kun taas matriisn $\mathbf{B}$ koko on $O(n^2 \times n^2)$. Tämä merkitsee sitä, että kovin suurilla tiheillä verkoilla sitä ei ole käytännöllistä käyttää. Täten pienempiä parametrien $p$ ja $q$ eroja tutkittiinkin pelkällä naapuruusmatriisimenetelmällä ja suuremmalla verkon koolla. Pienilläkin parametrien eroilla päästään hyviin tunnistustuloksiin, kunhan verkon koon annetaan kasvaa, kuten kuvasta \ref{fig:o_adj_all} nähdään.
+Taaksekääntymätön operaattori on erityisesti tiheässä tapauksessa laskennallisesti huomattavasti naapuruusmatriisimenetelmää raskaampi. Kun verkossa on $n$ solmua, naapuruusmatriisin koko on luonnollisesti $n \times n$, kun taas matriisin ${B}$ koko on $O(n^2 \times n^2)$. Tämä merkitsee sitä, että kovin suurilla tiheillä verkoilla sitä ei ole käytännöllistä käyttää. Täten pienempiä parametrien $p$ ja $q$ eroja tutkittiinkin pelkällä naapuruusmatriisimenetelmällä ja suuremmalla verkon koolla. Pienilläkin parametrien eroilla päästään hyviin tunnistustuloksiin, kunhan verkon koon annetaan kasvaa, kuten kuvasta \ref{fig:o_adj_all} nähdään.
 
 \begin{figure}
 	\centering
@@ -825,11 +828,13 @@ Taaksekääntymätön operaattori on erityisesti tiheässä tapauksessa laskenna
 \end{figure}
 Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että selvästi teorian mukaan tunnistettavan puolellakaan olevilla parametrien $a$ ja $b$ arvoilla ei päästä yhtä hyvään tuloseen kummallakaan menetelmällä kuin tiheässä tapauksessa. Tämä on toki luonnollista, sillä tiheän tapauksen pienikin ero parametreissa $p$ ja $q$ vastaa harvaa tapausta tunnistamisen kannalta suotuisilla paramatreillä $a$ ja $b$, kun verkon koko kasvaa tarpeen suureksi. Tuloksia suotuisilla parametreillä on esitelty kuvassa \ref{fig:adj_nbo_sp_easy}. Kuvassa on esimerkki simulaatiotuloksesta, jossa kumpikin tunnistusmenetelmä toimii hyvin.
 
+Naapuruusmatriisimenetelmän tunnistusteho ei kuitenkaan yllä taaksekääntymättömän operaattorin tasolle harvassa tapauksessa parametrien $a$ ja $b$ erotuksen ollessa suhteellisen pieni ja kun verkon koko kasvaa, kuten kuvasta \ref{fig:adj_nbo_sp_hard} nähdään.
+
 Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:rajatapaus} on esitetty kahden eri simulaation tuloksia. Toisessa osamäärä $\frac{(a-b)^2}{2(a+b)}$ on hieman alle arvon yksi ja toisessa juuri arvon yksi yläpuolella. Osamäärän arvo yksi vastaa yllämainittujen teoreemojen mukaista rajaa. Koska teoreemojen tulos on asymptoottinen, onkin luonnollista että ilmiö tulee paremmin esiin vasta suurella verkon koolla.
 
 Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvassa \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
 
-Tunnistusmenetelmistä NBO on selvästi tunnistuskyvyltään parempi menetelmä, sillä sen teho säilyy myös verkon koon kasvaessa ja parametrien arvojen muuttuessa lähemmäs tunnistusrajan mahdottomuusaluetta. Harvassa tapauksessa sen tunnistustehon paremmuus tulee selvemmin esillle. Kuitenkin tiheässä tapausessa se on laskennallisesti selvästi raskaampi.
+Tunnistusmenetelmistä taaksekääntymättömään operaattoriin perustuva menetelmä on selvästi tunnistuskyvyltään parempi menetelmä, sillä sen teho säilyy myös verkon koon kasvaessa ja parametrien arvojen muuttuessa lähemmäs tunnistusrajan mahdottomuusaluetta. Harvassa tapauksessa sen tunnistustehon paremmuus tulee selvemmin esillle. Kuitenkin tiheässä tapausessa se on laskennallisesti selvästi raskaampi.
 
 \begin{figure}
 	\centering
@@ -839,10 +844,10 @@ Tunnistusmenetelmistä NBO on selvästi tunnistuskyvyltään parempi menetelmä,
 \end{figure}
 
 \begin{figure}
-	\label{fig:adj_nbo_sp_hard}
 	\centering
 		\includegraphics[width = 0.8\textwidth]{adj_nbo_hard_presentation.png}
 		\caption{Taaksekääntymättömään operaattoriin perustuva estimaattori tunnistaa yhteisöt noin 0.5 suuruisella korrelaatiolla parametreillä $a = 4.00$ ja $b = 0.20$ verkon koosta riippumatta. Naapuruusmatriisiin perustuvan menetelmän tunnistuskyky heikkenee olemattomiin verkon kasvaessa.}
+	\label{fig:adj_nbo_sp_hard}
 \end{figure}
 
 \begin{figure}
