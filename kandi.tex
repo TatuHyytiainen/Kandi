@@ -160,7 +160,7 @@
 %% Jos otsikossa on ja-sana, se ei jää rivin viimeiseksi sanaksi
 %% vaan aloittaa uuden rivin.
 %%
-\thesistitle{Yhteisöjen tunnistaminen satunnaissa verkoissa}
+\thesistitle{Yhteisöjen tunnistaminen satunnaisissa verkoissa}
 
 \place{Espoo}
 
@@ -204,7 +204,7 @@
 \begin{abstractpage}[finnish]
 Satunnaisverkot ovat mielenkiintoinen matemaattinen tutkimuskohde, minkä lisäksi niillä kyetään kuvaamaan monia todellisia ilmiöitä. Eräs satunnaisverkoilla mallinnettava ilmiö on erilaiset yhteisörakenteet. Tässä työssä keskitytään satunnaisen yhteisörakenteen tunnistamiseen tietynlaisissa verkoissa. Yhteisörakenteella tarkoitetaan tässä sitä, että verkon jokainen solmu kuuluu johonkin yhteisöön ja solmujen yhteisörakenne vaikuttaa siihen, kuinka itse verkko on rakentunut.
 
-Työssä tutkitaan verkkoja, joissa on kahteen eri yhteisöön kuuluvia solmuja. Eri yhteisöjen välisten kaarten muodostuminen riippuu verkon yhteisöjaosta. Matemaattisesti verkon yhteisöjako pyritään tunnistamaan vain muodostunutta verkkoa tutkimalla vailla tietoa yksittäisten solmujen yhteisöistä. Niin tiheitä kuin harvojakin verkkoja tarkastellaan ja tutkitaan koska yhteisöjen tunnistaminen on mahdollista.
+Työssä tutkitaan verkkoja, joissa on kahteen eri yhteisöön kuuluvia solmuja. Eri yhteisöjen välisten kaarten muodostuminen riippuu verkon yhteisöjaosta. Matemaattisesti verkon yhteisöjako pyritään tunnistamaan vain muodostunutta verkkoa tutkimalla vailla tietoa yksittäisten solmujen yhteisöistä. Niin tiheitä kuin harvojakin verkkoja tarkastellaan ja tutkitaan millä ehdoilla yhteisöjen tunnistaminen on mahdollista.
 
 Viimeisessä luvussa yhteisöntunnistusmenetelmiä tutkitaan laskennallisesti.
 \end{abstractpage}
@@ -343,7 +343,7 @@ Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokaine
 
 Tällainen täydellinen tunnistaminen osoittautuu olevan mahdollista tiheän lohkomallin tapauksessa, kun solmujen määrä kasvaa suureksi.
 
-Kuitenkin täydellinen tunnistus muuttuu mahdottomaksi harvassa tapauksessa kun verkon koko kasvaa. Lisäksi annetulla $n$ parametrien $p$ ja $q$ arvojen ollessa lähellä toisiaan, täydellinen tunnistaminen ei välttämättä onnistu. Tästä syystä onkin mielekästä käyttää muita mittareita yhteisöjen tunnistuksen onnistumisen mitttaamiseen.
+Kuitenkin täydellinen tunnistus muuttuu mahdottomaksi harvassa tapauksessa kun verkon koko kasvaa. Lisäksi annetulla $n$ parametrien $p$ ja $q$ arvojen ollessa lähellä toisiaan, täydellinen tunnistaminen ei välttämättä onnistu. Tästä syystä onkin mielekästä käyttää muita mittareita yhteisöjen tunnistuksen onnistumisen mittaamiseen.
 
 \subsection{Positiivisesti korreloitunut tunnistaminen}
 Tyypillisesti ei ole edes tarpeen vaatia täydellistä solmujen luokittelua, vaan jo selvän enemmistön solmuista luokittelua oikein voidaan pitää onnistumisena. Tästä syystä myös joustavampi mittari tunnistuksen onnistumiselle on perusteltu.
@@ -456,7 +456,7 @@ Näin ollen todennäköisyys sille, että ositus $C_-:C_+$ vastaa yksikäsitteis
 \section{Positiivisesti korreloitunut yhteisöjen tunnistus harvassa verkossa}
 Stokastisen lohkomallin harvassa tapauksessa $G(n,\frac{a}{n}, \frac{b}{n})$ yhteisöjen tunnistamisen mahdollisuus riippuu parametreista $a$ ja $b$. On olemassa tarkka raja parametreille, koska tunnistaminen on ylipäätään mahdollista ja tuon rajan alapuolella jopa positiivisesti korreloitunut tunnistaminen on mahdotonta.
 
-Positiivisesti korreloitunut yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan estimoida parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
+Positiivisesti korreloituneesta yhteisöjen tunnistamisesta seuraa mallin parametrien estimointi, sillä positiivisesti korreloituneen yhteisöjaon $\hat{\sigma}$ avulla voidaan estimoida parametrit $a$ ja $b$. Tarkastellaan hieman yksinkertaisempaa tapausta, jossa $\hat{\sigma}$ on jollakin positiivisella vakiokorrelaatiolla $\rho$ korreloitunut todellisen yhteisöjaon $\sigma$ estimaatti. Tällöin kahden solmun $u$ ja $v$ välisen kaaren todennäköisyys sillä ehdolla, että ne on estimoitu eri yhteisöihin, on
 \begin{align*}
 	\mathbb{P}[u \leftrightsquigarrow v \mid \hat{\sigma}_{u} \neq \hat{\sigma}_{v}] = \frac{1+\rho}{2} \frac{b}{n} + \frac{1-\rho}{2} \frac{a}{n} = \frac{a+b}{2n} - \frac{a-b}{2n} \rho
 \end{align*}
@@ -497,7 +497,7 @@ Seuraavia lemmoja tullaan hyödyntämään teoreeman \ref{teoreema:tarkentuvates
 		&1 \cdot (1 -\frac{1}{n}) (1-\frac{2}{n}) \ldots (1 - \frac{k-1}{n}) \geq e^0 e^{-\frac{1}{n}c{_\epsilon}} e^{-\frac{2}{n}c{_\epsilon}} \ldots e^{-\frac{k-1}{n}c{_\epsilon}} \\
 		&= \exp \big(\frac{c{_\epsilon}}{n} \sum_{j=1}^{k-1} j \big) = \exp \big(\frac{c{_\epsilon}}{n} \frac{k(k-1)}{2} \big) = \exp \big(\frac{c{_\epsilon}}{2} \underbrace{\frac{k^2 - k}{n} \big)}_{\xrightarrow{n \rightarrow \infty}0}  \xrightarrow{n \rightarrow \infty} 1,
 	\end{align*}
-	kun $k = \text{o}(\sqrt{n})$. Koska lausekkeen ala- ja yäraja lähestyvät arvoa 1 kun $n$ kasvaa, niin $\binom{n}{k}\frac{k!}{n^{k}} \xrightarrow{n \to \infty} 1$.
+	kun $k = \text{o}(\sqrt{n})$. Koska lausekkeen ala- ja yläraja lähestyvät arvoa 1 kun $n$ kasvaa, niin $\binom{n}{k}\frac{k!}{n^{k}} \xrightarrow{n \to \infty} 1$.
 \end{proof}
 %\begin{lemma}
 	%\label{lemma:bollobas}
@@ -648,7 +648,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 	\end{align*}
 	Koska $\hat{d}$ on lisäksi harhaton, tämän perusteella se on tarkentuva, eli kaikilla $\epsilon > 0$ $\mathbb{P}[|\hat{d} - d| \geq \epsilon] \xrightarrow{n \rightarrow \infty} 0$.
 
-	Seuraavaksi osoitetaan estimaattorin $\hat{f}$ olevan tarkentuva. Koska $\hat{f}$ riippuu $\hat{d}$:n $k_n$:sta potenssista, tutkitaan $\hat{d}$:tä lisää. Merkitään $\epsilon_{n}^{} = \alpha_n + n^{-1/2 + \beta} = O(n^{-\frac{1}{2} + \beta})$, missä $\beta \in (0,\frac{1}{2})$ ja tällöin tietenkin $\epsilon_n \xrightarrow{n \rightarrow \infty} 0$. Tutkitaan Chebysevin epäyhtälöllä $\hat{d}$:n poikkeamaa $d$:stä:
+	Seuraavaksi osoitetaan estimaattorin $\hat{f}$ olevan tarkentuva. Koska $\hat{f}$ riippuu $\hat{d}$:n $k_n$:sta potenssista, tutkitaan $\hat{d}$:tä lisää. Merkitään $\epsilon_{n}^{} = \alpha_n + n^{-1/2 + \beta} = O(n^{-\frac{1}{2} + \beta})$, missä $\beta \in (0,\frac{1}{2})$ ja tällöin tietenkin $\epsilon_n \xrightarrow{n \rightarrow \infty} 0$. Tutkitaan Tšebyšovin epäyhtälöllä $\hat{d}$:n poikkeamaa $d$:stä:
 	\begin{align*}
 		\mathbb{P}[|\hat{d} - d| > \epsilon_{n}^{}] &< \underbrace{\frac{\sigma_{\hat{d}}^2}{{\epsilon_{n}^{}}^2}}_{ = \delta_n} \\
 		\mathbb{P}[\hat{d} \notin [d \pm  \epsilon_{n}^{}]] &< \delta_n = \frac{\frac{c}{n} + O(1/n)}{(\alpha_n + n^{-1/2 + \beta})^2}\\
@@ -656,7 +656,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 		&= O(n^{-2\beta}) \xrightarrow{n \rightarrow \infty} 0.
 	\end{align*}
 	Arvioidaan nyt $\hat{d}^{k_n}$:n poikkeamaa $d^{k_n}$:stä, kun $\hat{d} \in [d \pm \epsilon_{n}^{}]$.
-	Esitetään $\hat{d}^{k_n}$ eksponenttifunkition ja logaritmin avulla:
+	Esitetään $\hat{d}^{k_n}$ eksponenttifunktion ja logaritmin avulla:
 	\begin{align*}
 		\hat{d}^{k_n} &= \text{exp}(\text{log}(\hat{d}^{k_n})) = \text{exp}(k_n \text{log}(\hat{d})).
 	\end{align*}
@@ -689,7 +689,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 	\begin{align*}
 		\text{Var}[\frac{Z_{k_n}}{f^{k_n}}] = \frac{(2k_n)^2 \text{Var}[X_{k_n}]}{f^{2k_n}} < (2k_n)^{2} \big(\underbrace{\frac{\rho}{f} }_{ < 1}\big)^{2k_n}.
 	\end{align*}
-	Käytetään nyt Chebysevin epäyhtälöä arvioimaan $\frac{Z_{k_n}}{f^{k_n}}$:n poikkeamaa odotusarvostaan:
+	Käytetään nyt Tšebyšovin epäyhtälöä arvioimaan $\frac{Z_{k_n}}{f^{k_n}}$:n poikkeamaa odotusarvostaan:
 	\begin{align*}
 		\mathbb{P}[|\frac{Z_{k_n}}{f^{k_n}} - \mathbb{E}[\frac{Z_{k_n}}{f^{k_n}}] | > c_{k_n} \sigma_{Z_{k_n}/f^{k_n}}] < \frac{1}{c_{k_n}^2}  = \delta_{n}' \\
 		\mathbb{P} \big[\frac{Z_{k_n}}{f^{k_n}} \notin [1 \pm \underbrace{2 {k_n} c_{k_n} \big( \frac{\rho}{f}\big)^{k_n} + o(n^{-1+\epsilon})}_{= \epsilon_{n}'' \xrightarrow{n \rightarrow \infty} 0}] \big] < \delta_{n}' \xrightarrow{n \rightarrow \infty} 0,
@@ -728,7 +728,7 @@ Merkitään $\hat{a}$ ja $\hat{b}$ seuraavia estimaattoreita parametreille $a$ j
 \section{Simulaatiot}
 \subsection{Tunnistusmenetelmien esittely}
 \subsubsection{Naapuruusmatriisimenetelmä}
-Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen stokastisessa lohkomallissa perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on sunntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvot ovat reaaliarvoisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki siten, että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
+Eräs menetelmä, jota voidaan käyttää yhteisöjen tunnistamiseen stokastisessa lohkomallissa perustuu verkon naapuruusmatriisin spektriin. Siinä yhteisöjaon estimaattorina toimivat naapuruusmatriisin toiseksi suurinta ominaisarvoa vastaavan ominaisvektorin alkioiden merkit. Koska kyseessä on suuntaamaton verkko, sen naapuruusmatriisi on symmetrinen, ja täten sen ominaisarvot ovat reaaliarvoisia. Kunkin solmun yhteisön estimaattorina toimii yksinkertaisesti ominaisvektorissa sitä vastaavan alkion merkki siten, että kaikki positiivisen ja negatiivisen merkin omaavia alkioita vastaavat solmut jaetaan eri yhteisöihin. Tämä yhteisöjako estimoi todellisia yhteisöjä usein hyvin.
 
 Merkitään verkon naapuruusmatriisia $A$ ja tämän toiseksi suurinta ominaisarvoa $\lambda_2$ vastaavaa ominaisverktoria $\mathbf{v_{\lambda_2}}$.
 
@@ -756,7 +756,7 @@ On huomionarvoista, että matriisi $B$ ei yleisesti ole symmetrinen, joten sen o
 
 Nimitys takaisinkääntymätön tulee luonnollisesti siitä, että $B$ muodostetaan ikään kuin kulkuna verkon solmuissa suunattuja kaaria pitkin siten, että välittömästi samaa reittiä taaksepäin kulkeminen on kielletty, kuten ylläoleva ehto $u \neq x$ kertoo.
 
-Taaksekaantymättömällä operaattorilla pyritään estimoimaan solmujen merkkejä ${B}$:n ominaisarvoja käyttämällä. ${B}$:n suurinta ominaisarvoa $\lambda_1$ vastaavan ominaisvektorin $\mathbf{v}_{\lambda_1}$ alkioiden avulla estimointi tehdään seuraavasti: kuhunkin solmuun saapuvia kaaria vastaavien ominaisvektorin alkiot summataan, ja tämän summan merkkiä käytetään estimoimaan solmun merkkiä.
+Taaksekääntymättömällä operaattorilla pyritään estimoimaan solmujen merkkejä ${B}$:n ominaisarvoja käyttämällä. Matriisi ${B}$:n suurinta ominaisarvoa $\lambda_1$ vastaavan ominaisvektorin $\mathbf{v}_{\lambda_1}$ alkioiden avulla estimointi tehdään seuraavasti: kuhunkin solmuun saapuvia kaaria vastaavat ominaisvektorin alkiot summataan, ja tämän summan merkkiä käytetään estimoimaan solmun merkkiä.
 
 Merkitään solmuun $u$ saapuvien kaarten joukkoa $E_u := \{e \in E \mid e = (v,u) \}$. Solmuun $u$ saapuvia kaaria vastaavien $\mathbf{v}_{\lambda_1}$:n alkioiden summa on $s_u = \sum\limits_{e \in E_u} \mathbf{v}_{\lambda_1 e}$ Solmun $u$ merkin estimaattori on siis
 
@@ -835,11 +835,11 @@ Taaksekääntymätön operaattori on erityisesti tiheässä tapauksessa laskenna
 %	\caption{Kuvissa on eri parametreillä $p$ ja $q$ tutkittu yhteisöntunnistusta lohkomallin tiheässä tapauksessa. Pienempi parametrien erostus vaatii suuremman verkon, jotta yhteisöt pystytään tunnistamaan suurella korrelaatiolla.}
 %	\label{fig:o_adj_all}
 %\end{figure}
-Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että selvästi teorian mukaan tunnistettavan puolellakaan olevilla parametrien $a$ ja $b$ arvoilla ei päästä yhtä hyvään tuloseen kummallakaan menetelmällä kuin tiheässä tapauksessa. Tämä on toki luonnollista, sillä tiheän tapauksen pienikin ero parametreissa $p$ ja $q$ vastaa harvaa tapausta tunnistamisen kannalta suotuisilla paramatreillä $a$ ja $b$, kun verkon koko kasvaa tarpeen suureksi. Tuloksia suotuisilla parametreillä on esitelty kuvassa \ref{fig:adj_nbo_sp_easy}. Kuvassa on esimerkki simulaatiotuloksesta, jossa kumpikin tunnistusmenetelmä toimii hyvin.
+Harvassa tapauksessa tulokset ovat monipuolisempia. Ensinnäkin huomataan, että selvästi teorian mukaan tunnistettavan puolellakaan olevilla parametrien $a$ ja $b$ arvoilla ei päästä yhtä hyvään tuloseen kummallakaan menetelmällä kuin tiheässä tapauksessa. Tämä on toki luonnollista, sillä tiheän tapauksen pienikin ero parametreissa $p$ ja $q$ vastaa harvaa tapausta tunnistamisen kannalta suotuisilla paramatreillä $a$ ja $b$, kun verkon koko kasvaa suureksi. Tuloksia suotuisilla parametreillä on esitelty kuvassa \ref{fig:adj_nbo_sp_easy}. Kuvassa on esimerkki simulaatiotuloksesta, jossa kumpikin tunnistusmenetelmä toimii hyvin.
 
 Naapuruusmatriisimenetelmän tunnistusteho ei kuitenkaan yllä taaksekääntymättömän operaattorin tasolle harvassa tapauksessa parametrien $a$ ja $b$ erotuksen ollessa suhteellisen pieni ja kun verkon koko kasvaa, kuten kuvasta \ref{fig:adj_nbo_sp_hard} nähdään.
 
-Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:a_param} on esitetty tuloksia kahdella verkon koolla. Osamäärän $\frac{(a-b)^2}{2(a+b)}$ kasvaessa yli arvon 1, tunnistaminen alkaa onnistua kummallakin menetelmällä jollakin positiivisella korrelaatiolla. Mitä suuremmaksi parametrien erotus ja siten osamäärä kasvaa, sitä paremmin yhteisöt aletaan tunnistaa. Kyseisen osamäärän arvo yksi vastaa juuri teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} esitteämää tunnistettavuusrajaa parametreille, joten simulaatiotulokset ovat juuri teorian mukaisia.
+Teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} mukainen tunnistusraja tulee esille myös simulaatioissa. Kuvassa \ref{fig:a_param} on esitetty tuloksia kahdella verkon koolla. Osamäärän $\frac{(a-b)^2}{2(a+b)}$ kasvaessa yli arvon yksi, tunnistaminen alkaa onnistua kummallakin menetelmällä jollakin positiivisella korrelaatiolla. Mitä suuremmaksi parametrien erotus ja siten osamäärä kasvaa, sitä paremmin yhteisöt aletaan tunnistaa. Kyseisen osamäärän arvo yksi vastaa juuri teoreemojen \ref{teoreema:mahdottomuus} ja \ref{teoreema:tarkentuvatest} esittämää tunnistettavuusrajaa parametreille, joten simulaatiotulokset ovat juuri teorian mukaisia.
 
 %Sama raja saadaan esille myös verkon koon pysyessä vakiona ja parametrejä muuttamalla. Kuvassa \ref{fig:a_param} on pidetty verkon koko ja toinen parametreistä $a$ ja $b$ vakioina ja muutettu toista parametreistä. Tällöin huomataan sama rajailmiö, kun parametrien ero muuttuu suotuisammaksi.
 
@@ -881,7 +881,7 @@ Tunnistusmenetelmistä taaksekääntymättömään operaattoriin perustuva menet
 	\begin{subfigure}[b]{0.45 \textwidth}
 		\includegraphics[width = \textwidth]{kuva72.png}
 	\end{subfigure}
-	\caption{Parametrin $a$ muutos vakio $b$:lla ja kiinteällä $n$:llä. Tunnistaminen alkaa onnistua kun suhde $\frac{(a-b)^2}{2(a+b)}$ saavuttaa arvon 1 ja tunnistaminen onnistuu aina paremmin suhteen kasvaessa. Vasemmanpuoleisessa kuvassa verkon koko on 1000 ja oikeanpuoleisessa 2000 solmua.}
+	\caption{Parametrin $a$ muutos vakio $b$:lla ja kiinteällä $n$:llä. Tunnistaminen alkaa onnistua kun suhde $\frac{(a-b)^2}{2(a+b)}$ saavuttaa arvon yksi ja tunnistaminen onnistuu aina paremmin suhteen kasvaessa. Vasemmanpuoleisessa kuvassa verkon koko on 1000 ja oikeanpuoleisessa 2000 solmua.}
 	\label{fig:a_param}
 \end{figure}
 
