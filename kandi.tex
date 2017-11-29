@@ -204,7 +204,7 @@
 \begin{abstractpage}[finnish]
 Satunnaisverkot ovat mielenkiintoinen matemaattinen tutkimuskohde, minkä lisäksi niillä kyetään kuvaamaan monia todellisia ilmiöitä. Eräs satunnaisverkoilla mallinnettava ilmiö on erilaiset yhteisörakenteet. Tässä työssä keskitytään satunnaisen yhteisörakenteen tunnistamiseen tietynlaisissa verkoissa. Yhteisörakenteella tarkoitetaan tässä sitä, että verkon jokainen solmu kuuluu johonkin yhteisöön ja solmujen yhteisörakenne vaikuttaa siihen, kuinka itse verkko on rakentunut.
 
-Työssä tutkitaan verkkoja, joissa on kahteen eri yhteisöön kuuluvia solmuja. Eri yhteisöjen välisten kaarten muodostuminen riippuu verkon yhteisöjaosta. Matemaattisesti verkon yhteisöjako pyritään tunnistamaan vain muodostunutta verkkoa tutkimalla vailla tietoa yksittäisten solmujen yhteisöistä. Niin tiheitä kuin harvojakin verkkoja tarkastellaan ja tutkitaan millä ehdoilla yhteisöjen tunnistaminen on mahdollista.
+Työssä tutkitaan verkkoja, joissa on kahteen eri yhteisöön kuuluvia solmuja. Eri yhteisöjen välisten kaarten muodostuminen riippuu verkon yhteisöjaosta. Matemaattisesti verkon yhteisöjako pyritään tunnistamaan vain muodostunutta verkkoa tutkimalla vailla tietoa yksittäisten solmujen yhteisöistä. Niin tiheitä kuin harvojakin verkkoja tarkastellaan ja tutkitaan, millä ehdoilla yhteisöjen tunnistaminen on mahdollista.
 
 Viimeisessä luvussa yhteisöntunnistusmenetelmiä tutkitaan laskennallisesti.
 \end{abstractpage}
@@ -303,10 +303,10 @@ Työn viimeisessä luvussa tutkitaan yhteisöntunnistusta laskennallisesti simul
 Määritellään työssä käytettävä satunnaisverkkomalli stokastinen lohkomalli seuraavasti:
 
 \begin{definition}[Kahden yhteisön stokastinen lohkomalli]
-	Merkitään kahden yhteisön stokastista lohkomallia $G(n,p,q)$, missä $n \in \mathbb{N}$ on verkon solmujen määrä ja $p,q \in [0,1]$.  Jokaiselle solmulle $u \in G(n,p,q)$ valitaan tasajakautuneesti ja riippumattomasti merkki $\sigma_u \in \{-, +\}$. Kunkin solmuparin $\{u,v\}$ välillä on suuntaamaton kaari riippumattomasti todennäköisyydellä $p$, jos $\sigma_u = \sigma_v$ ja todennäköisyydellä $q$, jos $\sigma_u \neq \sigma_v$.
+	Merkitään kahden yhteisön stokastista lohkomallia $G(n,p,q)$, missä $n \in \mathbb{N}$ on verkon solmujen määrä ja $p,q \in [0,1]$.  Jokaiselle solmulle $u \in G(n,p,q)$ valitaan tasajakautuneesti ja riippumattomasti merkki $\sigma_u \in \{-, +\}$. Kunkin solmuparin $\{u,v\}$ välillä on suuntaamaton kaari riippumattomasti todennäköisyydellä $p$, jos $\sigma_u = \sigma_v$, ja todennäköisyydellä $q$, jos $\sigma_u \neq \sigma_v$.
 \end{definition}
 
-Merkitään stokastisen lohkomallin yhteisöjä, eli samanmerkkisten solmujen joukkoja, $C_- = \{u \in G(n,p,q) \mid \sigma_u = -\}$ ja $C_+ = \{u \in G(n,p,q) \mid \sigma_u = +\}$.
+Merkitään stokastisen lohkomallin yhteisöjä eli samanmerkkisten solmujen joukkoja, $C_- = \{u \in G(n,p,q) \mid \sigma_u = -\}$ ja $C_+ = \{u \in G(n,p,q) \mid \sigma_u = +\}$.
 
 Lohkomallista voidaan käsitellä myös versiota, jossa yhteisöjen koot on kiinnitetty samankokoisiksi, siis $|C_-| = |C_+| = m$, ja tällöin tietenkin $n = 2m$. Merkitään tällaista kiinnitettyjen yhteisökokojen versiota malista $G_f(n,p,q)$.
 
@@ -324,9 +324,9 @@ Harvassa tapauksessa parametrit $p$ ja $q$ riippuvat $n$:stä siten, että $p = 
 
 \section{Tunnistustehtävä}
 
-Stokastisen lohkomallin tapauksessa yhteisöjen tunnistamisella tarkoitetaan pelkästään mallin satunnaisverkon realisaation rakenteen perusteella tehtyä solmujen luokittelua mahdollisimman hyvin todellista yhteisöjakoa vastaavaksi. On kuitenkin oleellista huomata, että rakenteen perusteella ei voida tietää minkään solmun todellista merkkiä, vaan solmut voidaan ainoastaan pyrkiä luokitelemaan kahteen eri yhteisöön siten, että luokittelu vastaisi todellista yhteisöjakoa niin hyvin kuin mahdollista. Tästä syystä onnistuneena tunnistuksena voidaan pitää sellaista luokittelua, jossa mahdollisimman vähän erimerkkisiä solmuja on samoissa yhteisöissä.
+Stokastisen lohkomallin tapauksessa yhteisöjen tunnistamisella tarkoitetaan pelkästään mallin satunnaisverkon realisaation rakenteen perusteella tehtyä solmujen luokittelua mahdollisimman hyvin todellista yhteisöjakoa vastaavaksi. On kuitenkin oleellista huomata, että rakenteen perusteella ei voida tietää minkään solmun todellista merkkiä, vaan solmut voidaan ainoastaan pyrkiä luokittelemaan kahteen eri yhteisöön siten, että luokittelu vastaisi todellista yhteisöjakoa niin hyvin kuin mahdollista. Tästä syystä onnistuneena tunnistuksena voidaan pitää sellaista luokittelua, jossa mahdollisimman vähän erimerkkisiä solmuja on samoissa yhteisöissä.
 
-Usein sovelluksissa yhteisöntunnistuksesta ollaan kiinnostuttu suurissa verkoissa, joten matemaattisesti tunnistustehtävää analysoidaankin monesti asymptoottisesti, kun $n \rightarrow \infty$.
+Usein sovelluksissa yhteisöntunnistuksesta on kiinnostuttu suurissa verkoissa, joten matemaattisesti tunnistustehtävää analysoidaankin monesti asymptoottisesti, kun $n \rightarrow \infty$.
 
 Merkitään verkon todellista yhteisörakennetta ${\pm}$-arvoisella $n$-ulotteisella vektorilla $\sigma$, missä $\sigma_u$ on solmun $u$ merkki. Vastaavasti merkitään $\hat{\sigma}$ yhteisörakennetta estimoivaa vektoria, missä taas solmun $u$ estimoitu merkki on $\hat{\sigma}_u$.
 
@@ -338,20 +338,20 @@ Ihmisillä on tapana muodostaa suhteellisen tiivitä sosiaalisia ryhmiä suuremp
 
 Tämän lisäksi yhteisöntunnistusta on käytetty muun muassa yhteisörakenteiden tutkimiseen sosiaalisessa mediassa, työyhteisön rakenteen analysoinnissa sähköpostiyhteyksien avulla ja jopa eri tieteenalojen välisten suhteiden selvittämiseen tutkimalla viittauksia tieteellisissä julkaisuissa. Bioinformatiikassa yhteisöntunnistusta on käytetty muun muassa eri proteiinien välisiin vuorovaikutuksiin perustuvassa tutkimuksessa solun toiminnasta.
 
-Yllämainitussa karateklubin verkossa on 34 solmua ja se onkin esimerkki yhdestä ensimmäisestä yhteisöntunnistustutkimuksesta. Nykyisin monissa tutkittavissa verkoissa on vähintään tuhansia ja usein jopa miljoonia solmuja, joten asymptoottisten matemaattisten tulosten käyttäminen on hyvin perusteltua.
+Yllä mainitussa karateklubin verkossa on 34 solmua ja se onkin esimerkki yhdestä ensimmäisestä yhteisöntunnistustutkimuksesta. Nykyisin monissa tutkittavissa verkoissa on vähintään tuhansia ja usein jopa miljoonia solmuja, joten asymptoottisten matemaattisten tulosten käyttäminen on hyvin perusteltua.
 
-Yhteisöntunnistusongelmaa ja yhteisöntunnistusta sovelluksissa ja on käsitelty yksityiskohtaisemmin esimerkiksi artikkelissa \cite{Fortunato}.
+Yhteisöntunnistusongelmaa ja yhteisöntunnistusta sovelluksissa on käsitelty yksityiskohtaisemmin esimerkiksi artikkelissa \cite{Fortunato}.
 
 \subsection{Täydellinen tunnistus}
 
-Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokkaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Näin ollen täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan jos ja vain jos ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
+Yksinkertainen mittari yhteisöntunnistamisen onnistumiselle on se, onko jokainen verkon solmu luokiteltu oikein vai ei. Koska minkään solmun todellista merkkiä ei voida tuntea verkon rakenteen perusteella, ei voida jakaa solmuja juuri $C_{\pm}$-yhteisöihin, vaan solmut voidaan vain luokitella kahteen luokkaan. Täydellinen tunnistus on onnistunut, mikäli kumpikin luokka sisältää ainoastaan yhdenmerkkisiä solmuja. Näin ollen täydellinen tunnistus voidaankin määritellä tapahtumana, jossa jokainen solmupari on luokiteltu samaan luokkaan, jos ja vain jos ne kuuluvat samaan todelliseen yhteisöön, tai yhtäpitävästi
 \begin{align*}
 	\forall u,v \in G(n,p,q) : \hat{\sigma}_u = \hat{\sigma}_v \Leftrightarrow \sigma_u = \sigma_v.
 \end{align*}
 
 Tällainen täydellinen tunnistaminen osoittautuu olevan mahdollista tiheän lohkomallin tapauksessa, kun solmujen määrä kasvaa suureksi.
 
-Kuitenkin täydellinen tunnistus muuttuu mahdottomaksi harvassa tapauksessa kun verkon koko kasvaa. Lisäksi annetulla $n$ parametrien $p$ ja $q$ arvojen ollessa lähellä toisiaan, täydellinen tunnistaminen ei välttämättä onnistu. Tästä syystä onkin mielekästä käyttää muita mittareita yhteisöjen tunnistuksen onnistumisen mittaamiseen.
+Kuitenkin täydellinen tunnistus muuttuu mahdottomaksi harvassa tapauksessa, kun verkon koko kasvaa. Lisäksi annetulla $n$ parametrien $p$ ja $q$ arvojen ollessa lähellä toisiaan täydellinen tunnistaminen ei välttämättä onnistu. Tästä syystä onkin mielekästä käyttää muita mittareita yhteisöjen tunnistuksen onnistumisen mittaamiseen.
 
 \subsection{Positiivisesti korreloitunut tunnistaminen}
 Tyypillisesti ei ole edes tarpeen vaatia täydellistä solmujen luokittelua, vaan jo selvän enemmistön solmuista luokittelua oikein voidaan pitää onnistumisena. Tästä syystä myös joustavampi mittari tunnistuksen onnistumiselle on perusteltu.
@@ -368,7 +368,7 @@ Korrelaatioon perustuvaa mittaria käytetään tämän työn luvussa 6 simulaati
 \clearpage
 
 \section{Yhteisöjen täydellinen tunnistus tiheässä verkossa}
-Yhteisöjen tunnistaminen on helpompaa stokastisen lohkomallin tiheässä tapauksessa. Tässä luvussa tullaan näyttämään, että yhteisöt voidaan tiheässä tapauksessa tunnistaa suurella todennäköisyydellä täydellisesti verkon koon kasvaessa äärettömäksi.
+Yhteisöjen tunnistaminen on helpompaa stokastisen lohkomallin tiheässä tapauksessa. Tässä luvussa näytetään, että yhteisöt voidaan tiheässä tapauksessa tunnistaa suurella todennäköisyydellä täydellisesti verkon koon kasvaessa äärettömäksi.
 
 \begin{definition}[Verkon ositus]
 	Verkon ositus tarkoitaa verkon solmujen jakoa kahteen erilliseen osajoukkoon. Nimitetään leikkausjoukoksi niiden kaarten joukkoa, joiden päätepisteet ovat osituksen eri joukoissa. Merkitään $A:B$ ositusta joukkoihin $A$ ja $B$ ja tätä ositusta vastaavaa leikkausjoukkoa $[A:B]$.
@@ -403,7 +403,7 @@ Esitellään tässä Hoeffdingin epäyhtälö, jota käytetään ylläolevan teo
 	B_- = B \cap C_-, & & B_+ = B \cap C_+.
 \end{eqnarray*}
 
-Merkitään $s = |A_+| = |B_-|$. Tällöin pätee aina $s \leq \floor{m/2}$. Koska joukot $A_-, A_+, B_-$ ja $B_+$ ovat erillisiä, pätee myös $m-s = |A_-| = |B_+|$. Merkitään $[C_- : C_+]$ joukkoihin $C_-$ ja $C_+$ jakavaa leikkausjoukkoa ja vastaavasti $[A:B]$ A:han ja B:hen jakavaa leikkausjoukkoa. Olkoon $\Delta_{[A:B]}$ jakojen $A:B$ ja $C_-:C_+$ leikkausjoukkojen suuruuksien erotus, eli
+Merkitään $s = |A_+| = |B_-|$. Tällöin pätee aina $s \leq \floor{m/2}$. Koska joukot $A_-, A_+, B_-$ ja $B_+$ ovat erillisiä, pätee myös $m-s = |A_-| = |B_+|$. Merkitään $[C_- : C_+]$ joukkoihin $C_-$ ja $C_+$ jakavaa leikkausjoukkoa ja vastaavasti $[A:B]$ A:han ja B:hen jakavaa leikkausjoukkoa. Olkoon $\Delta_{[A:B]}$ jakojen $A:B$ ja $C_-:C_+$ leikkausjoukkojen suuruuksien erotus eli
 \begin{align*}
 	\Delta_{[A:B]} = |[A:B]| - |[C_-:C_+]|.
 \end{align*}
@@ -413,7 +413,7 @@ Jako $C_-:C_+$ leikkaa kaaret joukkojen $A_-:A_+, A_-:B_+, B_-:A_+$ ja $B_-:B_+$
 	\Delta_{[A:B]} = |[A_-:B_-]| + |[A_+:B_+]| - |[A_-:A_+]| - |[B_-:B_+]|.
 \end{align*}
 
-Koska jokaisen solmuparin välillä on kaari muista solmuista ja kaarista riippumattomasti, huomataan että summan kaksi ensimmäistä termiä noudattavat binomijakaumaa toistojen määrällä $s(m-s)$ ja todennäköisyydellä $p$ ja kaksi jälkimmäistä termiä noudattavat binomijakaumaa parametrein $s(m-s)$ ja $q$. Täten
+Koska jokaisen solmuparin välillä on kaari muista solmuista ja kaarista riippumattomasti, huomataan, että summan kaksi ensimmäistä termiä noudattavat binomijakaumaa toistojen määrällä $s(m-s)$ ja todennäköisyydellä $p$ ja kaksi jälkimmäistä termiä noudattavat binomijakaumaa parametrein $s(m-s)$ ja $q$. Täten
 \begin{align*}
 	\Delta_{[A:B]} &\,{\buildrel d \over =}\, \text{Bin}(s(m-s), p) + \text{Bin}(s(m-s), p) - \text{Bin}(s(m-s), q) - \text{Bin}(s(m-s), q) \\
 	&\,{\buildrel d \over =}\, \sum_{i = 1}^{s(m-s)} \xi_i,
